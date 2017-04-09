@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Leginfor Technology</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+          rel="stylesheet" type="text/css" />
+    <link rel='stylesheet' id='turbotabs-css' href='~/Content/carr-products/css/turbotabs.css?ver=all' type='text/css' media='all' />
+    <link rel='stylesheet' id='owl-carousel-css' href='~/Content/carr-products/css/owl.carousel.css?ver=all' type='text/css' media='all' />
+    <link rel='stylesheet' id='public-css-css' href='~/Content/carr-products/css/wc-box-public.css?ver=all' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-layout-css' href='~/Content/carr-products/css/woocommerce-layout.css?ver=2.6.4' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='~/Content/carr-products/css/woocommerce-smallscreen.css?ver=2.6.4' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css' href='~/Content/carr-products/css/woocommerce.css?ver=2.6.4' type='text/css' media='all' />
+    
+
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body class="blog et_pb_gutters3">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header>
+        <div class="header-area-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                        <div class="header-top-left">
+                            <p><i class="fa fa-map-marker"></i>Calle San Borja número 241, Colonia Independencia, Código Postal 03630 </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                        <div class="header-top-right">
+                            <nav>
+                                <ul>
+                                    @Html.Partial("_LoginPartial")
+                                    
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-sm-12">
+                        <div class="logo-area">
+                            <a href="#">
+                                <img src="/Content/img/logo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-sm-12">
+                        <div class="main-menu-area">
+                            <nav>
+                                <ul>
+                                    <li class="current">
+                                        <a href="/Home.aspx"><i class="fa fa-home"></i></a>
+                                    </li>
+                                    <li><a href="/sections/products/CompilacionJuridica/home.aspx">Compilación Juridica</a></li>
+                                    <li><a href="/sections/products/DiarioOficial/home.aspx">DOF</a></li>
+                                    <li>
+                                        <a href="#">LegaFiscal</a>
+                                        <ul>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/fiscal/Home.aspx">Fiscal</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/miscelanea/Home.aspx">Miscelanea</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/seguridad_social/Home.aspx">Seguridad Social</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/laboral/Home.aspx">Laboral</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/comercio_exterior/Home.aspx">Comercio Exterior</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/financieras/Home.aspx">Financiera</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/otras/Home.aspx">Otras</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Valores Agregados</a>
+                                        <ul>
+                                            <li><a href="/sections/products/Electricas/Home.aspx">Instalaciones Eléctricas</a></li>
+                                            <li><a href="/sections/ValoresAgregados/wfAsesorias.aspx">Asesorias</a></li>
+                                            <li><a href="/sections/products/indicadores/values.aspx?id=1">Indicadores</a></li>
+                                            <li><a href="/sections/ValoresAgregados/Home.aspx?Sid=4">Articulos Fiscales</a></li>
+                                            <li><a href="/sections/ValoresAgregados/Home.aspx?Sid=3">Casos Prácticos</a></li>
+                                            <li><a href="/sections/products/Normas/Home.aspx">Colección de Normas</a></li>
+                                            <li><a href="/sections/products/Indicadores/divisas/moneda.aspx">Convertidor de Divisas</a></li>
+                                            <li><a href="/sections/products/legafiscal/Tablas/Default.aspx">Tablas y tarifas</a></li>
+                                            <li><a href="/sections/products/Gacetas/Home.aspx">Gacetas y Periódicos Oficiales</a></li>
+                                            <li><a href="/sections/products/Calculadoras/Home.aspx">Calculadoras</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Acerca de</a>
+                                        <ul>
+                                            <li><a href="/Productos.aspx">Productos</a></li>
+                                            <li><a href="/Suscribirse.aspx">Suscribirse</a></li>
+                                            <li><a href="/Nosotros.aspx">Nosotros</a></li>
+                                            <li><a href="/Contactanos.aspx">Contactanos</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-sm col-sm-12">
+                        <div class="logo-area">
+                            <a href="#">
+                                <img src="/Content/img/logo_ropsa.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu-area start -->
+        <div class="mobile-menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li class="current">
+                                        <a href="Home.aspx"><i class="fa fa-home"></i></a>
+                                    </li>
+                                    <li><a href="/sections/products/CompilacionJuridica/home.aspx">Compilación Juridica</a></li>
+                                    <li><a href="/sections/products/DiarioOficial/home.aspx">DOF</a></li>
+                                    <li>
+                                        <a href="#">LegaFiscal</a>
+                                        <ul>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/fiscal/Home.aspx">Fiscal</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/miscelanea/Home.aspx">Miscelanea</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/seguridad_social/Home.aspx">Seguridad Social</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/laboral/Home.aspx">Laboral</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/comercio_exterior/Home.aspx">Comercio Exterior</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/financieras/Home.aspx">Financiera</a></li>
+                                            <li><a href="/sections/products/legafiscal/Home.aspx?url=~//sections/products/legafiscal/otras/Home.aspx">Otras</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Valores Agregados</a>
+                                        <ul>
+                                            <li><a href="/sections/products/Electricas/Home.aspx">Instalaciones Eléctricas</a></li>
+                                            <li><a href="/sections/ValoresAgregados/wfAsesorias.aspx">Asesorias</a></li>
+                                            <li><a href="/sections/products/indicadores/values.aspx?id=1">Indicadores</a></li>
+                                            <li><a href="/sections/ValoresAgregados/Home.aspx?Sid=4">Articulos Fiscales</a></li>
+                                            <li><a href="/sections/ValoresAgregados/Home.aspx?Sid=3">Casos Prácticos</a></li>
+                                            <li><a href="/sections/products/Normas/Home.aspx">Colección de Normas</a></li>
+                                            <li><a href="/sections/products/Indicadores/divisas/moneda.aspx">Convertidor de Divisas</a></li>
+                                            <li><a href="/sections/products/legafiscal/Tablas/Default.aspx">Tablas y tarifas</a></li>
+                                            <li><a href="/sections/products/Gacetas/Home.aspx">Gacetas y Periódicos Oficiales</a></li>
+                                            <li><a href="/sections/products/Calculadoras/Home.aspx">Calculadoras</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Acerca de</a>
+                                        <ul>
+                                            <li><a href="/Productos.aspx">Productos</a></li>
+                                            <li><a href="/Suscribirse.aspx">Suscribirse</a></li>
+                                            <li><a href="/Nosotros.aspx">Nosotros</a></li>
+                                            <li><a href="/Contactanos.aspx">Contactanos</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu-area end -->
+    </header>
+
+
+                    @RenderBody()
+          
+
+
+
+    <!-- Footer Area Start Here -->
+    <footer>
+        <div class="footer-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer footer-one">
+                            <h2>Quienes Somos</h2>
+                            <p>Leginfor Technology es una empresa con capital 100% Mexicano y cuenta con una amplia experiencia tecnológica en el manejo de información selectiva. </p>
+                            <div class="social-media">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer footer-two">
+                            <h2>Servicios</h2>
+                            <ul>
+                                <li><a href="http://www.leginfor.com.mx/sections/products/CompilacionJuridica/home.aspx">Compilación Juridica</a></li>
+                                <li><a href="http://www.leginfor.com.mx/sections/products/DiarioOficial/home.aspx">DOF</a></li>
+                                <li><a href="http://www.leginfor.com.mx/sections/ValoresAgregados/Home.aspx?Sid=3">Casos Practicos</a></li>
+                                <li><a href="http://www.leginfor.com.mx/sections/ValoresAgregados/Home.aspx?Sid=3">Convertidor de Divisas</a></li>
+                                <li><a href="http://www.leginfor.com.mx/sections/products/Electricas/Home.aspx">Instalaciones Electricas</a></li>
+                                <li><a href="http://www.leginfor.com.mx/sections/products/Electricas/Home.aspx">Miscelanea</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer footer-three">
+                            <h2>Contactanos</h2>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>Lun-Vie</li>
+                                <li><i class="fa fa-map-marker"></i>Calle San Borja 241,Independencia</li>
+                                <li><i class="fa fa-phone"></i>(55) 50021157</li>
+                                <li><i class="fa fa-envelope-o"></i>info@leginfor.com.mx</li>
+                                <li><i class="fa fa-fax"></i>(55) 50021157</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-buttom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footer-buttom">
+                            <div class="scrollup"><a href="#"><i class="fa fa-chevron-up"></i></a></div>
+                            <p>Leginfor Technology S.A. de C.V. @DateTime.Now.Year © Derechos Reservados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End Here -->
+
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+    <script type='text/javascript' src='~/Content/carr-products/js/jquery.prettyPhoto.js?ver=all'></script>
+    <script type='text/javascript' src='~/Content/carr-products/js/jquery.prettyPhoto.init.js?ver=all'></script>
+    <script type='text/javascript' src='~/Content/carr-products/js/owl.carousel.min.js?ver=all'></script>
+    <script type='text/javascript' src='~/Content/carr-products/js/turbotabs.js?ver=all'></script>
+    <script type='text/javascript' src='~/Content/carr-products/js/wc-box-public.js?ver=all'></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker12').datetimepicker({
+                inline: true,
+                format: 'DD/MM/YYYY',
+
+                //sideBySide: true
+            }).on('changeDate', function (ev) {
+                alert(ev.date.valueOf());
+                if (ev.date.valueOf() < date - start - display.valueOf()) { }
+            });
+            
+        });
+   
+        
+    </script> 
+
+  
+</body>
+
+</html>

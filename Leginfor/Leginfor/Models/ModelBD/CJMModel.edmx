@@ -1,0 +1,2309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LEG_CJM_V_IIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LEG_CJM_V_II.dbo.Archivos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Archivos">
+          <Key>
+            <PropertyRef Name="ind_id" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Archivo" />
+            <PropertyRef Name="Activo" />
+          </Key>
+          <Property Name="ind_id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Archivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clasificacion">
+          <Key>
+            <PropertyRef Name="cla_Id" />
+          </Key>
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cla_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cla_Orden" Type="int" />
+        </EntityType>
+        <EntityType Name="Estatal">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="cont_Texto_plano" Type="text" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="datetime" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+          <Property Name="Folio_historico" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Federal">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="cont_Texto_plano" Type="text" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="datetime" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+          <Property Name="Folio_historico" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Folio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Tabla" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contador" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historico">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="cont_Id" />
+            <PropertyRef Name="hist_Id" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="hist_Id" Type="int" Nullable="false" />
+          <Property Name="cont_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cont_Ruta" Type="text" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="30" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" Nullable="false" />
+          <Property Name="cont_Texto_Plano" Type="text" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="hist_Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indice">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="ind_Orden" Type="int" Nullable="false" />
+          <Property Name="ind_Titulo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ind_Texto" Type="text" />
+          <Property Name="ind_Historico" Type="bit" Nullable="false" />
+          <Property Name="ind_Revisado" Type="bit" Nullable="false" />
+          <Property Name="ind_Activo" Type="bit" Nullable="false" />
+          <Property Name="folio_Contenido" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Carpeta" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Jurisprudencia">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="cont_Texto_plano" Type="text" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="datetime" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+          <Property Name="Folio_historico" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Noticias">
+          <Key>
+            <PropertyRef Name="noti_Id" />
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="noti_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="noti_Publicacion" Type="datetime" Nullable="false" />
+          <Property Name="noti_Titulo" Type="text" Nullable="false" />
+          <Property Name="noti_Contenido" Type="text" Nullable="false" />
+          <Property Name="noti_Fuente" Type="text" />
+          <Property Name="noti_resumen" Type="text" />
+          <Property Name="noti_Estado" Type="int" Nullable="false" />
+          <Property Name="noti_Activo" Type="bit" Nullable="false" />
+          <Property Name="user_Id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" Nullable="false" />
+          <Property Name="Seguridad" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Otros">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="cont_Texto_plano" Type="text" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="datetime" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+          <Property Name="Folio_historico" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LEG_CJM_V_II.dbo.Reformas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Reformas">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="cont_Id" />
+            <PropertyRef Name="hist_Id" />
+            <PropertyRef Name="tpo_Id" />
+            <PropertyRef Name="Year_Id" />
+            <PropertyRef Name="ref_Fecha" />
+          </Key>
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="hist_Id" Type="int" Nullable="false" />
+          <Property Name="tpo_Id" Type="int" Nullable="false" />
+          <Property Name="Year_Id" Type="int" Nullable="false" />
+          <Property Name="ref_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="ref_Texto" Type="text" />
+        </EntityType>
+        <EntityType Name="Reformas_Tipos">
+          <Key>
+            <PropertyRef Name="tpo_id" />
+          </Key>
+          <Property Name="tpo_id" Type="int" Nullable="false" />
+          <Property Name="tpo_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Secciones">
+          <Key>
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="folio_Noticias" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LEG_CJM_V_II.dbo.TMP_INDICE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="TMP_INDICE">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+            <PropertyRef Name="cont_Titulo" />
+            <PropertyRef Name="cla_Id" />
+            <PropertyRef Name="ver_soloHist" />
+            <PropertyRef Name="cont_Historico" />
+            <PropertyRef Name="cont_Activo" />
+            <PropertyRef Name="Folio_historico" />
+            <PropertyRef Name="est_revisado" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="cont_Texto_plano" Type="text" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="cont_derogado" Type="bit" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="datetime" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+          <Property Name="Folio_historico" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LEG_CJM_V_II.dbo.cns_Contenidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="cns_Contenidos">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+            <PropertyRef Name="cont_Titulo" />
+            <PropertyRef Name="cont_Historico" />
+            <PropertyRef Name="ver_soloHist" />
+            <PropertyRef Name="cla_Id" />
+            <PropertyRef Name="cont_Activo" />
+          </Key>
+          <Property Name="Id_Index" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="int" />
+          <Property Name="cont_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="cont_Orden" Type="int" />
+          <Property Name="cont_Fecha" Type="datetime" />
+          <Property Name="cont_Clave" Type="varchar" MaxLength="500" />
+          <Property Name="cont_Titulo" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="cont_Titulo_Corto" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Titulo_Indice" Type="varchar" MaxLength="1000" />
+          <Property Name="cont_Historico" Type="bit" Nullable="false" />
+          <Property Name="cont_Texto" Type="text" />
+          <Property Name="ver_soloHist" Type="bit" Nullable="false" />
+          <Property Name="cont_Ruta" Type="varchar" MaxLength="8000" />
+          <Property Name="count_Hijos" Type="int" />
+          <Property Name="cont_Derogado" Type="bit" />
+          <Property Name="cla_Id" Type="int" Nullable="false" />
+          <Property Name="est_Actualizado" Type="datetime" />
+          <Property Name="est_revisado" Type="bit" />
+          <Property Name="cont_Historico_Fecha" Type="datetime" />
+          <Property Name="cont_Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Reformas_Tipos">
+          <End Role="Reformas_Tipos" Type="Self.Reformas_Tipos" Multiplicity="1" />
+          <End Role="Reformas" Type="Self.Reformas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reformas_Tipos">
+              <PropertyRef Name="tpo_id" />
+            </Principal>
+            <Dependent Role="Reformas">
+              <PropertyRef Name="tpo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Contenido_Ruta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="Contenido_Ruta_link" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="PROPERCASE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="input" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_TestPresupuestos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nestado" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="estado" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="titulo" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="spAdmon_Actualiza_De_cjm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spd_Contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="user_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spd_Indice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spd_Noticias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="secc_Id" Type="smallint" Mode="In" />
+          <Parameter Name="noti_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spd_Reformas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="hist_Id" Type="int" Mode="In" />
+          <Parameter Name="tpo_Id" Type="int" Mode="In" />
+          <Parameter Name="ref_Fecha" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spi_clasificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spi_Contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Up" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="cont_Clave" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo_Corto" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo_Indice" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Texto" Type="text" Mode="In" />
+          <Parameter Name="cont_Texto_plano" Type="text" Mode="In" />
+          <Parameter Name="cla_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Derogado" Type="bit" Mode="In" />
+          <Parameter Name="ver_soloHist" Type="bit" Mode="In" />
+          <Parameter Name="cont_Historico" Type="bit" Mode="In" />
+          <Parameter Name="cont_Historico_Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="cont_Revisado" Type="bit" Mode="In" />
+          <Parameter Name="user_Id" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spi_Indice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="ind_Texto" Type="text" Mode="In" />
+          <Parameter Name="ind_Historico" Type="bit" Mode="In" />
+          <Parameter Name="ind_Revisado" Type="bit" Mode="In" />
+          <Parameter Name="ind_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spi_Noticia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="secc_Id" Type="smallint" Mode="In" />
+          <Parameter Name="noti_Titulo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Publicacion" Type="datetime" Mode="In" />
+          <Parameter Name="noti_Contenido" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Fuente" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_resumen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Estado" Type="int" Mode="In" />
+          <Parameter Name="Seguridad" Type="bit" Mode="In" />
+          <Parameter Name="noti_Activo" Type="bit" Mode="In" />
+          <Parameter Name="user_Id" Type="nvarchar" Mode="In" />
+          <Parameter Name="est_Actualizado" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spi_Reformas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="hist_Id" Type="int" Mode="In" />
+          <Parameter Name="tpo_Id" Type="int" Mode="In" />
+          <Parameter Name="year_Id" Type="int" Mode="In" />
+          <Parameter Name="ref_Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="ref_Texto" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_branch_web" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Up" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="palabra" Type="varchar" Mode="In" />
+          <Parameter Name="field" Type="tinyint" Mode="In" />
+          <Parameter Name="cadena" Type="varchar" Mode="In" />
+          <Parameter Name="cadena2" Type="varchar" Mode="In" />
+          <Parameter Name="cadena3" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_BuscarRediseño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="palabra" Type="varchar" Mode="In" />
+          <Parameter Name="field" Type="tinyint" Mode="In" />
+          <Parameter Name="cadena" Type="varchar" Mode="In" />
+          <Parameter Name="cadena2" Type="varchar" Mode="In" />
+          <Parameter Name="cadena3" Type="varchar" Mode="In" />
+          <Parameter Name="NumeroPagina" Type="numeric" Mode="In" />
+          <Parameter Name="ElementosPorPagina" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_BuscarRediseñobk20120914" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="palabra" Type="varchar" Mode="In" />
+          <Parameter Name="field" Type="tinyint" Mode="In" />
+          <Parameter Name="cadena" Type="varchar" Mode="In" />
+          <Parameter Name="cadena2" Type="varchar" Mode="In" />
+          <Parameter Name="cadena3" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_BuscarRediseñoPaginacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="palabra" Type="varchar" Mode="In" />
+          <Parameter Name="field" Type="tinyint" Mode="In" />
+          <Parameter Name="cadena" Type="varchar" Mode="In" />
+          <Parameter Name="cadena2" Type="varchar" Mode="In" />
+          <Parameter Name="cadena3" Type="varchar" Mode="In" />
+          <Parameter Name="NumeroPagina" Type="numeric" Mode="In" />
+          <Parameter Name="ElementosPorPagina" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_indice_WEB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_id" Type="int" Mode="In" />
+          <Parameter Name="cont_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenido_Reformas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Up" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenidos_Niveles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Up" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenidos_Up" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Contenidos_WTree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_elemento_por_titulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_titulo" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sps_ExportaOrdenamiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Federal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_FiltrosWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Up" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Historico_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sps_Importar_Indice_TreeNet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Indice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Indices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sps_indiceweb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosEstatal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosFederalContratos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosFederalDerogado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosFederalVigente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosJurisprudenciaxEpoca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Inicio_ElementosTribunalesxAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Noticias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="secc_Id" Type="smallint" Mode="In" />
+          <Parameter Name="noti_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_RecuperaID_x_Titulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="Titulo" Type="nvarchar" Mode="In" />
+          <Parameter Name="num_Registros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Reformas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="hist_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spu_clasificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="orden" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spu_Contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="cont_Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="cont_Clave" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo_Corto" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo_Indice" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Texto" Type="text" Mode="In" />
+          <Parameter Name="cont_Texto_plano" Type="text" Mode="In" />
+          <Parameter Name="cla_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Derogado" Type="bit" Mode="In" />
+          <Parameter Name="ver_soloHist" Type="bit" Mode="In" />
+          <Parameter Name="cont_Historico" Type="bit" Mode="In" />
+          <Parameter Name="cont_Historico_Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="cont_Revisado" Type="bit" Mode="In" />
+          <Parameter Name="user_Id" Type="varchar" Mode="In" />
+          <Parameter Name="cont_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spu_Contenido_Niveles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="ind_Id_New" Type="int" Mode="In" />
+          <Parameter Name="cont_Id_New" Type="int" Mode="In" />
+          <Parameter Name="user_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spu_Contenido_Orden" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="cont_Id" Type="numeric" Mode="In" />
+          <Parameter Name="posicion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spu_Indice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="ind_Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="ind_Texto" Type="text" Mode="In" />
+          <Parameter Name="ind_Historico" Type="bit" Mode="In" />
+          <Parameter Name="ind_Revisado" Type="bit" Mode="In" />
+          <Parameter Name="ind_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spu_Noticia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noti_Id" Type="int" Mode="In" />
+          <Parameter Name="secc_Id" Type="smallint" Mode="In" />
+          <Parameter Name="noti_Titulo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Publicacion" Type="datetime" Mode="In" />
+          <Parameter Name="noti_Contenido" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Fuente" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_resumen" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="noti_Estado" Type="int" Mode="In" />
+          <Parameter Name="Seguridad" Type="bit" Mode="In" />
+          <Parameter Name="noti_Activo" Type="bit" Mode="In" />
+          <Parameter Name="user_Id" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="LEG_CJM_V_IIModelStoreContainer">
+          <EntitySet Name="Clasificacion" EntityType="Self.Clasificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estatal" EntityType="Self.Estatal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Federal" EntityType="Self.Federal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Folio" EntityType="Self.Folio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historico" EntityType="Self.Historico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indice" EntityType="Self.Indice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jurisprudencia" EntityType="Self.Jurisprudencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Noticias" EntityType="Self.Noticias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otros" EntityType="Self.Otros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reformas_Tipos" EntityType="Self.Reformas_Tipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Secciones" EntityType="Self.Secciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Archivos" EntityType="Self.Archivos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Archivos].[ind_id] AS [ind_id], 
+    [Archivos].[Id] AS [Id], 
+    [Archivos].[Archivo] AS [Archivo], 
+    [Archivos].[Activo] AS [Activo]
+    FROM [dbo].[Archivos] AS [Archivos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reformas" EntityType="Self.Reformas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reformas].[ind_Id] AS [ind_Id], 
+    [Reformas].[cont_Id] AS [cont_Id], 
+    [Reformas].[hist_Id] AS [hist_Id], 
+    [Reformas].[tpo_Id] AS [tpo_Id], 
+    [Reformas].[Year_Id] AS [Year_Id], 
+    [Reformas].[ref_Fecha] AS [ref_Fecha], 
+    [Reformas].[ref_Texto] AS [ref_Texto]
+    FROM [dbo].[Reformas] AS [Reformas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TMP_INDICE" EntityType="Self.TMP_INDICE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TMP_INDICE].[Id_Index] AS [Id_Index], 
+    [TMP_INDICE].[ind_Id] AS [ind_Id], 
+    [TMP_INDICE].[cont_Id] AS [cont_Id], 
+    [TMP_INDICE].[cont_Up] AS [cont_Up], 
+    [TMP_INDICE].[cont_Fecha] AS [cont_Fecha], 
+    [TMP_INDICE].[cont_Clave] AS [cont_Clave], 
+    [TMP_INDICE].[cont_Titulo_Corto] AS [cont_Titulo_Corto], 
+    [TMP_INDICE].[cont_Titulo_Indice] AS [cont_Titulo_Indice], 
+    [TMP_INDICE].[cont_Titulo] AS [cont_Titulo], 
+    [TMP_INDICE].[cont_Texto] AS [cont_Texto], 
+    [TMP_INDICE].[cont_Texto_plano] AS [cont_Texto_plano], 
+    [TMP_INDICE].[cla_Id] AS [cla_Id], 
+    [TMP_INDICE].[cont_derogado] AS [cont_derogado], 
+    [TMP_INDICE].[ver_soloHist] AS [ver_soloHist], 
+    [TMP_INDICE].[cont_Historico] AS [cont_Historico], 
+    [TMP_INDICE].[cont_Historico_fecha] AS [cont_Historico_fecha], 
+    [TMP_INDICE].[cont_Orden] AS [cont_Orden], 
+    [TMP_INDICE].[cont_Activo] AS [cont_Activo], 
+    [TMP_INDICE].[Folio_historico] AS [Folio_historico], 
+    [TMP_INDICE].[est_Actualizado] AS [est_Actualizado], 
+    [TMP_INDICE].[est_revisado] AS [est_revisado]
+    FROM [dbo].[TMP_INDICE] AS [TMP_INDICE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cns_Contenidos" EntityType="Self.cns_Contenidos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cns_Contenidos].[Id_Index] AS [Id_Index], 
+    [cns_Contenidos].[ind_Id] AS [ind_Id], 
+    [cns_Contenidos].[cont_Id] AS [cont_Id], 
+    [cns_Contenidos].[cont_Up] AS [cont_Up], 
+    [cns_Contenidos].[cont_Orden] AS [cont_Orden], 
+    [cns_Contenidos].[cont_Fecha] AS [cont_Fecha], 
+    [cns_Contenidos].[cont_Clave] AS [cont_Clave], 
+    [cns_Contenidos].[cont_Titulo] AS [cont_Titulo], 
+    [cns_Contenidos].[cont_Titulo_Corto] AS [cont_Titulo_Corto], 
+    [cns_Contenidos].[cont_Titulo_Indice] AS [cont_Titulo_Indice], 
+    [cns_Contenidos].[cont_Historico] AS [cont_Historico], 
+    [cns_Contenidos].[cont_Texto] AS [cont_Texto], 
+    [cns_Contenidos].[ver_soloHist] AS [ver_soloHist], 
+    [cns_Contenidos].[cont_Ruta] AS [cont_Ruta], 
+    [cns_Contenidos].[count_Hijos] AS [count_Hijos], 
+    [cns_Contenidos].[cont_Derogado] AS [cont_Derogado], 
+    [cns_Contenidos].[cla_Id] AS [cla_Id], 
+    [cns_Contenidos].[est_Actualizado] AS [est_Actualizado], 
+    [cns_Contenidos].[est_revisado] AS [est_revisado], 
+    [cns_Contenidos].[cont_Historico_Fecha] AS [cont_Historico_Fecha], 
+    [cns_Contenidos].[cont_Activo] AS [cont_Activo]
+    FROM [dbo].[cns_Contenidos] AS [cns_Contenidos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Reformas_Tipos" Association="Self.FK_Reformas_Tipos">
+            <End Role="Reformas_Tipos" EntitySet="Reformas_Tipos" />
+            <End Role="Reformas" EntitySet="Reformas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LEG_CJM_V_IIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cns_Contenidos">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+            <PropertyRef Name="cont_Titulo" />
+            <PropertyRef Name="cont_Historico" />
+            <PropertyRef Name="ver_soloHist" />
+            <PropertyRef Name="cla_Id" />
+            <PropertyRef Name="cont_Activo" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Ruta" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="count_Hijos" Type="Int32" />
+          <Property Name="cont_Derogado" Type="Boolean" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" />
+          <Property Name="cont_Historico_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LEG_CJM_V_IIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cns_Contenidos" EntityType="Self.cns_Contenidos" />
+          <FunctionImport Name="sp_TestPresupuestos" ReturnType="Collection(LEG_CJM_V_IIModel.sp_TestPresupuestos_Result)">
+            <Parameter Name="nestado" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="titulo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spAdmon_Actualiza_De_cjm" />
+          <FunctionImport Name="spd_Contenido">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="user_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spd_Indice">
+          <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spd_Noticias">
+            <Parameter Name="secc_Id" Mode="In" Type="Int16" />
+            <Parameter Name="noti_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spd_Reformas">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="hist_Id" Mode="In" Type="Int32" />
+            <Parameter Name="tpo_Id" Mode="In" Type="Int32" />
+            <Parameter Name="ref_Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spi_clasificacion" ReturnType="Collection(Int32)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spi_Contenido" ReturnType="Collection(LEG_CJM_V_IIModel.spi_Contenido_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Up" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="cont_Clave" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo_Corto" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo_Indice" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo" Mode="In" Type="String" />
+            <Parameter Name="cont_Texto" Mode="In" Type="String" />
+            <Parameter Name="cont_Texto_plano" Mode="In" Type="String" />
+            <Parameter Name="cla_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Derogado" Mode="In" Type="Boolean" />
+            <Parameter Name="ver_soloHist" Mode="In" Type="Boolean" />
+            <Parameter Name="cont_Historico" Mode="In" Type="Boolean" />
+            <Parameter Name="cont_Historico_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="cont_Revisado" Mode="In" Type="Boolean" />
+            <Parameter Name="user_Id" Mode="In" Type="String" />
+            <Parameter Name="cont_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spi_Indice" ReturnType="Collection(Int32)">
+            <Parameter Name="ind_Titulo" Mode="In" Type="String" />
+            <Parameter Name="ind_Texto" Mode="In" Type="String" />
+            <Parameter Name="ind_Historico" Mode="In" Type="Boolean" />
+            <Parameter Name="ind_Revisado" Mode="In" Type="Boolean" />
+            <Parameter Name="ind_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spi_Noticia" ReturnType="Collection(Decimal)">
+            <Parameter Name="secc_Id" Mode="In" Type="Int16" />
+            <Parameter Name="noti_Titulo" Mode="In" Type="String" />
+            <Parameter Name="noti_Publicacion" Mode="In" Type="DateTime" />
+            <Parameter Name="noti_Contenido" Mode="In" Type="String" />
+            <Parameter Name="noti_Fuente" Mode="In" Type="String" />
+            <Parameter Name="noti_resumen" Mode="In" Type="String" />
+            <Parameter Name="noti_Estado" Mode="In" Type="Int32" />
+            <Parameter Name="Seguridad" Mode="In" Type="Boolean" />
+            <Parameter Name="noti_Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="user_Id" Mode="In" Type="String" />
+            <Parameter Name="est_Actualizado" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spi_Reformas">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="hist_Id" Mode="In" Type="Int32" />
+            <Parameter Name="tpo_Id" Mode="In" Type="Int32" />
+            <Parameter Name="year_Id" Mode="In" Type="Int32" />
+            <Parameter Name="ref_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="ref_Texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenido_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_branch_web" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenido_branch_web_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Up" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_Buscar">
+            <Parameter Name="ind_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="palabra" Mode="In" Type="String" />
+            <Parameter Name="field" Mode="In" Type="Byte" />
+            <Parameter Name="cadena" Mode="In" Type="String" />
+            <Parameter Name="cadena2" Mode="In" Type="String" />
+            <Parameter Name="cadena3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_BuscarRediseño">
+            <Parameter Name="ind_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="palabra" Mode="In" Type="String" />
+            <Parameter Name="field" Mode="In" Type="Byte" />
+            <Parameter Name="cadena" Mode="In" Type="String" />
+            <Parameter Name="cadena2" Mode="In" Type="String" />
+            <Parameter Name="cadena3" Mode="In" Type="String" />
+            <Parameter Name="NumeroPagina" Mode="In" Type="Decimal" />
+            <Parameter Name="ElementosPorPagina" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_BuscarRediseñobk20120914">
+            <Parameter Name="ind_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="palabra" Mode="In" Type="String" />
+            <Parameter Name="field" Mode="In" Type="Byte" />
+            <Parameter Name="cadena" Mode="In" Type="String" />
+            <Parameter Name="cadena2" Mode="In" Type="String" />
+            <Parameter Name="cadena3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_BuscarRediseñoPaginacion">
+            <Parameter Name="ind_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="palabra" Mode="In" Type="String" />
+            <Parameter Name="field" Mode="In" Type="Byte" />
+            <Parameter Name="cadena" Mode="In" Type="String" />
+            <Parameter Name="cadena2" Mode="In" Type="String" />
+            <Parameter Name="cadena3" Mode="In" Type="String" />
+            <Parameter Name="NumeroPagina" Mode="In" Type="Decimal" />
+            <Parameter Name="ElementosPorPagina" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_indice_WEB" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenido_indice_WEB_Result)">
+            <Parameter Name="ind_id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenido_Reformas">
+          <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenidos" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenidos_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Up" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenidos_Niveles" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenidos_Niveles_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Up" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenidos_Up" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenidos_Up_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Contenidos_WTree" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Contenidos_WTree_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_elemento_por_titulo" ReturnType="Collection(LEG_CJM_V_IIModel.sps_elemento_por_titulo_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_titulo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_ExportaOrdenamiento" ReturnType="Collection(LEG_CJM_V_IIModel.sps_ExportaOrdenamiento_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Federal" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Federal_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_FiltrosWeb" ReturnType="Collection(LEG_CJM_V_IIModel.sps_FiltrosWeb_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Up" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Historico_lista" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Historico_lista_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Importar_Indice_TreeNet" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Importar_Indice_TreeNet_Result)" />
+          <FunctionImport Name="sps_Indice" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Indice_Result)">
+          <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Indices" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Indices_Result)">
+          <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sps_indiceweb" ReturnType="Collection(LEG_CJM_V_IIModel.sps_indiceweb_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosEstatal" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosEstatal_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosFederalContratos" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalContratos_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosFederalDerogado" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalDerogado_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosFederalVigente" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalVigente_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosJurisprudenciaxEpoca" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosJurisprudenciaxEpoca_Result)" />
+          <FunctionImport Name="sps_Inicio_ElementosTribunalesxAno" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Inicio_ElementosTribunalesxAno_Result)" />
+          <FunctionImport Name="sps_Noticias" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Noticias_Result)">
+            <Parameter Name="secc_Id" Mode="In" Type="Int16" />
+            <Parameter Name="noti_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_RecuperaID_x_Titulo" EntitySet="Federal" ReturnType="Collection(LEG_CJM_V_IIModel.Federal)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Titulo" Mode="In" Type="String" />
+            <Parameter Name="num_Registros" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Reformas" ReturnType="Collection(LEG_CJM_V_IIModel.sps_Reformas_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="hist_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spu_clasificacion">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="orden" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spu_Contenido">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="cont_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="cont_Clave" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo_Corto" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo_Indice" Mode="In" Type="String" />
+            <Parameter Name="cont_Titulo" Mode="In" Type="String" />
+            <Parameter Name="cont_Texto" Mode="In" Type="String" />
+            <Parameter Name="cont_Texto_plano" Mode="In" Type="String" />
+            <Parameter Name="cla_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Derogado" Mode="In" Type="Boolean" />
+            <Parameter Name="ver_soloHist" Mode="In" Type="Boolean" />
+            <Parameter Name="cont_Historico" Mode="In" Type="Boolean" />
+            <Parameter Name="cont_Historico_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="cont_Revisado" Mode="In" Type="Boolean" />
+            <Parameter Name="user_Id" Mode="In" Type="String" />
+            <Parameter Name="cont_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spu_Contenido_Niveles">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="ind_Id_New" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id_New" Mode="In" Type="Int32" />
+            <Parameter Name="user_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spu_Contenido_Orden">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cont_Id" Mode="In" Type="Decimal" />
+            <Parameter Name="posicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spu_Indice">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="ind_Titulo" Mode="In" Type="String" />
+            <Parameter Name="ind_Texto" Mode="In" Type="String" />
+            <Parameter Name="ind_Historico" Mode="In" Type="Boolean" />
+            <Parameter Name="ind_Revisado" Mode="In" Type="Boolean" />
+            <Parameter Name="ind_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spu_Noticia">
+            <Parameter Name="noti_Id" Mode="In" Type="Int32" />
+            <Parameter Name="secc_Id" Mode="In" Type="Int16" />
+            <Parameter Name="noti_Titulo" Mode="In" Type="String" />
+            <Parameter Name="noti_Publicacion" Mode="In" Type="DateTime" />
+            <Parameter Name="noti_Contenido" Mode="In" Type="String" />
+            <Parameter Name="noti_Fuente" Mode="In" Type="String" />
+            <Parameter Name="noti_resumen" Mode="In" Type="String" />
+            <Parameter Name="noti_Estado" Mode="In" Type="Int32" />
+            <Parameter Name="Seguridad" Mode="In" Type="Boolean" />
+            <Parameter Name="noti_Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="user_Id" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Clasificacion" EntityType="LEG_CJM_V_IIModel.Clasificacion" />
+          <EntitySet Name="Estatal" EntityType="LEG_CJM_V_IIModel.Estatal" />
+          <EntitySet Name="Federal" EntityType="LEG_CJM_V_IIModel.Federal" />
+          <EntitySet Name="Folio" EntityType="LEG_CJM_V_IIModel.Folio" />
+          <EntitySet Name="Historico" EntityType="LEG_CJM_V_IIModel.Historico" />
+          <EntitySet Name="Indice" EntityType="LEG_CJM_V_IIModel.Indice" />
+          <EntitySet Name="Jurisprudencia" EntityType="LEG_CJM_V_IIModel.Jurisprudencia" />
+          <EntitySet Name="Noticias" EntityType="LEG_CJM_V_IIModel.Noticias" />
+          <EntitySet Name="Otros" EntityType="LEG_CJM_V_IIModel.Otros" />
+          <EntitySet Name="Reformas_Tipos" EntityType="LEG_CJM_V_IIModel.Reformas_Tipos" />
+          <EntitySet Name="Secciones" EntityType="LEG_CJM_V_IIModel.Secciones" />
+          <EntitySet Name="Archivos" EntityType="LEG_CJM_V_IIModel.Archivos" />
+          <EntitySet Name="Reformas" EntityType="LEG_CJM_V_IIModel.Reformas" />
+          <EntitySet Name="TMP_INDICE" EntityType="LEG_CJM_V_IIModel.TMP_INDICE" />
+          <AssociationSet Name="FK_Reformas_Tipos" Association="LEG_CJM_V_IIModel.FK_Reformas_Tipos">
+            <End Role="Reformas_Tipos" EntitySet="Reformas_Tipos" />
+            <End Role="Reformas" EntitySet="Reformas" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="sp_TestPresupuestos_Result">
+          <Property Type="Decimal" Name="Id_Index" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="cont_Texto_plano" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="Boolean" Name="cont_derogado" Nullable="true" />
+          <Property Type="Boolean" Name="ver_soloHist" Nullable="false" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="Folio_historico" Nullable="false" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spi_Contenido_Result">
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenido_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice1" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_texto" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Derogado" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="true" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_Fecha" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="hist_Id" Nullable="false" />
+          <Property Type="String" Name="cont_Ruta" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenido_branch_web_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="Boolean" Name="ver_soloHist" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenido_indice_WEB_Result">
+          <Property Type="Int32" Name="ind_id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="Int32" Name="cont_orden" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenidos_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice1" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="cont_Derogado" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="true" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_Fecha" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenidos_Niveles_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenidos_Up_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="true" MaxLength="2000" />
+        </ComplexType>
+        <ComplexType Name="sps_Contenidos_WTree_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="true" MaxLength="8000" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="Boolean" Name="ver_SoloHist" Nullable="false" />
+          <Property Type="Int32" Name="nYear" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_elemento_por_titulo_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice1" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_texto" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Derogado" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="true" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_Fecha" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="hist_Id" Nullable="false" />
+          <Property Type="String" Name="cont_Ruta" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="sps_ExportaOrdenamiento_Result">
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Federal_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_Fecha" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="cont_derogado" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="String" Name="cla_Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="count_Hijos" Nullable="true" />
+          <Property Type="Int32" Name="hist_Id" Nullable="false" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_Revisado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_FiltrosWeb_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice1" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="sps_Historico_lista_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="hist_Id" Nullable="false" />
+          <Property Type="Int32" Name="Id_Year" Nullable="true" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="Boolean" Name="hist_Activo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Importar_Indice_TreeNet_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Titulo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ind_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="ind_Hijos" Nullable="true" />
+          <Property Type="Int32" Name="ind_Orden" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Activo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Indice_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Titulo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ind_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="ind_Historico" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Revisado" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Activo" Nullable="false" />
+          <Property Type="Int32" Name="count_Contenido" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Indices_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="Int32" Name="ind_Orden" Nullable="false" />
+          <Property Type="String" Name="ind_Titulo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ind_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="ind_Historico" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Revisado" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Activo" Nullable="false" />
+          <Property Type="Int32" Name="count_Contenido" Nullable="true" />
+          <Property Type="Int32" Name="count_hijos" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_indiceweb_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Titulo" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosEstatal_Result">
+          <Property Type="Int32" Name="ind_id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosFederalContratos_Result">
+          <Property Type="Decimal" Name="Id_Index" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="cont_Texto_plano" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="Boolean" Name="cont_derogado" Nullable="true" />
+          <Property Type="Boolean" Name="ver_soloHist" Nullable="false" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="Folio_historico" Nullable="false" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosFederalDerogado_Result">
+          <Property Type="Decimal" Name="Id_Index" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="cont_Texto_plano" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="Boolean" Name="cont_derogado" Nullable="true" />
+          <Property Type="Boolean" Name="ver_soloHist" Nullable="false" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="Folio_historico" Nullable="false" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosFederalVigente_Result">
+          <Property Type="Int32" Name="ind_id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosJurisprudenciaxEpoca_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cont_Titulo" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="sps_Inicio_ElementosTribunalesxAno_Result">
+          <Property Type="Decimal" Name="Id_Index" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ind_Id" Nullable="true" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cont_Up" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cont_Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cont_Clave" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="cont_Titulo_Corto" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo_Indice" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="cont_Titulo" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="cont_Texto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="cont_Texto_plano" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="cla_Id" Nullable="false" />
+          <Property Type="Boolean" Name="cont_derogado" Nullable="true" />
+          <Property Type="Boolean" Name="ver_soloHist" Nullable="false" />
+          <Property Type="Boolean" Name="cont_Historico" Nullable="false" />
+          <Property Type="DateTime" Name="cont_Historico_fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="cont_Orden" Nullable="true" />
+          <Property Type="Boolean" Name="cont_Activo" Nullable="false" />
+          <Property Type="Int32" Name="Folio_historico" Nullable="false" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="est_revisado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Noticias_Result">
+          <Property Type="Decimal" Name="noti_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secc_Id" Nullable="false" />
+          <Property Type="DateTime" Name="noti_Publicacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="noti_Titulo" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="noti_Contenido" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="noti_Fuente" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="noti_resumen" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="noti_Estado" Nullable="false" />
+          <Property Type="Boolean" Name="noti_Activo" Nullable="false" />
+          <Property Type="String" Name="user_Id" Nullable="false" MaxLength="15" />
+          <Property Type="DateTime" Name="est_Actualizado" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="Seguridad" Nullable="false" />
+          <Property Type="Int32" Name="secc_Id1" Nullable="false" />
+          <Property Type="String" Name="secc_Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="folio_Noticias" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sps_Reformas_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="Decimal" Name="cont_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="tpo_Id" Nullable="false" />
+          <Property Type="String" Name="tpo_Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="year_Id" Nullable="false" />
+          <Property Type="DateTime" Name="ref_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ref_Texto" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <EntityType Name="Clasificacion">
+          <Key>
+            <PropertyRef Name="cla_Id" />
+          </Key>
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cla_Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Orden" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Estatal">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Folio_historico" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Federal">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Folio_historico" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Folio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tabla" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contador" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Historico">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="cont_Id" />
+            <PropertyRef Name="hist_Id" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="hist_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cont_Ruta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_Plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="hist_Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indice">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="ind_Orden" Type="Int32" Nullable="false" />
+          <Property Name="ind_Titulo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Revisado" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="folio_Contenido" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Carpeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Jurisprudencia">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Folio_historico" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Noticias">
+          <Key>
+            <PropertyRef Name="noti_Id" />
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="noti_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="noti_Publicacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="noti_Titulo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="noti_Contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="noti_Fuente" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="noti_resumen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="noti_Estado" Type="Int32" Nullable="false" />
+          <Property Name="noti_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="user_Id" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Seguridad" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Otros">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Folio_historico" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reformas_Tipos">
+          <Key>
+            <PropertyRef Name="tpo_id" />
+          </Key>
+          <Property Name="tpo_id" Type="Int32" Nullable="false" />
+          <Property Name="tpo_Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reformas" Relationship="LEG_CJM_V_IIModel.FK_Reformas_Tipos" FromRole="Reformas_Tipos" ToRole="Reformas" />
+        </EntityType>
+        <EntityType Name="Secciones">
+          <Key>
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="folio_Noticias" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Archivos">
+          <Key>
+            <PropertyRef Name="ind_id" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Archivo" />
+            <PropertyRef Name="Activo" />
+          </Key>
+          <Property Name="ind_id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Archivo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reformas">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="cont_Id" />
+            <PropertyRef Name="hist_Id" />
+            <PropertyRef Name="tpo_Id" />
+            <PropertyRef Name="Year_Id" />
+            <PropertyRef Name="ref_Fecha" />
+          </Key>
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="hist_Id" Type="Int32" Nullable="false" />
+          <Property Name="tpo_Id" Type="Int32" Nullable="false" />
+          <Property Name="Year_Id" Type="Int32" Nullable="false" />
+          <Property Name="ref_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ref_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reformas_Tipos" Relationship="LEG_CJM_V_IIModel.FK_Reformas_Tipos" FromRole="Reformas" ToRole="Reformas_Tipos" />
+        </EntityType>
+        <EntityType Name="TMP_INDICE">
+          <Key>
+            <PropertyRef Name="Id_Index" />
+            <PropertyRef Name="cont_Titulo" />
+            <PropertyRef Name="cla_Id" />
+            <PropertyRef Name="ver_soloHist" />
+            <PropertyRef Name="cont_Historico" />
+            <PropertyRef Name="cont_Activo" />
+            <PropertyRef Name="Folio_historico" />
+            <PropertyRef Name="est_revisado" />
+          </Key>
+          <Property Name="Id_Index" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ind_Id" Type="Int32" />
+          <Property Name="cont_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Up" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cont_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Clave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Corto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo_Indice" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cont_Texto_plano" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cla_Id" Type="Int32" Nullable="false" />
+          <Property Name="cont_derogado" Type="Boolean" />
+          <Property Name="ver_soloHist" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico" Type="Boolean" Nullable="false" />
+          <Property Name="cont_Historico_fecha" Type="DateTime" Precision="3" />
+          <Property Name="cont_Orden" Type="Int32" />
+          <Property Name="cont_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Folio_historico" Type="Int32" Nullable="false" />
+          <Property Name="est_Actualizado" Type="DateTime" Precision="3" />
+          <Property Name="est_revisado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Reformas_Tipos">
+          <End Type="LEG_CJM_V_IIModel.Reformas_Tipos" Role="Reformas_Tipos" Multiplicity="1" />
+          <End Type="LEG_CJM_V_IIModel.Reformas" Role="Reformas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reformas_Tipos">
+              <PropertyRef Name="tpo_id" />
+            </Principal>
+            <Dependent Role="Reformas">
+              <PropertyRef Name="tpo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LEG_CJM_V_IIModelStoreContainer" CdmEntityContainer="LEG_CJM_V_IIEntities">
+          <EntitySetMapping Name="cns_Contenidos">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.cns_Contenidos">
+              <MappingFragment StoreEntitySet="cns_Contenidos">
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_Ruta" ColumnName="cont_Ruta" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="cont_Derogado" ColumnName="cont_Derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="cont_Historico_Fecha" ColumnName="cont_Historico_Fecha" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_TestPresupuestos" FunctionName="LEG_CJM_V_IIModel.Store.sp_TestPresupuestos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sp_TestPresupuestos_Result">
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAdmon_Actualiza_De_cjm" FunctionName="LEG_CJM_V_IIModel.Store.spAdmon_Actualiza_De_cjm" />
+          <FunctionImportMapping FunctionImportName="spd_Contenido" FunctionName="LEG_CJM_V_IIModel.Store.spd_Contenido" />
+          <FunctionImportMapping FunctionImportName="spd_Indice" FunctionName="LEG_CJM_V_IIModel.Store.spd_Indice" />
+          <FunctionImportMapping FunctionImportName="spd_Noticias" FunctionName="LEG_CJM_V_IIModel.Store.spd_Noticias" />
+          <FunctionImportMapping FunctionImportName="spd_Reformas" FunctionName="LEG_CJM_V_IIModel.Store.spd_Reformas" />
+          <FunctionImportMapping FunctionImportName="spi_clasificacion" FunctionName="LEG_CJM_V_IIModel.Store.spi_clasificacion" />
+          <FunctionImportMapping FunctionImportName="spi_Contenido" FunctionName="LEG_CJM_V_IIModel.Store.spi_Contenido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.spi_Contenido_Result">
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spi_Indice" FunctionName="LEG_CJM_V_IIModel.Store.spi_Indice" />
+          <FunctionImportMapping FunctionImportName="spi_Noticia" FunctionName="LEG_CJM_V_IIModel.Store.spi_Noticia" />
+          <FunctionImportMapping FunctionImportName="spi_Reformas" FunctionName="LEG_CJM_V_IIModel.Store.spi_Reformas" />
+          <FunctionImportMapping FunctionImportName="sps_Contenido" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenido_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_clave" ColumnName="cont_clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Indice1" ColumnName="cont_Titulo_Indice1" />
+                <ScalarProperty Name="cont_texto" ColumnName="cont_texto" />
+                <ScalarProperty Name="cont_Derogado" ColumnName="cont_Derogado" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Historico_Fecha" ColumnName="cont_Historico_Fecha" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="cont_Ruta" ColumnName="cont_Ruta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenido_branch_web" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_branch_web">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenido_branch_web_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenido_Buscar" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_Buscar" />
+          <FunctionImportMapping FunctionImportName="sps_Contenido_BuscarRediseño" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_BuscarRediseño" />
+          <FunctionImportMapping FunctionImportName="sps_Contenido_BuscarRediseñobk20120914" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_BuscarRediseñobk20120914" />
+          <FunctionImportMapping FunctionImportName="sps_Contenido_BuscarRediseñoPaginacion" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_BuscarRediseñoPaginacion" />
+          <FunctionImportMapping FunctionImportName="sps_Contenido_indice_WEB" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_indice_WEB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenido_indice_WEB_Result">
+                <ScalarProperty Name="ind_id" ColumnName="ind_id" />
+                <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_orden" ColumnName="cont_orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenido_Reformas" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenido_Reformas" />
+          <FunctionImportMapping FunctionImportName="sps_Contenidos" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenidos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenidos_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_clave" ColumnName="cont_clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Indice1" ColumnName="cont_Titulo_Indice1" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Derogado" ColumnName="cont_Derogado" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Historico_Fecha" ColumnName="cont_Historico_Fecha" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenidos_Niveles" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenidos_Niveles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenidos_Niveles_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenidos_Up" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenidos_Up">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenidos_Up_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Contenidos_WTree" FunctionName="LEG_CJM_V_IIModel.Store.sps_Contenidos_WTree">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Contenidos_WTree_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="ver_SoloHist" ColumnName="ver_SoloHist" />
+                <ScalarProperty Name="nYear" ColumnName="nYear" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_elemento_por_titulo" FunctionName="LEG_CJM_V_IIModel.Store.sps_elemento_por_titulo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_elemento_por_titulo_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_clave" ColumnName="cont_clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Indice1" ColumnName="cont_Titulo_Indice1" />
+                <ScalarProperty Name="cont_texto" ColumnName="cont_texto" />
+                <ScalarProperty Name="cont_Derogado" ColumnName="cont_Derogado" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Historico_Fecha" ColumnName="cont_Historico_Fecha" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="cont_Ruta" ColumnName="cont_Ruta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_ExportaOrdenamiento" FunctionName="LEG_CJM_V_IIModel.Store.sps_ExportaOrdenamiento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_ExportaOrdenamiento_Result">
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="texto" ColumnName="texto" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Federal" FunctionName="LEG_CJM_V_IIModel.Store.sps_Federal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Federal_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Historico_Fecha" ColumnName="cont_Historico_Fecha" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cla_Nombre" ColumnName="cla_Nombre" />
+                <ScalarProperty Name="count_Hijos" ColumnName="count_Hijos" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_Revisado" ColumnName="est_Revisado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_FiltrosWeb" FunctionName="LEG_CJM_V_IIModel.Store.sps_FiltrosWeb">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_FiltrosWeb_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_clave" ColumnName="cont_clave" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Indice1" ColumnName="cont_Titulo_Indice1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Historico_lista" FunctionName="LEG_CJM_V_IIModel.Store.sps_Historico_lista">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Historico_lista_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="hist_Activo" ColumnName="hist_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Importar_Indice_TreeNet" FunctionName="LEG_CJM_V_IIModel.Store.sps_Importar_Indice_TreeNet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Importar_Indice_TreeNet_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Titulo" ColumnName="ind_Titulo" />
+                <ScalarProperty Name="ind_Texto" ColumnName="ind_Texto" />
+                <ScalarProperty Name="ind_Hijos" ColumnName="ind_Hijos" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Indice" FunctionName="LEG_CJM_V_IIModel.Store.sps_Indice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Indice_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Titulo" ColumnName="ind_Titulo" />
+                <ScalarProperty Name="ind_Texto" ColumnName="ind_Texto" />
+                <ScalarProperty Name="ind_Historico" ColumnName="ind_Historico" />
+                <ScalarProperty Name="ind_Revisado" ColumnName="ind_Revisado" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+                <ScalarProperty Name="count_Contenido" ColumnName="count_Contenido" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Indices" FunctionName="LEG_CJM_V_IIModel.Store.sps_Indices">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Indices_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Titulo" ColumnName="ind_Titulo" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="ind_Texto" ColumnName="ind_Texto" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="ind_Historico" ColumnName="ind_Historico" />
+                <ScalarProperty Name="ind_Revisado" ColumnName="ind_Revisado" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+                <ScalarProperty Name="count_Contenido" ColumnName="count_Contenido" />
+                <ScalarProperty Name="count_hijos" ColumnName="count_hijos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_indiceweb" FunctionName="LEG_CJM_V_IIModel.Store.sps_indiceweb">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_indiceweb_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Titulo" ColumnName="ind_Titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosEstatal" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosEstatal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosEstatal_Result">
+                <ScalarProperty Name="ind_id" ColumnName="ind_id" />
+                <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosFederalContratos" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosFederalContratos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalContratos_Result">
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosFederalDerogado" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosFederalDerogado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalDerogado_Result">
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosFederalVigente" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosFederalVigente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosFederalVigente_Result">
+                <ScalarProperty Name="ind_id" ColumnName="ind_id" />
+                <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosJurisprudenciaxEpoca" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosJurisprudenciaxEpoca">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosJurisprudenciaxEpoca_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Inicio_ElementosTribunalesxAno" FunctionName="LEG_CJM_V_IIModel.Store.sps_Inicio_ElementosTribunalesxAno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Inicio_ElementosTribunalesxAno_Result">
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Noticias" FunctionName="LEG_CJM_V_IIModel.Store.sps_Noticias">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Noticias_Result">
+                <ScalarProperty Name="noti_Id" ColumnName="noti_Id" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="noti_Publicacion" ColumnName="noti_Publicacion" />
+                <ScalarProperty Name="noti_Titulo" ColumnName="noti_Titulo" />
+                <ScalarProperty Name="noti_Contenido" ColumnName="noti_Contenido" />
+                <ScalarProperty Name="noti_Fuente" ColumnName="noti_Fuente" />
+                <ScalarProperty Name="noti_resumen" ColumnName="noti_resumen" />
+                <ScalarProperty Name="noti_Estado" ColumnName="noti_Estado" />
+                <ScalarProperty Name="noti_Activo" ColumnName="noti_Activo" />
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Seguridad" ColumnName="Seguridad" />
+                <ScalarProperty Name="secc_Id1" ColumnName="secc_Id1" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="folio_Noticias" ColumnName="folio_Noticias" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_RecuperaID_x_Titulo" FunctionName="LEG_CJM_V_IIModel.Store.sps_RecuperaID_x_Titulo" />
+          <FunctionImportMapping FunctionImportName="sps_Reformas" FunctionName="LEG_CJM_V_IIModel.Store.sps_Reformas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LEG_CJM_V_IIModel.sps_Reformas_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="tpo_Id" ColumnName="tpo_Id" />
+                <ScalarProperty Name="tpo_Nombre" ColumnName="tpo_Nombre" />
+                <ScalarProperty Name="year_Id" ColumnName="year_Id" />
+                <ScalarProperty Name="ref_Fecha" ColumnName="ref_Fecha" />
+                <ScalarProperty Name="ref_Texto" ColumnName="ref_Texto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spu_clasificacion" FunctionName="LEG_CJM_V_IIModel.Store.spu_clasificacion" />
+          <FunctionImportMapping FunctionImportName="spu_Contenido" FunctionName="LEG_CJM_V_IIModel.Store.spu_Contenido" />
+          <FunctionImportMapping FunctionImportName="spu_Contenido_Niveles" FunctionName="LEG_CJM_V_IIModel.Store.spu_Contenido_Niveles" />
+          <FunctionImportMapping FunctionImportName="spu_Contenido_Orden" FunctionName="LEG_CJM_V_IIModel.Store.spu_Contenido_Orden" />
+          <FunctionImportMapping FunctionImportName="spu_Indice" FunctionName="LEG_CJM_V_IIModel.Store.spu_Indice" />
+          <FunctionImportMapping FunctionImportName="spu_Noticia" FunctionName="LEG_CJM_V_IIModel.Store.spu_Noticia" />
+          <EntitySetMapping Name="Clasificacion">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Clasificacion">
+              <MappingFragment StoreEntitySet="Clasificacion">
+                <ScalarProperty Name="cla_Orden" ColumnName="cla_Orden" />
+                <ScalarProperty Name="cla_Nombre" ColumnName="cla_Nombre" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estatal">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Estatal">
+              <MappingFragment StoreEntitySet="Estatal">
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Federal">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Federal">
+              <MappingFragment StoreEntitySet="Federal">
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Folio">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Folio">
+              <MappingFragment StoreEntitySet="Folio">
+                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="Tabla" ColumnName="Tabla" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historico">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Historico">
+              <MappingFragment StoreEntitySet="Historico">
+                <ScalarProperty Name="hist_Activo" ColumnName="hist_Activo" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cont_Texto_Plano" ColumnName="cont_Texto_Plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Ruta" ColumnName="cont_Ruta" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indice">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Indice">
+              <MappingFragment StoreEntitySet="Indice">
+                <ScalarProperty Name="ind_Carpeta" ColumnName="ind_Carpeta" />
+                <ScalarProperty Name="folio_Contenido" ColumnName="folio_Contenido" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+                <ScalarProperty Name="ind_Revisado" ColumnName="ind_Revisado" />
+                <ScalarProperty Name="ind_Historico" ColumnName="ind_Historico" />
+                <ScalarProperty Name="ind_Texto" ColumnName="ind_Texto" />
+                <ScalarProperty Name="ind_Titulo" ColumnName="ind_Titulo" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jurisprudencia">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Jurisprudencia">
+              <MappingFragment StoreEntitySet="Jurisprudencia">
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Noticias">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Noticias">
+              <MappingFragment StoreEntitySet="Noticias">
+                <ScalarProperty Name="Seguridad" ColumnName="Seguridad" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+                <ScalarProperty Name="noti_Activo" ColumnName="noti_Activo" />
+                <ScalarProperty Name="noti_Estado" ColumnName="noti_Estado" />
+                <ScalarProperty Name="noti_resumen" ColumnName="noti_resumen" />
+                <ScalarProperty Name="noti_Fuente" ColumnName="noti_Fuente" />
+                <ScalarProperty Name="noti_Contenido" ColumnName="noti_Contenido" />
+                <ScalarProperty Name="noti_Titulo" ColumnName="noti_Titulo" />
+                <ScalarProperty Name="noti_Publicacion" ColumnName="noti_Publicacion" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="noti_Id" ColumnName="noti_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otros">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Otros">
+              <MappingFragment StoreEntitySet="Otros">
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reformas_Tipos">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Reformas_Tipos">
+              <MappingFragment StoreEntitySet="Reformas_Tipos">
+                <ScalarProperty Name="tpo_Nombre" ColumnName="tpo_Nombre" />
+                <ScalarProperty Name="tpo_id" ColumnName="tpo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secciones">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Secciones">
+              <MappingFragment StoreEntitySet="Secciones">
+                <ScalarProperty Name="folio_Noticias" ColumnName="folio_Noticias" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Archivos">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Archivos">
+              <MappingFragment StoreEntitySet="Archivos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ind_id" ColumnName="ind_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reformas">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.Reformas">
+              <MappingFragment StoreEntitySet="Reformas">
+                <ScalarProperty Name="ref_Texto" ColumnName="ref_Texto" />
+                <ScalarProperty Name="ref_Fecha" ColumnName="ref_Fecha" />
+                <ScalarProperty Name="Year_Id" ColumnName="Year_Id" />
+                <ScalarProperty Name="tpo_Id" ColumnName="tpo_Id" />
+                <ScalarProperty Name="hist_Id" ColumnName="hist_Id" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMP_INDICE">
+            <EntityTypeMapping TypeName="LEG_CJM_V_IIModel.TMP_INDICE">
+              <MappingFragment StoreEntitySet="TMP_INDICE">
+                <ScalarProperty Name="est_revisado" ColumnName="est_revisado" />
+                <ScalarProperty Name="est_Actualizado" ColumnName="est_Actualizado" />
+                <ScalarProperty Name="Folio_historico" ColumnName="Folio_historico" />
+                <ScalarProperty Name="cont_Activo" ColumnName="cont_Activo" />
+                <ScalarProperty Name="cont_Orden" ColumnName="cont_Orden" />
+                <ScalarProperty Name="cont_Historico_fecha" ColumnName="cont_Historico_fecha" />
+                <ScalarProperty Name="cont_Historico" ColumnName="cont_Historico" />
+                <ScalarProperty Name="ver_soloHist" ColumnName="ver_soloHist" />
+                <ScalarProperty Name="cont_derogado" ColumnName="cont_derogado" />
+                <ScalarProperty Name="cla_Id" ColumnName="cla_Id" />
+                <ScalarProperty Name="cont_Texto_plano" ColumnName="cont_Texto_plano" />
+                <ScalarProperty Name="cont_Texto" ColumnName="cont_Texto" />
+                <ScalarProperty Name="cont_Titulo" ColumnName="cont_Titulo" />
+                <ScalarProperty Name="cont_Titulo_Indice" ColumnName="cont_Titulo_Indice" />
+                <ScalarProperty Name="cont_Titulo_Corto" ColumnName="cont_Titulo_Corto" />
+                <ScalarProperty Name="cont_Clave" ColumnName="cont_Clave" />
+                <ScalarProperty Name="cont_Fecha" ColumnName="cont_Fecha" />
+                <ScalarProperty Name="cont_Up" ColumnName="cont_Up" />
+                <ScalarProperty Name="cont_Id" ColumnName="cont_Id" />
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="Id_Index" ColumnName="Id_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b487ed6dc634bafba6a1fbbe7a73987" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.cns_Contenidos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Clasificacion" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Estatal" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Federal" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Folio" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Historico" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Indice" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Jurisprudencia" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Noticias" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Otros" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Reformas_Tipos" Width="1.5" PointX="3.75" PointY="1.375" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Secciones" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Archivos" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.Reformas" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="LEG_CJM_V_IIModel.TMP_INDICE" Width="1.5" PointX="8.75" PointY="10.75" />
+        <AssociationConnector Association="LEG_CJM_V_IIModel.FK_Reformas_Tipos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

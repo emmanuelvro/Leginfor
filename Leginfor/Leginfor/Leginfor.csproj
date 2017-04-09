@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43FAB205-011B-4CD1-B376-CC69C9573322}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Leginfor</RootNamespace>
+    <AssemblyName>Leginfor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BotDetect, Version=4.1.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.1.0\lib\net46\BotDetect.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.1.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.1.0\lib\net46\BotDetect.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612291637512_InitialCreate.cs" />
+    <Compile Include="Migrations\201612291637512_InitialCreate.Designer.cs">
+      <DependentUpon>201612291637512_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701080635009_RFC.cs" />
+    <Compile Include="Migrations\201701080635009_RFC.Designer.cs">
+      <DependentUpon>201701080635009_RFC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\About\Contacto.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Index\Dof.cs" />
+    <Compile Include="Models\Index\Relevante.cs" />
+    <Compile Include="Models\Index\DofView.cs" />
+    <Compile Include="Models\Index\Index.cs" />
+    <Compile Include="Models\Index\Indicadores.cs" />
+    <Compile Include="Models\Index\Reformas.cs" />
+    <Compile Include="Models\Index\Reformas\Federales.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelBD\Archivos.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CALCULADORA_CAT_INPC.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CALCULADORA_CAT_MES.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_art_167.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_imss.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_isr.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_isr_fecha.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_isr_new.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_isr_subsidio.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_limite.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_periodo.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_tipo.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cal_t_topes.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CJMModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CJMModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CJMModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\CJMModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CJMModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Clasificacion.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cnsBusqueda.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cnsIndicador.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cnsIndice.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cnsParrafo.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\cns_Contenidos.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Contenido.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Destacado.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Diario.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Edicion.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Equivalencias.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Equivalencias_moneda.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Estatal.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Extraordinario.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Federal.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Folio.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Gobierno.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Historico.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Indicador.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\IndicadoresModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndicadoresModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\IndicadoresModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\IndicadoresModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndicadoresModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Indice.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Jurisprudencia.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\LeginforModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeginforModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\LeginforModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\LeginforModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeginforModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Mes.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Noticias.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Orden.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Otros.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Periodo.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Poder.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Reformas.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Reformas_Tipos.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Seccion.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Secciones.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\spi_Contenido_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\SpParidad_det_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Sps_Buscador_Legatek_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Sps_Buscador_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_calculadora_aguinaldo_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenidos_Niveles_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenidos_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenidos_Up_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenidos_WTree_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenido_branch_web_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenido_Indice_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenido_indice_WEB_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Contenido_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Sps_destacado_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Diario_Months_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Diario_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Edicion_Vespertina_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_elemento_por_titulo_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Equivalencias_Mes_Year_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_ExportaOrdenamiento_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Federal_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_FiltrosWeb_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Gobierno_Alerta_web_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Gobierno_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Historico_lista_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Historico_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Historico_Year_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Importar_Indice_TreeNet_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_indicadores_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Indicador_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Indicador_Tipo_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Indicador_Ultimos_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_indicador_WS_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Indices_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_indiceweb_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Indice_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosEstatal_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosFederalContratos_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosFederalDerogado_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosFederalVigente_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosJurisprudenciaxEpoca_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Inicio_ElementosTribunalesxAno_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Noticias_Estados_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Noticias_Fechas_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Noticias_Months_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Noticias_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Noticia_list_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Publicacion_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Publicacion_Sec_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Reformas_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_tt_Tablas_web_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_tt_Tabla_web_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Valores_Meses_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Valor_Listado_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Valor_Listado_Ultimos_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sps_Valor_Years_Result.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Sp_Buscador_Result.cs">
+      <DependentUpon>LeginforModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sp_helpdiagrams_Result.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\sp_TestPresupuestos_Result.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Tipos.cs">
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\TMP_INDICE.cs">
+      <DependentUpon>CJMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\t_moneda.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\t_paridades_test.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\UniversoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\UniversoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\UniversoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBD\Valor.cs">
+      <DependentUpon>IndicadoresModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Utility\Rss.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DofModel.cs" />
+    <Compile Include="Repository\IndicadoresModel.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utility\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carr-products\css\font-awesome.min.css" />
+    <Content Include="Content\carr-products\css\frontend-builder-style.css" />
+    <Content Include="Content\carr-products\css\main-styles.css" />
+    <Content Include="Content\carr-products\css\owl.carousel.css" />
+    <Content Include="Content\carr-products\css\style.css" />
+    <Content Include="Content\carr-products\css\turbotabs.css" />
+    <Content Include="Content\carr-products\css\wc-box-public.css" />
+    <Content Include="Content\carr-products\css\woocommerce-layout.css" />
+    <Content Include="Content\carr-products\css\woocommerce-smallscreen.css" />
+    <Content Include="Content\carr-products\css\woocommerce.css" />
+    <Content Include="Content\carr-products\fonts\font-awesome.css" />
+    <Content Include="Content\carr-products\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\carr-products\js\html5.js" />
+    <Content Include="Content\carr-products\js\jquery.js" />
+    <Content Include="Content\carr-products\js\jquery.prettyPhoto.init.js" />
+    <Content Include="Content\carr-products\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\carr-products\js\owl.carousel.min.js" />
+    <Content Include="Content\carr-products\js\turbotabs.js" />
+    <Content Include="Content\carr-products\js\wc-box-public.js" />
+    <Content Include="Content\custom-slider\css\nivo-slider.css" />
+    <Content Include="Content\custom-slider\css\preview.css" />
+    <Content Include="Content\custom-slider\home.js" />
+    <Content Include="Content\custom-slider\js\jquery.nivo.slider.js" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\clientes\Afore-XXI-Banorte.jpg" />
+    <Content Include="Content\img\clientes\Banco_de_México_logo.png" />
+    <Content Include="Content\img\clientes\Bansefi.jpg" />
+    <Content Include="Content\img\clientes\CamaraDiputados.png" />
+    <Content Include="Content\img\clientes\cemex.png" />
+    <Content Include="Content\img\clientes\csam.jpg" />
+    <Content Include="Content\img\clientes\femsa.jpg" />
+    <Content Include="Content\img\clientes\imagenServlet.jpg" />
+    <Content Include="Content\img\clientes\imp.gif" />
+    <Content Include="Content\img\clientes\imss.jpg" />
+    <Content Include="Content\img\clientes\infonavit.png" />
+    <Content Include="Content\img\clientes\LogoCNIAA.JPG" />
+    <Content Include="Content\img\clientes\logo_logo.png" />
+    <Content Include="Content\img\clientes\logo_portal_tepjf.png" />
+    <Content Include="Content\img\clientes\sabormex.jpg" />
+    <Content Include="Content\img\clientes\sat.png" />
+    <Content Include="Content\img\clientes\scjn.jpg" />
+    <Content Include="Content\img\clientes\unam.png" />
+    <Content Include="Content\img\favicon.ico" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\faviconO.ico" />
+    <Content Include="Content\img\leginfor\diario.jpg" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\logo1.png" />
+    <Content Include="Content\img\logo2.png" />
+    <Content Include="Content\img\logo3.png" />
+    <Content Include="Content\img\logo_ropsa.png" />
+    <Content Include="Content\img\map-marker.png" />
+    <Content Include="Content\img\page-bennar.jpg" />
+    <Content Include="Content\img\page-bennar2.jpg" />
+    <Content Include="Content\img\page-bennar_1.jpg" />
+    <Content Include="Content\img\page-bennar_res.jpg" />
+    <Content Include="Content\img\practicing.jpg" />
+    <Content Include="Content\img\slider-buttom1.jpg" />
+    <Content Include="Content\img\slider-buttom2.jpg" />
+    <Content Include="Content\img\slider-buttom3.jpg" />
+    <Content Include="Content\img\slides\se.jpg" />
+    <Content Include="Content\img\slides\shcp.jpg" />
+    <Content Include="Content\img\slides\shcp2.jpg" />
+    <Content Include="Content\img\slides\shcp3.jpg" />
+    <Content Include="Content\img\slides\slide1.jpg" />
+    <Content Include="Content\img\slides\slide2.jpg" />
+    <Content Include="Content\img\slides\slide3.jpg" />
+    <Content Include="Content\img\testimonial-bg.jpg" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\js\bootstrap-datetimepicker.es.js" />
+    <Content Include="Content\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-price-slider.js" />
+    <Content Include="Content\js\jquery.meanmenu.js" />
+    <Content Include="Content\js\jquery.scrollUp.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\moment-with-locales.js" />
+    <Content Include="Content\js\moment.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\plugins.js" />
+    <Content Include="Content\js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="Content\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Content\js\wow.min.js" />
+    <Content Include="Content\login\css\style - copia.css" />
+    <Content Include="Content\login\css\style.css" />
+    <Content Include="Content\login\images\1.png" />
+    <Content Include="Content\login\images\2.png" />
+    <Content Include="Content\login\images\banner.jpg" />
+    <Content Include="Content\login\images\banner_r.jpg" />
+    <Content Include="Content\login\images\sprite.png" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\meanmenu.min.css" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\owl.transitions.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\ModelBD\CJMModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CJMModel.edmx</DependentUpon>
+      <LastGenOutput>CJMModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\CJMModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CJMModel.edmx</DependentUpon>
+      <LastGenOutput>CJMModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\IndicadoresModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IndicadoresModel.edmx</DependentUpon>
+      <LastGenOutput>IndicadoresModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\IndicadoresModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IndicadoresModel.edmx</DependentUpon>
+      <LastGenOutput>IndicadoresModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\LeginforModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LeginforModel.edmx</DependentUpon>
+      <LastGenOutput>LeginforModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\LeginforModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LeginforModel.edmx</DependentUpon>
+      <LastGenOutput>LeginforModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\UniversoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversoModel.edmx</DependentUpon>
+      <LastGenOutput>UniversoModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBD\UniversoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversoModel.edmx</DependentUpon>
+      <LastGenOutput>UniversoModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap-datetimepicker.es.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\carr-products\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\carr-products\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\carr-products\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\carr-products\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\carr-products\fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\ModelBD\LeginforModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LeginforModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelBD\LeginforModel.edmx.diagram">
+      <DependentUpon>LeginforModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelBD\CJMModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CJMModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelBD\CJMModel.edmx.diagram">
+      <DependentUpon>CJMModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelBD\IndicadoresModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IndicadoresModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelBD\IndicadoresModel.edmx.diagram">
+      <DependentUpon>IndicadoresModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelBD\UniversoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelBD\UniversoModel.edmx.diagram">
+      <DependentUpon>UniversoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-price-slider.js" />
+    <Content Include="Scripts\jquery.meanmenu.js" />
+    <Content Include="Scripts\jquery.scrollUp.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modernizr-2.8.3.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\plugins.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Contacto\Index.cshtml" />
+    <Content Include="Views\Contacto\Productos.cshtml" />
+    <Content Include="Views\About\Contacto.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612291637512_InitialCreate.resx">
+      <DependentUpon>201612291637512_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701080635009_RFC.resx">
+      <DependentUpon>201701080635009_RFC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53095</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53095/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

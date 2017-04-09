@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dofModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Destacado">
+          <Key>
+            <PropertyRef Name="des_id" />
+          </Key>
+          <Property Name="des_id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Destacado" Type="varchar" MaxLength="50" />
+          <Property Name="fec_alt" Type="smalldatetime" Nullable="false" />
+          <Property Name="fec_baj" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Diario">
+          <Key>
+            <PropertyRef Name="do_Id" />
+          </Key>
+          <Property Name="do_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="do_Activo" Type="bit" Nullable="false" />
+          <Property Name="do_dividido" Type="bit" Nullable="false" />
+          <Property Name="do_entero" Type="bit" Nullable="false" />
+          <Property Name="do_pdf" Type="bit" Nullable="false" />
+          <Property Name="do_ent_div" Type="bit" />
+          <Property Name="do_conv_act" Type="bit" Nullable="false" />
+          <Property Name="do_Tema" Type="bit" Nullable="false" />
+          <Property Name="do_Entero_LG" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="do_pdf_LG" Type="bit" Nullable="false" />
+          <Property Name="do_ent_div_LG" Type="bit" Nullable="false" />
+          <Property Name="do_conv_act_LG" Type="bit" Nullable="false" />
+          <Property Name="do_Tema_LG" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Edicion">
+          <Key>
+            <PropertyRef Name="ed_Id" />
+          </Key>
+          <Property Name="ed_Id" Type="int" Nullable="false" />
+          <Property Name="ed_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Extraordinario">
+          <Key>
+            <PropertyRef Name="Ext_Id" />
+          </Key>
+          <Property Name="Ext_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ext_Nombre" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Ext_Activo" Type="bit" Nullable="false" />
+          <Property Name="fec_alt" Type="datetime" Nullable="false" />
+          <Property Name="des_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gobierno">
+          <Key>
+            <PropertyRef Name="gob_Id" />
+          </Key>
+          <Property Name="gob_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gob_clave_LG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gob_Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="gob_Archivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gpo_id" Type="int" Nullable="false" />
+          <Property Name="gob_Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indice">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="gob_Id" />
+          </Key>
+          <Property Name="do_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ed_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="pod_Id" Type="int" Nullable="false" />
+          <Property Name="gob_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Orden" Type="int" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meses">
+          <Key>
+            <PropertyRef Name="Id_Year" />
+            <PropertyRef Name="Id_Month" />
+          </Key>
+          <Property Name="Id_Year" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Id_Month" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="pod_Id" />
+          </Key>
+          <Property Name="do_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pod_Id" Type="int" Nullable="false" />
+          <Property Name="pod_Orden" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poder">
+          <Key>
+            <PropertyRef Name="pod_Id" />
+          </Key>
+          <Property Name="pod_Id" Type="int" Nullable="false" />
+          <Property Name="pod_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seccion">
+          <Key>
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dof.dbo.cnsBusqueda' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="cnsBusqueda">
+          <Key>
+            <PropertyRef Name="index_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Clave_LG" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="parr_Id" />
+            <PropertyRef Name="parr_Texto" />
+          </Key>
+          <Property Name="index_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="ed_Id" Type="int" Nullable="false" />
+          <Property Name="ed_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="gob_Clave" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gob_Clave_LG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gob_Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="parr_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Texto" Type="varchar" MaxLength="5000" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dof.dbo.cnsIndice' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="cnsIndice">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="do_Activo" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="pod_Nombre" />
+            <PropertyRef Name="pod_Orden" />
+            <PropertyRef Name="gob_Id" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="ind_Orden" />
+            <PropertyRef Name="ind_Parrafo" />
+            <PropertyRef Name="gob_Clave_LG" />
+          </Key>
+          <Property Name="do_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="do_Year" Type="int" />
+          <Property Name="do_Month" Type="int" />
+          <Property Name="do_MonthText" Type="varchar" MaxLength="10" />
+          <Property Name="do_Day" Type="int" />
+          <Property Name="do_Activo" Type="bit" Nullable="false" />
+          <Property Name="ed_Id" Type="int" Nullable="false" />
+          <Property Name="ed_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pod_Id" Type="int" Nullable="false" />
+          <Property Name="pod_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pod_Orden" Type="int" Nullable="false" />
+          <Property Name="gob_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gob_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ind_Orden" Type="int" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave_LG" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dof.dbo.cnsParrafo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="cnsParrafo">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="do_Activo" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="pod_Nombre" />
+            <PropertyRef Name="pod_Orden" />
+            <PropertyRef Name="gob_Id" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="ind_Orden" />
+            <PropertyRef Name="ind_Parrafo" />
+            <PropertyRef Name="parr_Id" />
+            <PropertyRef Name="parr_Texto" />
+            <PropertyRef Name="parr_Pagina" />
+            <PropertyRef Name="parr_Orden" />
+            <PropertyRef Name="des_id" />
+            <PropertyRef Name="gob_clave_LG" />
+          </Key>
+          <Property Name="do_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="do_Year" Type="int" />
+          <Property Name="do_Month" Type="int" />
+          <Property Name="do_MonthText" Type="varchar" MaxLength="10" />
+          <Property Name="do_Day" Type="int" />
+          <Property Name="do_Activo" Type="bit" Nullable="false" />
+          <Property Name="ed_Id" Type="int" Nullable="false" />
+          <Property Name="ed_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secc_Id" Type="int" Nullable="false" />
+          <Property Name="secc_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pod_Id" Type="int" Nullable="false" />
+          <Property Name="pod_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pod_Orden" Type="int" Nullable="false" />
+          <Property Name="gob_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gob_Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ind_Orden" Type="int" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Texto" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="parr_Pagina" Type="int" Nullable="false" />
+          <Property Name="parr_Orden" Type="int" Nullable="false" />
+          <Property Name="des_id" Type="int" Nullable="false" />
+          <Property Name="des_tipo" Type="varchar" MaxLength="50" />
+          <Property Name="gob_clave_LG" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Extraordinario_Destacado">
+          <End Role="Destacado" Type="Self.Destacado" Multiplicity="1" />
+          <End Role="Extraordinario" Type="Self.Extraordinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destacado">
+              <PropertyRef Name="des_id" />
+            </Principal>
+            <Dependent Role="Extraordinario">
+              <PropertyRef Name="des_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="Sp_Busca_Conv_Compranet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="docto" Type="varchar" Mode="In" />
+          <Parameter Name="F1" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Sp_Buscador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="F1" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sps_Buscador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="F1" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="Sps_Buscador_Legatek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="F1" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="sps_contenido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SPS_Conv_Compranet_Fecha_Dependencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Dep_Id" Type="varchar" Mode="In" />
+          <Parameter Name="Fecha1" Type="varchar" Mode="In" />
+          <Parameter Name="Fecha2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sps_destacado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Diario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="do_Fecha" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sps_Diario_InMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Year" Type="int" Mode="In" />
+          <Parameter Name="Id_Month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Diario_Months" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Diario_TheLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Diario_Years" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Edicion_Vespertina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_GetDiariosXMesAnio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MES" Type="varchar" Mode="In" />
+          <Parameter Name="ANIO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Gobierno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Gobierno_Alerta_web" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Publicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="do_Fecha" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sps_Publicacion_Sec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="do_Fecha" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="dofModelStoreContainer">
+          <EntitySet Name="Destacado" EntityType="Self.Destacado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diario" EntityType="Self.Diario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edicion" EntityType="Self.Edicion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Extraordinario" EntityType="Self.Extraordinario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gobierno" EntityType="Self.Gobierno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indice" EntityType="Self.Indice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meses" EntityType="Self.Meses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poder" EntityType="Self.Poder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seccion" EntityType="Self.Seccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cnsBusqueda" EntityType="Self.cnsBusqueda" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cnsBusqueda].[index_Id] AS [index_Id], 
+    [cnsBusqueda].[do_Fecha] AS [do_Fecha], 
+    [cnsBusqueda].[ed_Id] AS [ed_Id], 
+    [cnsBusqueda].[ed_Nombre] AS [ed_Nombre], 
+    [cnsBusqueda].[secc_Id] AS [secc_Id], 
+    [cnsBusqueda].[secc_Nombre] AS [secc_Nombre], 
+    [cnsBusqueda].[gob_Clave] AS [gob_Clave], 
+    [cnsBusqueda].[gob_Clave_LG] AS [gob_Clave_LG], 
+    [cnsBusqueda].[gob_Nombre] AS [gob_Nombre], 
+    [cnsBusqueda].[parr_Id] AS [parr_Id], 
+    [cnsBusqueda].[parr_Texto] AS [parr_Texto]
+    FROM [dbo].[cnsBusqueda] AS [cnsBusqueda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cnsIndice" EntityType="Self.cnsIndice" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cnsIndice].[do_Id] AS [do_Id], 
+    [cnsIndice].[do_Fecha] AS [do_Fecha], 
+    [cnsIndice].[do_Year] AS [do_Year], 
+    [cnsIndice].[do_Month] AS [do_Month], 
+    [cnsIndice].[do_MonthText] AS [do_MonthText], 
+    [cnsIndice].[do_Day] AS [do_Day], 
+    [cnsIndice].[do_Activo] AS [do_Activo], 
+    [cnsIndice].[ed_Id] AS [ed_Id], 
+    [cnsIndice].[ed_Nombre] AS [ed_Nombre], 
+    [cnsIndice].[secc_Id] AS [secc_Id], 
+    [cnsIndice].[secc_Nombre] AS [secc_Nombre], 
+    [cnsIndice].[pod_Id] AS [pod_Id], 
+    [cnsIndice].[pod_Nombre] AS [pod_Nombre], 
+    [cnsIndice].[pod_Orden] AS [pod_Orden], 
+    [cnsIndice].[gob_Id] AS [gob_Id], 
+    [cnsIndice].[gob_Clave] AS [gob_Clave], 
+    [cnsIndice].[gob_Nombre] AS [gob_Nombre], 
+    [cnsIndice].[ind_Orden] AS [ind_Orden], 
+    [cnsIndice].[ind_Parrafo] AS [ind_Parrafo], 
+    [cnsIndice].[gob_Clave_LG] AS [gob_Clave_LG]
+    FROM [dbo].[cnsIndice] AS [cnsIndice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cnsParrafo" EntityType="Self.cnsParrafo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cnsParrafo].[do_Id] AS [do_Id], 
+    [cnsParrafo].[do_Fecha] AS [do_Fecha], 
+    [cnsParrafo].[do_Year] AS [do_Year], 
+    [cnsParrafo].[do_Month] AS [do_Month], 
+    [cnsParrafo].[do_MonthText] AS [do_MonthText], 
+    [cnsParrafo].[do_Day] AS [do_Day], 
+    [cnsParrafo].[do_Activo] AS [do_Activo], 
+    [cnsParrafo].[ed_Id] AS [ed_Id], 
+    [cnsParrafo].[ed_Nombre] AS [ed_Nombre], 
+    [cnsParrafo].[secc_Id] AS [secc_Id], 
+    [cnsParrafo].[secc_Nombre] AS [secc_Nombre], 
+    [cnsParrafo].[pod_Id] AS [pod_Id], 
+    [cnsParrafo].[pod_Nombre] AS [pod_Nombre], 
+    [cnsParrafo].[pod_Orden] AS [pod_Orden], 
+    [cnsParrafo].[gob_Id] AS [gob_Id], 
+    [cnsParrafo].[gob_Clave] AS [gob_Clave], 
+    [cnsParrafo].[gob_Nombre] AS [gob_Nombre], 
+    [cnsParrafo].[ind_Orden] AS [ind_Orden], 
+    [cnsParrafo].[ind_Parrafo] AS [ind_Parrafo], 
+    [cnsParrafo].[parr_Id] AS [parr_Id], 
+    [cnsParrafo].[parr_Texto] AS [parr_Texto], 
+    [cnsParrafo].[parr_Pagina] AS [parr_Pagina], 
+    [cnsParrafo].[parr_Orden] AS [parr_Orden], 
+    [cnsParrafo].[des_id] AS [des_id], 
+    [cnsParrafo].[des_tipo] AS [des_tipo], 
+    [cnsParrafo].[gob_clave_LG] AS [gob_clave_LG]
+    FROM [dbo].[cnsParrafo] AS [cnsParrafo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Extraordinario_Destacado" Association="Self.FK_Extraordinario_Destacado">
+            <End Role="Destacado" EntitySet="Destacado" />
+            <End Role="Extraordinario" EntitySet="Extraordinario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dofModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Destacado">
+          <Key>
+            <PropertyRef Name="des_id" />
+          </Key>
+          <Property Name="des_id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destacado1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fec_alt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fec_baj" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Extraordinarios" Relationship="Self.FK_Extraordinario_Destacado" FromRole="Destacado" ToRole="Extraordinario" />
+        </EntityType>
+        <EntityType Name="Diario">
+          <Key>
+            <PropertyRef Name="do_Id" />
+          </Key>
+          <Property Name="do_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="do_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="do_dividido" Type="Boolean" Nullable="false" />
+          <Property Name="do_entero" Type="Boolean" Nullable="false" />
+          <Property Name="do_pdf" Type="Boolean" Nullable="false" />
+          <Property Name="do_ent_div" Type="Boolean" />
+          <Property Name="do_conv_act" Type="Boolean" Nullable="false" />
+          <Property Name="do_Tema" Type="Boolean" Nullable="false" />
+          <Property Name="do_Entero_LG" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="do_pdf_LG" Type="Boolean" Nullable="false" />
+          <Property Name="do_ent_div_LG" Type="Boolean" Nullable="false" />
+          <Property Name="do_conv_act_LG" Type="Boolean" Nullable="false" />
+          <Property Name="do_Tema_LG" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Edicion">
+          <Key>
+            <PropertyRef Name="ed_Id" />
+          </Key>
+          <Property Name="ed_Id" Type="Int32" Nullable="false" />
+          <Property Name="ed_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Extraordinario">
+          <Key>
+            <PropertyRef Name="Ext_Id" />
+          </Key>
+          <Property Name="Ext_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Ext_Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ext_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="fec_alt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="des_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Destacado" Relationship="Self.FK_Extraordinario_Destacado" FromRole="Extraordinario" ToRole="Destacado" />
+        </EntityType>
+        <EntityType Name="Gobierno">
+          <Key>
+            <PropertyRef Name="gob_Id" />
+          </Key>
+          <Property Name="gob_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_clave_LG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Archivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gpo_id" Type="Int32" Nullable="false" />
+          <Property Name="gob_Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indice">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="gob_Id" />
+          </Key>
+          <Property Name="do_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ed_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="pod_Id" Type="Int32" Nullable="false" />
+          <Property Name="gob_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Orden" Type="Int32" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="Id_Year" />
+            <PropertyRef Name="Id_Month" />
+          </Key>
+          <Property Name="Id_Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Month" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="pod_Id" />
+          </Key>
+          <Property Name="do_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pod_Id" Type="Int32" Nullable="false" />
+          <Property Name="pod_Orden" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poder">
+          <Key>
+            <PropertyRef Name="pod_Id" />
+          </Key>
+          <Property Name="pod_Id" Type="Int32" Nullable="false" />
+          <Property Name="pod_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seccion">
+          <Key>
+            <PropertyRef Name="secc_Id" />
+          </Key>
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cnsBusqueda">
+          <Key>
+            <PropertyRef Name="index_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Clave_LG" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="parr_Id" />
+            <PropertyRef Name="parr_Texto" />
+          </Key>
+          <Property Name="index_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ed_Id" Type="Int32" Nullable="false" />
+          <Property Name="ed_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Clave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Clave_LG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parr_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Texto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cnsIndice">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="do_Activo" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="pod_Nombre" />
+            <PropertyRef Name="pod_Orden" />
+            <PropertyRef Name="gob_Id" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="ind_Orden" />
+            <PropertyRef Name="ind_Parrafo" />
+            <PropertyRef Name="gob_Clave_LG" />
+          </Key>
+          <Property Name="do_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="do_Year" Type="Int32" />
+          <Property Name="do_Month" Type="Int32" />
+          <Property Name="do_MonthText" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="do_Day" Type="Int32" />
+          <Property Name="do_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="ed_Id" Type="Int32" Nullable="false" />
+          <Property Name="ed_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pod_Id" Type="Int32" Nullable="false" />
+          <Property Name="pod_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pod_Orden" Type="Int32" Nullable="false" />
+          <Property Name="gob_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Orden" Type="Int32" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave_LG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cnsParrafo">
+          <Key>
+            <PropertyRef Name="do_Id" />
+            <PropertyRef Name="do_Fecha" />
+            <PropertyRef Name="do_Activo" />
+            <PropertyRef Name="ed_Id" />
+            <PropertyRef Name="ed_Nombre" />
+            <PropertyRef Name="secc_Id" />
+            <PropertyRef Name="secc_Nombre" />
+            <PropertyRef Name="pod_Id" />
+            <PropertyRef Name="pod_Nombre" />
+            <PropertyRef Name="pod_Orden" />
+            <PropertyRef Name="gob_Id" />
+            <PropertyRef Name="gob_Clave" />
+            <PropertyRef Name="gob_Nombre" />
+            <PropertyRef Name="ind_Orden" />
+            <PropertyRef Name="ind_Parrafo" />
+            <PropertyRef Name="parr_Id" />
+            <PropertyRef Name="parr_Texto" />
+            <PropertyRef Name="parr_Pagina" />
+            <PropertyRef Name="parr_Orden" />
+            <PropertyRef Name="des_id" />
+            <PropertyRef Name="gob_clave_LG" />
+          </Key>
+          <Property Name="do_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="do_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="do_Year" Type="Int32" />
+          <Property Name="do_Month" Type="Int32" />
+          <Property Name="do_MonthText" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="do_Day" Type="Int32" />
+          <Property Name="do_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="ed_Id" Type="Int32" Nullable="false" />
+          <Property Name="ed_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secc_Id" Type="Int32" Nullable="false" />
+          <Property Name="secc_Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pod_Id" Type="Int32" Nullable="false" />
+          <Property Name="pod_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pod_Orden" Type="Int32" Nullable="false" />
+          <Property Name="gob_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="gob_Clave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gob_Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Orden" Type="Int32" Nullable="false" />
+          <Property Name="ind_Parrafo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="parr_Texto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parr_Pagina" Type="Int32" Nullable="false" />
+          <Property Name="parr_Orden" Type="Int32" Nullable="false" />
+          <Property Name="des_id" Type="Int32" Nullable="false" />
+          <Property Name="des_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gob_clave_LG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Extraordinario_Destacado">
+          <End Role="Destacado" Type="Self.Destacado" Multiplicity="1" />
+          <End Role="Extraordinario" Type="Self.Extraordinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destacado">
+              <PropertyRef Name="des_id" />
+            </Principal>
+            <Dependent Role="Extraordinario">
+              <PropertyRef Name="des_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dofEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Destacadoes" EntityType="Self.Destacado" />
+          <EntitySet Name="Diarios" EntityType="Self.Diario" />
+          <EntitySet Name="Edicions" EntityType="Self.Edicion" />
+          <EntitySet Name="Extraordinarios" EntityType="Self.Extraordinario" />
+          <EntitySet Name="Gobiernoes" EntityType="Self.Gobierno" />
+          <EntitySet Name="Indices" EntityType="Self.Indice" />
+          <EntitySet Name="Meses" EntityType="Self.Mes" />
+          <EntitySet Name="Ordens" EntityType="Self.Orden" />
+          <EntitySet Name="Poders" EntityType="Self.Poder" />
+          <EntitySet Name="Seccions" EntityType="Self.Seccion" />
+          <EntitySet Name="cnsBusquedas" EntityType="Self.cnsBusqueda" />
+          <EntitySet Name="cnsIndices" EntityType="Self.cnsIndice" />
+          <EntitySet Name="cnsParrafoes" EntityType="Self.cnsParrafo" />
+          <AssociationSet Name="FK_Extraordinario_Destacado" Association="Self.FK_Extraordinario_Destacado">
+            <End Role="Destacado" EntitySet="Destacadoes" />
+            <End Role="Extraordinario" EntitySet="Extraordinarios" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Busca_Conv_Compranet">
+            <Parameter Name="docto" Mode="In" Type="String" />
+            <Parameter Name="F1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Buscador" ReturnType="Collection(dofModel.Sp_Buscador_Result)">
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="F1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(dofModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(dofModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sps_Buscador" ReturnType="Collection(dofModel.Sps_Buscador_Result)">
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="F1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Sps_Buscador_Legatek" ReturnType="Collection(dofModel.Sps_Buscador_Legatek_Result)">
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="F1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sps_contenido" ReturnType="Collection(dofModel.sps_contenido_Result)" />
+          <FunctionImport Name="SPS_Conv_Compranet_Fecha_Dependencia">
+            <Parameter Name="Dep_Id" Mode="In" Type="String" />
+            <Parameter Name="Fecha1" Mode="In" Type="String" />
+            <Parameter Name="Fecha2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sps_destacado" ReturnType="Collection(dofModel.Sps_destacado_Result)" />
+          <FunctionImport Name="sps_Diario" ReturnType="Collection(dofModel.sps_Diario_Result)">
+            <Parameter Name="do_Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Diario_InMonth" ReturnType="Collection(Int32)">
+            <Parameter Name="Id_Year" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Diario_Months" ReturnType="Collection(dofModel.sps_Diario_Months_Result)">
+            <Parameter Name="Id_Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Diario_TheLast" ReturnType="Collection(DateTime)" />
+          <FunctionImport Name="sps_Diario_Years" ReturnType="Collection(String)" />
+          <FunctionImport Name="sps_Edicion_Vespertina" ReturnType="Collection(dofModel.sps_Edicion_Vespertina_Result)" />
+          <FunctionImport Name="sps_GetDiariosXMesAnio">
+            <Parameter Name="MES" Mode="In" Type="String" />
+            <Parameter Name="ANIO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Gobierno" ReturnType="Collection(dofModel.sps_Gobierno_Result)" />
+          <FunctionImport Name="sps_Gobierno_Alerta_web" ReturnType="Collection(dofModel.sps_Gobierno_Alerta_web_Result)" />
+          <FunctionImport Name="sps_Publicacion" ReturnType="Collection(dofModel.sps_Publicacion_Result)">
+            <Parameter Name="do_Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Publicacion_Sec" ReturnType="Collection(dofModel.sps_Publicacion_Sec_Result)">
+            <Parameter Name="do_Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Sp_Buscador_Result">
+          <Property Type="String" Name="gob_nombre" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Header" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sps_Buscador_Result">
+          <Property Type="Int32" Name="secc_id" Nullable="false" />
+          <Property Type="String" Name="gob_nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="parr_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tema" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Sps_Buscador_Legatek_Result">
+          <Property Type="Int32" Name="secc_id" Nullable="false" />
+          <Property Type="String" Name="gob_nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="parr_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tema" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sps_contenido_Result">
+          <Property Type="String" Name="gob_nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="ind_parrafo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Sps_destacado_Result">
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="gob_Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="parr_Texto" Nullable="false" MaxLength="5000" />
+          <Property Type="Int32" Name="parr_orden" Nullable="false" />
+          <Property Type="String" Name="gob_clave" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="gob_clave_LG" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="secc_id" Nullable="false" />
+          <Property Type="Int32" Name="ed_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Diario_Result">
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="bvespertina" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Diario_Months_Result">
+          <Property Type="Int32" Name="id_Month" Nullable="true" />
+          <Property Type="String" Name="Name_Month" Nullable="true" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="sps_Edicion_Vespertina_Result">
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="do_Year" Nullable="true" />
+          <Property Type="Int32" Name="Do_Month" Nullable="true" />
+          <Property Type="Int32" Name="do_Day" Nullable="true" />
+          <Property Type="Int32" Name="ed_id" Nullable="false" />
+          <Property Type="String" Name="ed_Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="do_Activo" Nullable="false" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Gobierno_Result">
+          <Property Type="String" Name="gob_Clave" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="gob_Nombre" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sps_Gobierno_Alerta_web_Result">
+          <Property Type="String" Name="gob_Clave" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="gob_Nombre" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sps_Publicacion_Result">
+          <Property Type="Decimal" Name="do_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="do_Year" Nullable="true" />
+          <Property Type="Int32" Name="do_Month" Nullable="true" />
+          <Property Type="String" Name="do_MonthText" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="do_Day" Nullable="true" />
+          <Property Type="Boolean" Name="do_Activo" Nullable="false" />
+          <Property Type="Int32" Name="ed_Id" Nullable="false" />
+          <Property Type="String" Name="ed_Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="secc_Id" Nullable="false" />
+          <Property Type="String" Name="secc_Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="pod_Id" Nullable="false" />
+          <Property Type="String" Name="pod_Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="pod_Orden" Nullable="false" />
+          <Property Type="Decimal" Name="gob_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="gob_Clave" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="gob_Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="ind_Orden" Nullable="false" />
+          <Property Type="Decimal" Name="ind_Parrafo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="parr_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="parr_Texto" Nullable="false" MaxLength="5000" />
+          <Property Type="Int32" Name="parr_Pagina" Nullable="false" />
+          <Property Type="Int32" Name="parr_Orden" Nullable="false" />
+          <Property Type="String" Name="gob_clave_LG" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sps_Publicacion_Sec_Result">
+          <Property Type="DateTime" Name="do_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="gob_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="gob_Clave" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="gob_Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="parr_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="parr_Orden" Nullable="false" />
+          <Property Type="Int32" Name="secc_Id" Nullable="false" />
+          <Property Type="String" Name="secc_Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ed_Id" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dofModelStoreContainer" CdmEntityContainer="dofEntities">
+          <EntitySetMapping Name="Destacadoes">
+            <EntityTypeMapping TypeName="dofModel.Destacado">
+              <MappingFragment StoreEntitySet="Destacado">
+                <ScalarProperty Name="des_id" ColumnName="des_id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Destacado1" ColumnName="Destacado" />
+                <ScalarProperty Name="fec_alt" ColumnName="fec_alt" />
+                <ScalarProperty Name="fec_baj" ColumnName="fec_baj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diarios">
+            <EntityTypeMapping TypeName="dofModel.Diario">
+              <MappingFragment StoreEntitySet="Diario">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="do_Activo" ColumnName="do_Activo" />
+                <ScalarProperty Name="do_dividido" ColumnName="do_dividido" />
+                <ScalarProperty Name="do_entero" ColumnName="do_entero" />
+                <ScalarProperty Name="do_pdf" ColumnName="do_pdf" />
+                <ScalarProperty Name="do_ent_div" ColumnName="do_ent_div" />
+                <ScalarProperty Name="do_conv_act" ColumnName="do_conv_act" />
+                <ScalarProperty Name="do_Tema" ColumnName="do_Tema" />
+                <ScalarProperty Name="do_Entero_LG" ColumnName="do_Entero_LG" />
+                <ScalarProperty Name="do_pdf_LG" ColumnName="do_pdf_LG" />
+                <ScalarProperty Name="do_ent_div_LG" ColumnName="do_ent_div_LG" />
+                <ScalarProperty Name="do_conv_act_LG" ColumnName="do_conv_act_LG" />
+                <ScalarProperty Name="do_Tema_LG" ColumnName="do_Tema_LG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edicions">
+            <EntityTypeMapping TypeName="dofModel.Edicion">
+              <MappingFragment StoreEntitySet="Edicion">
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Extraordinarios">
+            <EntityTypeMapping TypeName="dofModel.Extraordinario">
+              <MappingFragment StoreEntitySet="Extraordinario">
+                <ScalarProperty Name="Ext_Id" ColumnName="Ext_Id" />
+                <ScalarProperty Name="Ext_Nombre" ColumnName="Ext_Nombre" />
+                <ScalarProperty Name="Ext_Activo" ColumnName="Ext_Activo" />
+                <ScalarProperty Name="fec_alt" ColumnName="fec_alt" />
+                <ScalarProperty Name="des_Id" ColumnName="des_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gobiernoes">
+            <EntityTypeMapping TypeName="dofModel.Gobierno">
+              <MappingFragment StoreEntitySet="Gobierno">
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_clave_LG" ColumnName="gob_clave_LG" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="gob_Archivo" ColumnName="gob_Archivo" />
+                <ScalarProperty Name="gpo_id" ColumnName="gpo_id" />
+                <ScalarProperty Name="gob_Activo" ColumnName="gob_Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indices">
+            <EntityTypeMapping TypeName="dofModel.Indice">
+              <MappingFragment StoreEntitySet="Indice">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Parrafo" ColumnName="ind_Parrafo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meses">
+            <EntityTypeMapping TypeName="dofModel.Mes">
+              <MappingFragment StoreEntitySet="Meses">
+                <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+                <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordens">
+            <EntityTypeMapping TypeName="dofModel.Orden">
+              <MappingFragment StoreEntitySet="Orden">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="pod_Orden" ColumnName="pod_Orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poders">
+            <EntityTypeMapping TypeName="dofModel.Poder">
+              <MappingFragment StoreEntitySet="Poder">
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="pod_Nombre" ColumnName="pod_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seccions">
+            <EntityTypeMapping TypeName="dofModel.Seccion">
+              <MappingFragment StoreEntitySet="Seccion">
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnsBusquedas">
+            <EntityTypeMapping TypeName="dofModel.cnsBusqueda">
+              <MappingFragment StoreEntitySet="cnsBusqueda">
+                <ScalarProperty Name="index_Id" ColumnName="index_Id" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Clave_LG" ColumnName="gob_Clave_LG" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="parr_Id" ColumnName="parr_Id" />
+                <ScalarProperty Name="parr_Texto" ColumnName="parr_Texto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnsIndices">
+            <EntityTypeMapping TypeName="dofModel.cnsIndice">
+              <MappingFragment StoreEntitySet="cnsIndice">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="do_Year" ColumnName="do_Year" />
+                <ScalarProperty Name="do_Month" ColumnName="do_Month" />
+                <ScalarProperty Name="do_MonthText" ColumnName="do_MonthText" />
+                <ScalarProperty Name="do_Day" ColumnName="do_Day" />
+                <ScalarProperty Name="do_Activo" ColumnName="do_Activo" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="pod_Nombre" ColumnName="pod_Nombre" />
+                <ScalarProperty Name="pod_Orden" ColumnName="pod_Orden" />
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Parrafo" ColumnName="ind_Parrafo" />
+                <ScalarProperty Name="gob_Clave_LG" ColumnName="gob_Clave_LG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnsParrafoes">
+            <EntityTypeMapping TypeName="dofModel.cnsParrafo">
+              <MappingFragment StoreEntitySet="cnsParrafo">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="do_Year" ColumnName="do_Year" />
+                <ScalarProperty Name="do_Month" ColumnName="do_Month" />
+                <ScalarProperty Name="do_MonthText" ColumnName="do_MonthText" />
+                <ScalarProperty Name="do_Day" ColumnName="do_Day" />
+                <ScalarProperty Name="do_Activo" ColumnName="do_Activo" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="pod_Nombre" ColumnName="pod_Nombre" />
+                <ScalarProperty Name="pod_Orden" ColumnName="pod_Orden" />
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Parrafo" ColumnName="ind_Parrafo" />
+                <ScalarProperty Name="parr_Id" ColumnName="parr_Id" />
+                <ScalarProperty Name="parr_Texto" ColumnName="parr_Texto" />
+                <ScalarProperty Name="parr_Pagina" ColumnName="parr_Pagina" />
+                <ScalarProperty Name="parr_Orden" ColumnName="parr_Orden" />
+                <ScalarProperty Name="des_id" ColumnName="des_id" />
+                <ScalarProperty Name="des_tipo" ColumnName="des_tipo" />
+                <ScalarProperty Name="gob_clave_LG" ColumnName="gob_clave_LG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dofModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="Sp_Busca_Conv_Compranet" FunctionName="dofModel.Store.Sp_Busca_Conv_Compranet" />
+          <FunctionImportMapping FunctionImportName="Sp_Buscador" FunctionName="dofModel.Store.Sp_Buscador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.Sp_Buscador_Result">
+                <ScalarProperty Name="gob_nombre" ColumnName="gob_nombre" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dofModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dofModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dofModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dofModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dofModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="Sps_Buscador" FunctionName="dofModel.Store.Sps_Buscador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.Sps_Buscador_Result">
+                <ScalarProperty Name="secc_id" ColumnName="secc_id" />
+                <ScalarProperty Name="gob_nombre" ColumnName="gob_nombre" />
+                <ScalarProperty Name="parr_id" ColumnName="parr_id" />
+                <ScalarProperty Name="Tema" ColumnName="Tema" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sps_Buscador_Legatek" FunctionName="dofModel.Store.Sps_Buscador_Legatek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.Sps_Buscador_Legatek_Result">
+                <ScalarProperty Name="secc_id" ColumnName="secc_id" />
+                <ScalarProperty Name="gob_nombre" ColumnName="gob_nombre" />
+                <ScalarProperty Name="parr_id" ColumnName="parr_id" />
+                <ScalarProperty Name="Tema" ColumnName="Tema" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_contenido" FunctionName="dofModel.Store.sps_contenido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_contenido_Result">
+                <ScalarProperty Name="gob_nombre" ColumnName="gob_nombre" />
+                <ScalarProperty Name="ind_parrafo" ColumnName="ind_parrafo" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPS_Conv_Compranet_Fecha_Dependencia" FunctionName="dofModel.Store.SPS_Conv_Compranet_Fecha_Dependencia" />
+          <FunctionImportMapping FunctionImportName="Sps_destacado" FunctionName="dofModel.Store.Sps_destacado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.Sps_destacado_Result">
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="parr_Texto" ColumnName="parr_Texto" />
+                <ScalarProperty Name="parr_orden" ColumnName="parr_orden" />
+                <ScalarProperty Name="gob_clave" ColumnName="gob_clave" />
+                <ScalarProperty Name="gob_clave_LG" ColumnName="gob_clave_LG" />
+                <ScalarProperty Name="secc_id" ColumnName="secc_id" />
+                <ScalarProperty Name="ed_id" ColumnName="ed_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Diario" FunctionName="dofModel.Store.sps_Diario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Diario_Result">
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="bvespertina" ColumnName="bvespertina" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Diario_InMonth" FunctionName="dofModel.Store.sps_Diario_InMonth" />
+          <FunctionImportMapping FunctionImportName="sps_Diario_Months" FunctionName="dofModel.Store.sps_Diario_Months">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Diario_Months_Result">
+                <ScalarProperty Name="id_Month" ColumnName="id_Month" />
+                <ScalarProperty Name="Name_Month" ColumnName="Name_Month" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Diario_TheLast" FunctionName="dofModel.Store.sps_Diario_TheLast" />
+          <FunctionImportMapping FunctionImportName="sps_Diario_Years" FunctionName="dofModel.Store.sps_Diario_Years" />
+          <FunctionImportMapping FunctionImportName="sps_Edicion_Vespertina" FunctionName="dofModel.Store.sps_Edicion_Vespertina">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Edicion_Vespertina_Result">
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="do_Year" ColumnName="do_Year" />
+                <ScalarProperty Name="Do_Month" ColumnName="Do_Month" />
+                <ScalarProperty Name="do_Day" ColumnName="do_Day" />
+                <ScalarProperty Name="ed_id" ColumnName="ed_id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+                <ScalarProperty Name="do_Activo" ColumnName="do_Activo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_GetDiariosXMesAnio" FunctionName="dofModel.Store.sps_GetDiariosXMesAnio" />
+          <FunctionImportMapping FunctionImportName="sps_Gobierno" FunctionName="dofModel.Store.sps_Gobierno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Gobierno_Result">
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Gobierno_Alerta_web" FunctionName="dofModel.Store.sps_Gobierno_Alerta_web">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Gobierno_Alerta_web_Result">
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Publicacion" FunctionName="dofModel.Store.sps_Publicacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Publicacion_Result">
+                <ScalarProperty Name="do_Id" ColumnName="do_Id" />
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="do_Year" ColumnName="do_Year" />
+                <ScalarProperty Name="do_Month" ColumnName="do_Month" />
+                <ScalarProperty Name="do_MonthText" ColumnName="do_MonthText" />
+                <ScalarProperty Name="do_Day" ColumnName="do_Day" />
+                <ScalarProperty Name="do_Activo" ColumnName="do_Activo" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+                <ScalarProperty Name="ed_Nombre" ColumnName="ed_Nombre" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="pod_Id" ColumnName="pod_Id" />
+                <ScalarProperty Name="pod_Nombre" ColumnName="pod_Nombre" />
+                <ScalarProperty Name="pod_Orden" ColumnName="pod_Orden" />
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="ind_Orden" ColumnName="ind_Orden" />
+                <ScalarProperty Name="ind_Parrafo" ColumnName="ind_Parrafo" />
+                <ScalarProperty Name="parr_Id" ColumnName="parr_Id" />
+                <ScalarProperty Name="parr_Texto" ColumnName="parr_Texto" />
+                <ScalarProperty Name="parr_Pagina" ColumnName="parr_Pagina" />
+                <ScalarProperty Name="parr_Orden" ColumnName="parr_Orden" />
+                <ScalarProperty Name="gob_clave_LG" ColumnName="gob_clave_LG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Publicacion_Sec" FunctionName="dofModel.Store.sps_Publicacion_Sec">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dofModel.sps_Publicacion_Sec_Result">
+                <ScalarProperty Name="do_Fecha" ColumnName="do_Fecha" />
+                <ScalarProperty Name="gob_Id" ColumnName="gob_Id" />
+                <ScalarProperty Name="gob_Clave" ColumnName="gob_Clave" />
+                <ScalarProperty Name="gob_Nombre" ColumnName="gob_Nombre" />
+                <ScalarProperty Name="parr_Id" ColumnName="parr_Id" />
+                <ScalarProperty Name="parr_Orden" ColumnName="parr_Orden" />
+                <ScalarProperty Name="secc_Id" ColumnName="secc_Id" />
+                <ScalarProperty Name="secc_Nombre" ColumnName="secc_Nombre" />
+                <ScalarProperty Name="ed_Id" ColumnName="ed_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

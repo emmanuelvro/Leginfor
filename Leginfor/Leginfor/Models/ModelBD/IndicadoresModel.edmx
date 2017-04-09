@@ -1,0 +1,1794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="indicadoresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cal_t_art_167">
+          <Key>
+            <PropertyRef Name="Id_167" />
+          </Key>
+          <Property Name="Id_167" Type="int" Nullable="false" />
+          <Property Name="minimo" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="maximo" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="basica" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="anual" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_imss">
+          <Key>
+            <PropertyRef Name="Id_imss" />
+          </Key>
+          <Property Name="Id_imss" Type="int" Nullable="false" />
+          <Property Name="Ano" Type="int" Nullable="false" />
+          <Property Name="P_1_1" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_1" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_1_2_a" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_2_a" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="P_1_2_b" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_2_b" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_1_1_1" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_1_1" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_2" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_2" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_3" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_3" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_4" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_4" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_5" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_5" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_6" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_6" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr">
+          <Key>
+            <PropertyRef Name="id_isr" />
+          </Key>
+          <Property Name="id_isr" Type="int" Nullable="false" />
+          <Property Name="id_periodo" Type="int" Nullable="false" />
+          <Property Name="id_fecha" Type="int" Nullable="false" />
+          <Property Name="inferior" Type="money" Nullable="false" />
+          <Property Name="superior" Type="money" Nullable="false" />
+          <Property Name="fija" Type="money" Nullable="false" />
+          <Property Name="excedente" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_fecha">
+          <Key>
+            <PropertyRef Name="id_fec" />
+          </Key>
+          <Property Name="id_fec" Type="int" Nullable="false" />
+          <Property Name="fecha_inicio" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_new">
+          <Key>
+            <PropertyRef Name="id_isr" />
+          </Key>
+          <Property Name="id_isr" Type="int" Nullable="false" />
+          <Property Name="id_periodo" Type="int" Nullable="false" />
+          <Property Name="id_fecha" Type="int" Nullable="false" />
+          <Property Name="inferior" Type="money" Nullable="false" />
+          <Property Name="superior" Type="money" Nullable="false" />
+          <Property Name="fija" Type="money" Nullable="false" />
+          <Property Name="excedente" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_subsidio">
+          <Key>
+            <PropertyRef Name="id_subsidio" />
+          </Key>
+          <Property Name="id_subsidio" Type="int" Nullable="false" />
+          <Property Name="id_fecha" Type="int" Nullable="false" />
+          <Property Name="id_periodo" Type="int" Nullable="false" />
+          <Property Name="inferior" Type="money" Nullable="false" />
+          <Property Name="superior" Type="money" Nullable="false" />
+          <Property Name="subsidio" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_limite">
+          <Key>
+            <PropertyRef Name="Id_limite" />
+          </Key>
+          <Property Name="Id_limite" Type="int" Nullable="false" />
+          <Property Name="Fec_Ini" Type="smalldatetime" Nullable="false" />
+          <Property Name="Frac_I" Type="money" Nullable="false" />
+          <Property Name="Frac_II" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="int" Nullable="false" />
+          <Property Name="Periodo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dias" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_tipo">
+          <Key>
+            <PropertyRef Name="Id_Tipo" />
+          </Key>
+          <Property Name="Id_Tipo" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_topes">
+          <Key>
+            <PropertyRef Name="Id_Tope" />
+          </Key>
+          <Property Name="Id_Tope" Type="int" Nullable="false" />
+          <Property Name="Id_Tipo" Type="int" Nullable="false" />
+          <Property Name="fec_ini" Type="smalldatetime" Nullable="false" />
+          <Property Name="valor" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CALCULADORA_CAT_INPC">
+          <Key>
+            <PropertyRef Name="INPC_ID" />
+          </Key>
+          <Property Name="INPC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MES_ID" Type="int" />
+          <Property Name="ANIO" Type="int" Nullable="false" />
+          <Property Name="VALOR" Type="float" Nullable="false" />
+          <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
+          <Property Name="FECHA_BAJA" Type="datetime" />
+          <Property Name="ACTIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CALCULADORA_CAT_MES">
+          <Key>
+            <PropertyRef Name="MES_ID" />
+          </Key>
+          <Property Name="MES_ID" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DESC_CORTA" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ORDEN" Type="smallint" Nullable="false" />
+          <Property Name="ACTIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'indicadores.dbo.Equivalencias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Equivalencias">
+          <Key>
+            <PropertyRef Name="apli_Mes" />
+            <PropertyRef Name="apli_Year" />
+            <PropertyRef Name="equ_Fecha" />
+            <PropertyRef Name="equ_Pais" />
+            <PropertyRef Name="equ_Moneda" />
+            <PropertyRef Name="equ_Valor" />
+          </Key>
+          <Property Name="apli_Mes" Type="int" Nullable="false" />
+          <Property Name="apli_Year" Type="int" Nullable="false" />
+          <Property Name="equ_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="equ_Pais" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="equ_Moneda" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="equ_Valor" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'indicadores.dbo.Equivalencias_moneda' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Equivalencias_moneda">
+          <Key>
+            <PropertyRef Name="Id_Moneda" />
+            <PropertyRef Name="equ_Pais" />
+            <PropertyRef Name="equ_Moneda" />
+          </Key>
+          <Property Name="Id_Moneda" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="equ_Pais" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="equ_Moneda" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indicador">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="ind_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ind_Corto" Type="char" MaxLength="20" />
+          <Property Name="ind_Largo" Type="varchar" MaxLength="300" />
+          <Property Name="ind_Dato1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ind_Dato2" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato3" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato4" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato5" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato6" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Importe" Type="bit" Nullable="false" />
+          <Property Name="ind_Porcentaje" Type="bit" Nullable="false" />
+          <Property Name="ind_Decimales" Type="int" Nullable="false" />
+          <Property Name="ind_Scroll" Type="bit" Nullable="false" />
+          <Property Name="ind_Valor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="tab_Id" Type="int" Nullable="false" />
+          <Property Name="ind_Activo" Type="bit" Nullable="false" />
+          <Property Name="Valida_Fecha" Type="bit" Nullable="false" />
+          <Property Name="formato" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="int" Nullable="false" />
+          <Property Name="per_Name" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="per_Activo" Type="bit" Nullable="false" />
+          <Property Name="tpo_Id" Type="int" Nullable="false" />
+          <Property Name="Corto" Type="char" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'indicadores.dbo.t_moneda' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="t_moneda">
+          <Key>
+            <PropertyRef Name="Id_Moneda" />
+            <PropertyRef Name="Pais" />
+          </Key>
+          <Property Name="Id_Moneda" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'indicadores.dbo.t_paridades_test' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="t_paridades_test">
+          <Key>
+            <PropertyRef Name="Id_Monedad_Test" />
+            <PropertyRef Name="Fecha_Test" />
+            <PropertyRef Name="Paridad_Test" />
+          </Key>
+          <Property Name="Id_Monedad_Test" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Fecha_Test" Type="datetime" Nullable="false" />
+          <Property Name="Paridad_Test" Type="money" Nullable="false" />
+          <Property Name="Fijo_Test" Type="bit" />
+        </EntityType>
+        <EntityType Name="Valor">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="val_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="val_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="val_Fecha_Alta" Type="datetime" Nullable="false" />
+          <Property Name="val_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="val_Dato1" Type="float" Nullable="false" />
+          <Property Name="val_Dato2" Type="float" Nullable="false" />
+          <Property Name="val_Dato3" Type="float" Nullable="false" />
+          <Property Name="val_Dato4" Type="float" Nullable="false" />
+          <Property Name="val_Dato5" Type="float" Nullable="false" />
+          <Property Name="val_Dato6" Type="float" Nullable="false" />
+          <Property Name="per_Id1" Type="int" Nullable="false" />
+          <Property Name="per_Id2" Type="int" Nullable="false" />
+          <Property Name="apli_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'indicadores.dbo.cnsIndicador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="cnsIndicador">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="ind_Nombre" />
+            <PropertyRef Name="ind_Dato1" />
+            <PropertyRef Name="ind_Importe" />
+            <PropertyRef Name="ind_Porcentaje" />
+            <PropertyRef Name="ind_Decimales" />
+            <PropertyRef Name="ind_Scroll" />
+            <PropertyRef Name="ind_Valor" />
+            <PropertyRef Name="ind_Activo" />
+            <PropertyRef Name="tab_Id" />
+            <PropertyRef Name="tab_Nombre" />
+            <PropertyRef Name="val_Id" />
+            <PropertyRef Name="val_Fecha" />
+            <PropertyRef Name="val_MonthText" />
+            <PropertyRef Name="val_Dato1" />
+            <PropertyRef Name="val_Dato2" />
+            <PropertyRef Name="val_Dato3" />
+            <PropertyRef Name="val_Dato4" />
+            <PropertyRef Name="val_Dato5" />
+            <PropertyRef Name="val_Dato6" />
+            <PropertyRef Name="apli_Id" />
+            <PropertyRef Name="val_Aplicar" />
+            <PropertyRef Name="val_MesTexto" />
+            <PropertyRef Name="per_Year" />
+            <PropertyRef Name="formato" />
+          </Key>
+          <Property Name="ind_Id" Type="int" Nullable="false" />
+          <Property Name="ind_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ind_Corto" Type="char" MaxLength="15" />
+          <Property Name="ind_Largo" Type="varchar" MaxLength="300" />
+          <Property Name="ind_Dato1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ind_Dato2" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato3" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Dato4" Type="varchar" MaxLength="100" />
+          <Property Name="ind_Importe" Type="bit" Nullable="false" />
+          <Property Name="ind_Porcentaje" Type="bit" Nullable="false" />
+          <Property Name="ind_Decimales" Type="int" Nullable="false" />
+          <Property Name="ind_Scroll" Type="bit" Nullable="false" />
+          <Property Name="ind_Valor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Activo" Type="bit" Nullable="false" />
+          <Property Name="tab_Id" Type="int" Nullable="false" />
+          <Property Name="tab_Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="val_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="val_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="val_Day" Type="int" />
+          <Property Name="val_Month" Type="int" />
+          <Property Name="val_MonthText" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="val_Year" Type="int" />
+          <Property Name="val_Dato1" Type="float" Nullable="false" />
+          <Property Name="val_Dato2" Type="float" Nullable="false" />
+          <Property Name="val_Dato3" Type="float" Nullable="false" />
+          <Property Name="val_Dato4" Type="float" Nullable="false" />
+          <Property Name="val_Dato5" Type="float" Nullable="false" />
+          <Property Name="val_Dato6" Type="float" Nullable="false" />
+          <Property Name="apli_Id" Type="int" Nullable="false" />
+          <Property Name="val_Aplicar" Type="int" Nullable="false" />
+          <Property Name="val_MesTexto" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="val_MesCorto" Type="char" MaxLength="10" />
+          <Property Name="per_Year" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="formato" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CALCULAD_RELATIONS_CALCULAD">
+          <End Role="CALCULADORA_CAT_MES" Type="Self.CALCULADORA_CAT_MES" Multiplicity="0..1" />
+          <End Role="CALCULADORA_CAT_INPC" Type="Self.CALCULADORA_CAT_INPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALCULADORA_CAT_MES">
+              <PropertyRef Name="MES_ID" />
+            </Principal>
+            <Dependent Role="CALCULADORA_CAT_INPC">
+              <PropertyRef Name="MES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Valor_Indicador">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="1" />
+          <End Role="Valor" Type="Self.Valor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ind_Id" />
+            </Principal>
+            <Dependent Role="Valor">
+              <PropertyRef Name="ind_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MES_ANTERIOR" Type="int" Mode="In" />
+          <Parameter Name="ANIO_ANTERIOR" Type="int" Mode="In" />
+          <Parameter Name="DIA_ACTUAL" Type="int" Mode="In" />
+          <Parameter Name="MES_ACTUAL" Type="int" Mode="In" />
+          <Parameter Name="ANIO_ACTUAL" Type="int" Mode="In" />
+          <Parameter Name="IMPUESTO" Type="float" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_importarparidades_test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpParidad_det" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="M1" Type="char" Mode="In" />
+          <Parameter Name="M2" Type="char" Mode="In" />
+          <Parameter Name="Monto" Type="numeric" Mode="In" />
+          <Parameter Name="Fecha" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SpParidades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="M1" Type="char" Mode="In" />
+          <Parameter Name="M2" Type="char" Mode="In" />
+          <Parameter Name="Monto" Type="numeric" Mode="In" />
+          <Parameter Name="Fecha" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SpParidades_Equivalencias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="M1" Type="char" Mode="In" />
+          <Parameter Name="M2" Type="char" Mode="In" />
+          <Parameter Name="Monto" Type="numeric" Mode="In" />
+          <Parameter Name="Fecha" Type="char" Mode="In" />
+          <Parameter Name="eqva" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="sps_calculadora_aguinaldo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CuotaDiaria" Type="money" Mode="In" />
+          <Parameter Name="FechaIngreso" Type="datetime" Mode="In" />
+          <Parameter Name="DiasAguinaldo" Type="int" Mode="In" />
+          <Parameter Name="DiasExension" Type="int" Mode="In" />
+          <Parameter Name="ZONA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sps_calculadora_finiquito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalarioCuotaDiaria" Type="money" Mode="In" />
+          <Parameter Name="Zona" Type="varchar" Mode="In" />
+          <Parameter Name="FechaIngreso" Type="datetime" Mode="In" />
+          <Parameter Name="FechaRenuncia" Type="datetime" Mode="In" />
+          <Parameter Name="DiasVacacionesAnioRenuncia" Type="int" Mode="In" />
+          <Parameter Name="DiasVacacionesPendientesPeriodosAnteriores" Type="int" Mode="In" />
+          <Parameter Name="DiasPagarPrimaAntiguedad" Type="int" Mode="In" />
+          <Parameter Name="SalariosDevengados" Type="money" Mode="In" />
+          <Parameter Name="OtrosIngresosPendientes" Type="money" Mode="In" />
+          <Parameter Name="OtrosIngresosExentosPendientes" Type="money" Mode="In" />
+          <Parameter Name="IsrRetenido" Type="money" Mode="In" />
+          <Parameter Name="IngresosGravadosPagadosMismoMesLosCualesRetuvoIsr" Type="money" Mode="In" />
+        </Function>
+        <Function Name="sps_Equivalencias_Mes_Year" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="apli_mes" Type="varchar" Mode="In" />
+          <Parameter Name="apli_Year" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sps_Indicador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Indicador_Tipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Indicador_Ultimos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_indicador_WS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="val_fecha" Type="varchar" Mode="In" />
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_indicadores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Scroll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_tt_Tabla_web" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="año_Id" Type="int" Mode="In" />
+          <Parameter Name="Tex_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_tt_Tablas_web" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sps_Valor_Listado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="per_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sps_Valor_Listado_Ultimos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Valor_Years" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sps_Valores_Meses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ind_Id" Type="int" Mode="In" />
+          <Parameter Name="Año" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="indicadoresModelStoreContainer">
+          <EntitySet Name="cal_t_art_167" EntityType="Self.cal_t_art_167" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_imss" EntityType="Self.cal_t_imss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_isr" EntityType="Self.cal_t_isr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_isr_fecha" EntityType="Self.cal_t_isr_fecha" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_isr_new" EntityType="Self.cal_t_isr_new" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_isr_subsidio" EntityType="Self.cal_t_isr_subsidio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_limite" EntityType="Self.cal_t_limite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_periodo" EntityType="Self.cal_t_periodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_tipo" EntityType="Self.cal_t_tipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_t_topes" EntityType="Self.cal_t_topes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CALCULADORA_CAT_INPC" EntityType="Self.CALCULADORA_CAT_INPC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CALCULADORA_CAT_MES" EntityType="Self.CALCULADORA_CAT_MES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indicador" EntityType="Self.Indicador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodo" EntityType="Self.Periodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Valor" EntityType="Self.Valor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equivalencias" EntityType="Self.Equivalencias" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Equivalencias].[apli_Mes] AS [apli_Mes], 
+    [Equivalencias].[apli_Year] AS [apli_Year], 
+    [Equivalencias].[equ_Fecha] AS [equ_Fecha], 
+    [Equivalencias].[equ_Pais] AS [equ_Pais], 
+    [Equivalencias].[equ_Moneda] AS [equ_Moneda], 
+    [Equivalencias].[equ_Valor] AS [equ_Valor]
+    FROM [dbo].[Equivalencias] AS [Equivalencias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Equivalencias_moneda" EntityType="Self.Equivalencias_moneda" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Equivalencias_moneda].[Id_Moneda] AS [Id_Moneda], 
+    [Equivalencias_moneda].[equ_Pais] AS [equ_Pais], 
+    [Equivalencias_moneda].[equ_Moneda] AS [equ_Moneda]
+    FROM [dbo].[Equivalencias_moneda] AS [Equivalencias_moneda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="t_moneda" EntityType="Self.t_moneda" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [t_moneda].[Id_Moneda] AS [Id_Moneda], 
+    [t_moneda].[Pais] AS [Pais]
+    FROM [dbo].[t_moneda] AS [t_moneda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="t_paridades_test" EntityType="Self.t_paridades_test" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [t_paridades_test].[Id_Monedad_Test] AS [Id_Monedad_Test], 
+    [t_paridades_test].[Fecha_Test] AS [Fecha_Test], 
+    [t_paridades_test].[Paridad_Test] AS [Paridad_Test], 
+    [t_paridades_test].[Fijo_Test] AS [Fijo_Test]
+    FROM [dbo].[t_paridades_test] AS [t_paridades_test]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cnsIndicador" EntityType="Self.cnsIndicador" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cnsIndicador].[ind_Id] AS [ind_Id], 
+    [cnsIndicador].[ind_Nombre] AS [ind_Nombre], 
+    [cnsIndicador].[ind_Corto] AS [ind_Corto], 
+    [cnsIndicador].[ind_Largo] AS [ind_Largo], 
+    [cnsIndicador].[ind_Dato1] AS [ind_Dato1], 
+    [cnsIndicador].[ind_Dato2] AS [ind_Dato2], 
+    [cnsIndicador].[ind_Dato3] AS [ind_Dato3], 
+    [cnsIndicador].[ind_Dato4] AS [ind_Dato4], 
+    [cnsIndicador].[ind_Importe] AS [ind_Importe], 
+    [cnsIndicador].[ind_Porcentaje] AS [ind_Porcentaje], 
+    [cnsIndicador].[ind_Decimales] AS [ind_Decimales], 
+    [cnsIndicador].[ind_Scroll] AS [ind_Scroll], 
+    [cnsIndicador].[ind_Valor] AS [ind_Valor], 
+    [cnsIndicador].[ind_Activo] AS [ind_Activo], 
+    [cnsIndicador].[tab_Id] AS [tab_Id], 
+    [cnsIndicador].[tab_Nombre] AS [tab_Nombre], 
+    [cnsIndicador].[val_Id] AS [val_Id], 
+    [cnsIndicador].[val_Fecha] AS [val_Fecha], 
+    [cnsIndicador].[val_Day] AS [val_Day], 
+    [cnsIndicador].[val_Month] AS [val_Month], 
+    [cnsIndicador].[val_MonthText] AS [val_MonthText], 
+    [cnsIndicador].[val_Year] AS [val_Year], 
+    [cnsIndicador].[val_Dato1] AS [val_Dato1], 
+    [cnsIndicador].[val_Dato2] AS [val_Dato2], 
+    [cnsIndicador].[val_Dato3] AS [val_Dato3], 
+    [cnsIndicador].[val_Dato4] AS [val_Dato4], 
+    [cnsIndicador].[val_Dato5] AS [val_Dato5], 
+    [cnsIndicador].[val_Dato6] AS [val_Dato6], 
+    [cnsIndicador].[apli_Id] AS [apli_Id], 
+    [cnsIndicador].[val_Aplicar] AS [val_Aplicar], 
+    [cnsIndicador].[val_MesTexto] AS [val_MesTexto], 
+    [cnsIndicador].[val_MesCorto] AS [val_MesCorto], 
+    [cnsIndicador].[per_Year] AS [per_Year], 
+    [cnsIndicador].[formato] AS [formato]
+    FROM [dbo].[cnsIndicador] AS [cnsIndicador]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CALCULAD_RELATIONS_CALCULAD" Association="Self.FK_CALCULAD_RELATIONS_CALCULAD">
+            <End Role="CALCULADORA_CAT_MES" EntitySet="CALCULADORA_CAT_MES" />
+            <End Role="CALCULADORA_CAT_INPC" EntitySet="CALCULADORA_CAT_INPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Valor_Indicador" Association="Self.FK_Valor_Indicador">
+            <End Role="Indicador" EntitySet="Indicador" />
+            <End Role="Valor" EntitySet="Valor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="indicadoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cal_t_art_167">
+          <Key>
+            <PropertyRef Name="Id_167" />
+          </Key>
+          <Property Name="Id_167" Type="Int32" Nullable="false" />
+          <Property Name="minimo" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="maximo" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="basica" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="anual" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_imss">
+          <Key>
+            <PropertyRef Name="Id_imss" />
+          </Key>
+          <Property Name="Id_imss" Type="Int32" Nullable="false" />
+          <Property Name="Ano" Type="Int32" Nullable="false" />
+          <Property Name="P_1_1" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_1" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_1_2_a" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_2_a" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="P_1_2_b" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_2_b" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_1_1_1" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_1_1_1" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_2" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_2" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_3" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_3" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_4" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_4" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_5" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_5" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="P_6" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="A_6" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr">
+          <Key>
+            <PropertyRef Name="id_isr" />
+          </Key>
+          <Property Name="id_isr" Type="Int32" Nullable="false" />
+          <Property Name="id_periodo" Type="Int32" Nullable="false" />
+          <Property Name="id_fecha" Type="Int32" Nullable="false" />
+          <Property Name="inferior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="superior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="fija" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="excedente" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_fecha">
+          <Key>
+            <PropertyRef Name="id_fec" />
+          </Key>
+          <Property Name="id_fec" Type="Int32" Nullable="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_new">
+          <Key>
+            <PropertyRef Name="id_isr" />
+          </Key>
+          <Property Name="id_isr" Type="Int32" Nullable="false" />
+          <Property Name="id_periodo" Type="Int32" Nullable="false" />
+          <Property Name="id_fecha" Type="Int32" Nullable="false" />
+          <Property Name="inferior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="superior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="fija" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="excedente" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_isr_subsidio">
+          <Key>
+            <PropertyRef Name="id_subsidio" />
+          </Key>
+          <Property Name="id_subsidio" Type="Int32" Nullable="false" />
+          <Property Name="id_fecha" Type="Int32" Nullable="false" />
+          <Property Name="id_periodo" Type="Int32" Nullable="false" />
+          <Property Name="inferior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="superior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="subsidio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_limite">
+          <Key>
+            <PropertyRef Name="Id_limite" />
+          </Key>
+          <Property Name="Id_limite" Type="Int32" Nullable="false" />
+          <Property Name="Fec_Ini" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Frac_I" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Frac_II" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="Int32" Nullable="false" />
+          <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dias" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_tipo">
+          <Key>
+            <PropertyRef Name="Id_Tipo" />
+          </Key>
+          <Property Name="Id_Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cal_t_topes">
+          <Key>
+            <PropertyRef Name="Id_Tope" />
+          </Key>
+          <Property Name="Id_Tope" Type="Int32" Nullable="false" />
+          <Property Name="Id_Tipo" Type="Int32" Nullable="false" />
+          <Property Name="fec_ini" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="valor" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CALCULADORA_CAT_INPC">
+          <Key>
+            <PropertyRef Name="INPC_ID" />
+          </Key>
+          <Property Name="INPC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MES_ID" Type="Int32" />
+          <Property Name="ANIO" Type="Int32" Nullable="false" />
+          <Property Name="VALOR" Type="Double" Nullable="false" />
+          <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHA_BAJA" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CALCULADORA_CAT_MES" Relationship="Self.FK_CALCULAD_RELATIONS_CALCULAD" FromRole="CALCULADORA_CAT_INPC" ToRole="CALCULADORA_CAT_MES" />
+        </EntityType>
+        <EntityType Name="CALCULADORA_CAT_MES">
+          <Key>
+            <PropertyRef Name="MES_ID" />
+          </Key>
+          <Property Name="MES_ID" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESC_CORTA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ORDEN" Type="Int16" Nullable="false" />
+          <Property Name="ACTIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CALCULADORA_CAT_INPC" Relationship="Self.FK_CALCULAD_RELATIONS_CALCULAD" FromRole="CALCULADORA_CAT_MES" ToRole="CALCULADORA_CAT_INPC" />
+        </EntityType>
+        <EntityType Name="Indicador">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="ind_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Corto" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="ind_Largo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Dato2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Importe" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Porcentaje" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Decimales" Type="Int32" Nullable="false" />
+          <Property Name="ind_Scroll" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Valor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="tab_Id" Type="Int32" Nullable="false" />
+          <Property Name="ind_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Valida_Fecha" Type="Boolean" Nullable="false" />
+          <Property Name="formato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Valor" Relationship="Self.FK_Valor_Indicador" FromRole="Indicador" ToRole="Valor" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="Int32" Nullable="false" />
+          <Property Name="per_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="per_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="tpo_Id" Type="Int32" Nullable="false" />
+          <Property Name="Corto" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Valor">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="val_Id" />
+          </Key>
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="val_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="val_Fecha_Alta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="val_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="val_Dato1" Type="Double" Nullable="false" />
+          <Property Name="val_Dato2" Type="Double" Nullable="false" />
+          <Property Name="val_Dato3" Type="Double" Nullable="false" />
+          <Property Name="val_Dato4" Type="Double" Nullable="false" />
+          <Property Name="val_Dato5" Type="Double" Nullable="false" />
+          <Property Name="val_Dato6" Type="Double" Nullable="false" />
+          <Property Name="per_Id1" Type="Int32" Nullable="false" />
+          <Property Name="per_Id2" Type="Int32" Nullable="false" />
+          <Property Name="apli_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Indicador" Relationship="Self.FK_Valor_Indicador" FromRole="Valor" ToRole="Indicador" />
+        </EntityType>
+        <EntityType Name="Equivalencias">
+          <Key>
+            <PropertyRef Name="apli_Mes" />
+            <PropertyRef Name="apli_Year" />
+            <PropertyRef Name="equ_Fecha" />
+            <PropertyRef Name="equ_Pais" />
+            <PropertyRef Name="equ_Moneda" />
+            <PropertyRef Name="equ_Valor" />
+          </Key>
+          <Property Name="apli_Mes" Type="Int32" Nullable="false" />
+          <Property Name="apli_Year" Type="Int32" Nullable="false" />
+          <Property Name="equ_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="equ_Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="equ_Moneda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="equ_Valor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equivalencias_moneda">
+          <Key>
+            <PropertyRef Name="Id_Moneda" />
+            <PropertyRef Name="equ_Pais" />
+            <PropertyRef Name="equ_Moneda" />
+          </Key>
+          <Property Name="Id_Moneda" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="equ_Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="equ_Moneda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_moneda">
+          <Key>
+            <PropertyRef Name="Id_Moneda" />
+            <PropertyRef Name="Pais" />
+          </Key>
+          <Property Name="Id_Moneda" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_paridades_test">
+          <Key>
+            <PropertyRef Name="Id_Monedad_Test" />
+            <PropertyRef Name="Fecha_Test" />
+            <PropertyRef Name="Paridad_Test" />
+          </Key>
+          <Property Name="Id_Monedad_Test" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Test" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Paridad_Test" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Fijo_Test" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="cnsIndicador">
+          <Key>
+            <PropertyRef Name="ind_Id" />
+            <PropertyRef Name="ind_Nombre" />
+            <PropertyRef Name="ind_Dato1" />
+            <PropertyRef Name="ind_Importe" />
+            <PropertyRef Name="ind_Porcentaje" />
+            <PropertyRef Name="ind_Decimales" />
+            <PropertyRef Name="ind_Scroll" />
+            <PropertyRef Name="ind_Valor" />
+            <PropertyRef Name="ind_Activo" />
+            <PropertyRef Name="tab_Id" />
+            <PropertyRef Name="tab_Nombre" />
+            <PropertyRef Name="val_Id" />
+            <PropertyRef Name="val_Fecha" />
+            <PropertyRef Name="val_MonthText" />
+            <PropertyRef Name="val_Dato1" />
+            <PropertyRef Name="val_Dato2" />
+            <PropertyRef Name="val_Dato3" />
+            <PropertyRef Name="val_Dato4" />
+            <PropertyRef Name="val_Dato5" />
+            <PropertyRef Name="val_Dato6" />
+            <PropertyRef Name="apli_Id" />
+            <PropertyRef Name="val_Aplicar" />
+            <PropertyRef Name="val_MesTexto" />
+            <PropertyRef Name="per_Year" />
+            <PropertyRef Name="formato" />
+          </Key>
+          <Property Name="ind_Id" Type="Int32" Nullable="false" />
+          <Property Name="ind_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Corto" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="ind_Largo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ind_Dato2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Dato4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ind_Importe" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Porcentaje" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Decimales" Type="Int32" Nullable="false" />
+          <Property Name="ind_Scroll" Type="Boolean" Nullable="false" />
+          <Property Name="ind_Valor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ind_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="tab_Id" Type="Int32" Nullable="false" />
+          <Property Name="tab_Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="val_Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="val_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="val_Day" Type="Int32" />
+          <Property Name="val_Month" Type="Int32" />
+          <Property Name="val_MonthText" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="val_Year" Type="Int32" />
+          <Property Name="val_Dato1" Type="Double" Nullable="false" />
+          <Property Name="val_Dato2" Type="Double" Nullable="false" />
+          <Property Name="val_Dato3" Type="Double" Nullable="false" />
+          <Property Name="val_Dato4" Type="Double" Nullable="false" />
+          <Property Name="val_Dato5" Type="Double" Nullable="false" />
+          <Property Name="val_Dato6" Type="Double" Nullable="false" />
+          <Property Name="apli_Id" Type="Int32" Nullable="false" />
+          <Property Name="val_Aplicar" Type="Int32" Nullable="false" />
+          <Property Name="val_MesTexto" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="val_MesCorto" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="per_Year" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="formato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CALCULAD_RELATIONS_CALCULAD">
+          <End Role="CALCULADORA_CAT_MES" Type="Self.CALCULADORA_CAT_MES" Multiplicity="0..1" />
+          <End Role="CALCULADORA_CAT_INPC" Type="Self.CALCULADORA_CAT_INPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALCULADORA_CAT_MES">
+              <PropertyRef Name="MES_ID" />
+            </Principal>
+            <Dependent Role="CALCULADORA_CAT_INPC">
+              <PropertyRef Name="MES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Valor_Indicador">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="1" />
+          <End Role="Valor" Type="Self.Valor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ind_Id" />
+            </Principal>
+            <Dependent Role="Valor">
+              <PropertyRef Name="ind_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="indicadoresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cal_t_art_167" EntityType="Self.cal_t_art_167" />
+          <EntitySet Name="cal_t_imss" EntityType="Self.cal_t_imss" />
+          <EntitySet Name="cal_t_isr" EntityType="Self.cal_t_isr" />
+          <EntitySet Name="cal_t_isr_fecha" EntityType="Self.cal_t_isr_fecha" />
+          <EntitySet Name="cal_t_isr_new" EntityType="Self.cal_t_isr_new" />
+          <EntitySet Name="cal_t_isr_subsidio" EntityType="Self.cal_t_isr_subsidio" />
+          <EntitySet Name="cal_t_limite" EntityType="Self.cal_t_limite" />
+          <EntitySet Name="cal_t_periodo" EntityType="Self.cal_t_periodo" />
+          <EntitySet Name="cal_t_tipo" EntityType="Self.cal_t_tipo" />
+          <EntitySet Name="cal_t_topes" EntityType="Self.cal_t_topes" />
+          <EntitySet Name="CALCULADORA_CAT_INPC" EntityType="Self.CALCULADORA_CAT_INPC" />
+          <EntitySet Name="CALCULADORA_CAT_MES" EntityType="Self.CALCULADORA_CAT_MES" />
+          <EntitySet Name="Indicador" EntityType="Self.Indicador" />
+          <EntitySet Name="Periodo" EntityType="Self.Periodo" />
+          <EntitySet Name="Valor" EntityType="Self.Valor" />
+          <EntitySet Name="Equivalencias" EntityType="Self.Equivalencias" />
+          <EntitySet Name="Equivalencias_moneda" EntityType="Self.Equivalencias_moneda" />
+          <EntitySet Name="t_moneda" EntityType="Self.t_moneda" />
+          <EntitySet Name="t_paridades_test" EntityType="Self.t_paridades_test" />
+          <EntitySet Name="cnsIndicador" EntityType="Self.cnsIndicador" />
+          <AssociationSet Name="FK_CALCULAD_RELATIONS_CALCULAD" Association="Self.FK_CALCULAD_RELATIONS_CALCULAD">
+            <End Role="CALCULADORA_CAT_MES" EntitySet="CALCULADORA_CAT_MES" />
+            <End Role="CALCULADORA_CAT_INPC" EntitySet="CALCULADORA_CAT_INPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Valor_Indicador" Association="Self.FK_Valor_Indicador">
+            <End Role="Indicador" EntitySet="Indicador" />
+            <End Role="Valor" EntitySet="Valor" />
+          </AssociationSet>
+          <FunctionImport Name="CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS" ReturnType="Collection(indicadoresModel.CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS_Result)">
+            <Parameter Name="MES_ANTERIOR" Mode="In" Type="Int32" />
+            <Parameter Name="ANIO_ANTERIOR" Mode="In" Type="Int32" />
+            <Parameter Name="DIA_ACTUAL" Mode="In" Type="Int32" />
+            <Parameter Name="MES_ACTUAL" Mode="In" Type="Int32" />
+            <Parameter Name="ANIO_ACTUAL" Mode="In" Type="Int32" />
+            <Parameter Name="IMPUESTO" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(indicadoresModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(indicadoresModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_importarparidades_test" />
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpParidad_det" ReturnType="Collection(indicadoresModel.SpParidad_det_Result)">
+            <Parameter Name="M1" Mode="In" Type="String" />
+            <Parameter Name="M2" Mode="In" Type="String" />
+            <Parameter Name="Monto" Mode="In" Type="Decimal" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpParidades">
+            <Parameter Name="M1" Mode="In" Type="String" />
+            <Parameter Name="M2" Mode="In" Type="String" />
+            <Parameter Name="Monto" Mode="In" Type="Decimal" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpParidades_Equivalencias">
+            <Parameter Name="M1" Mode="In" Type="String" />
+            <Parameter Name="M2" Mode="In" Type="String" />
+            <Parameter Name="Monto" Mode="In" Type="Decimal" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+            <Parameter Name="eqva" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_calculadora_aguinaldo" ReturnType="Collection(indicadoresModel.sps_calculadora_aguinaldo_Result)">
+            <Parameter Name="CuotaDiaria" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+            <Parameter Name="DiasAguinaldo" Mode="In" Type="Int32" />
+            <Parameter Name="DiasExension" Mode="In" Type="Int32" />
+            <Parameter Name="ZONA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_calculadora_finiquito">
+            <Parameter Name="SalarioCuotaDiaria" Mode="In" Type="Decimal" />
+            <Parameter Name="Zona" Mode="In" Type="String" />
+            <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaRenuncia" Mode="In" Type="DateTime" />
+            <Parameter Name="DiasVacacionesAnioRenuncia" Mode="In" Type="Int32" />
+            <Parameter Name="DiasVacacionesPendientesPeriodosAnteriores" Mode="In" Type="Int32" />
+            <Parameter Name="DiasPagarPrimaAntiguedad" Mode="In" Type="Int32" />
+            <Parameter Name="SalariosDevengados" Mode="In" Type="Decimal" />
+            <Parameter Name="OtrosIngresosPendientes" Mode="In" Type="Decimal" />
+            <Parameter Name="OtrosIngresosExentosPendientes" Mode="In" Type="Decimal" />
+            <Parameter Name="IsrRetenido" Mode="In" Type="Decimal" />
+            <Parameter Name="IngresosGravadosPagadosMismoMesLosCualesRetuvoIsr" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Equivalencias_Mes_Year" ReturnType="Collection(indicadoresModel.sps_Equivalencias_Mes_Year_Result)">
+            <Parameter Name="apli_mes" Mode="In" Type="String" />
+            <Parameter Name="apli_Year" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Indicador" ReturnType="Collection(indicadoresModel.sps_Indicador_Result)" />
+          <FunctionImport Name="sps_Indicador_Tipo" ReturnType="Collection(indicadoresModel.sps_Indicador_Tipo_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Indicador_Ultimos" ReturnType="Collection(indicadoresModel.sps_Indicador_Ultimos_Result)" />
+          <FunctionImport Name="sps_indicador_WS" ReturnType="Collection(indicadoresModel.sps_indicador_WS_Result)">
+            <Parameter Name="val_fecha" Mode="In" Type="String" />
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_indicadores" ReturnType="Collection(indicadoresModel.sps_indicadores_Result)">
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Scroll" />
+          <FunctionImport Name="sps_tt_Tabla_web" ReturnType="Collection(indicadoresModel.sps_tt_Tabla_web_Result)">
+            <Parameter Name="año_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Tex_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_tt_Tablas_web" ReturnType="Collection(indicadoresModel.sps_tt_Tablas_web_Result)" />
+          <FunctionImport Name="sps_Valor_Listado" ReturnType="Collection(indicadoresModel.sps_Valor_Listado_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="per_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Valor_Listado_Ultimos" ReturnType="Collection(indicadoresModel.sps_Valor_Listado_Ultimos_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Valor_Years" ReturnType="Collection(indicadoresModel.sps_Valor_Years_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sps_Valores_Meses" ReturnType="Collection(indicadoresModel.sps_Valores_Meses_Result)">
+            <Parameter Name="ind_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Año" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS_Result">
+          <Property Type="String" Name="MES_ANTERIOR" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="MES_ACTUAL" Nullable="true" MaxLength="51" />
+          <Property Type="Double" Name="INPC1" Nullable="true" />
+          <Property Type="Double" Name="INPC2" Nullable="true" />
+          <Property Type="Double" Name="FACTOR" Nullable="true" />
+          <Property Type="Double" Name="ACTUALIZACION" Nullable="true" />
+          <Property Type="Double" Name="PORC_RECARGOS" Nullable="true" />
+          <Property Type="Double" Name="RECARGOS" Nullable="true" />
+          <Property Type="Double" Name="TOTAL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SpParidad_det_Result">
+          <Property Type="Int32" Name="Column1" Nullable="false" />
+          <Property Type="Int32" Name="Column2" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_calculadora_aguinaldo_Result">
+          <Property Type="Decimal" Name="NETO_PAGAR" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="BaseGravable" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="TopeAguinaldoExcento" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ParteProporcionalAguinaldo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="IsrARetenet" Nullable="true" Precision="19" />
+          <Property Type="Double" Name="SubsicioEmpleo" Nullable="true" />
+          <Property Type="Double" Name="CuotaFija" Nullable="true" />
+          <Property Type="Decimal" Name="LimiteInferior" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ExedenteLimiteInferior" Nullable="true" Precision="19" />
+          <Property Type="Double" Name="PorCientoAplicarseSobreExcedenteLimiteInferior" Nullable="true" />
+          <Property Type="Double" Name="TarifaImpuestoLimiteInferior" Nullable="true" />
+          <Property Type="Int32" Name="DiasLaborados" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sps_Equivalencias_Mes_Year_Result">
+          <Property Type="DateTime" Name="equ_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="apli_Mes" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="apli_Year" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="equ_Pais" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="equ_Moneda" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="equ_Valor" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sps_Indicador_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ind_Largo" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="ind_Dato1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato5" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato6" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="ind_Importe" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="ind_Decimales" Nullable="false" />
+          <Property Type="Int32" Name="tab_Id" Nullable="false" />
+          <Property Type="String" Name="Formato" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sps_Indicador_Tipo_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Corto" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ind_Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ind_Largo" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="ind_Dato1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato5" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato6" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="ind_Importe" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="ind_Decimales" Nullable="false" />
+          <Property Type="Int32" Name="tab_Id" Nullable="false" />
+          <Property Type="String" Name="Formato" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sps_Indicador_Ultimos_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Nombre" Nullable="true" MaxLength="16" />
+          <Property Type="String" Name="ind_corto" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="ind_Fecha" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="ind_Valor" Nullable="true" />
+          <Property Type="Boolean" Name="ind_Importe" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="ind_Decimales" Nullable="false" />
+          <Property Type="String" Name="Formato" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="aplica" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="aplica2" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="ind_Scroll" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_indicador_WS_Result">
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_indicadores_Result">
+          <Property Type="String" Name="ind_Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="val_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="val_Dato1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_tt_Tabla_web_Result">
+          <Property Type="Int32" Name="año_Id" Nullable="false" />
+          <Property Type="String" Name="año_Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Tex_Id" Nullable="false" />
+          <Property Type="String" Name="Tex_Titulo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Tex_Texto" Nullable="false" MaxLength="Max" />
+          <Property Type="Int32" Name="Tex_Orden" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_tt_Tablas_web_Result">
+          <Property Type="Int32" Name="año_Id" Nullable="false" />
+          <Property Type="String" Name="año_Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Tex_Id" Nullable="false" />
+          <Property Type="String" Name="Tex_Titulo" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Tex_Orden" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Valor_Listado_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ind_Largo" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="ind_Dato1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato5" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato6" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="ind_Importe" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="ind_Decimales" Nullable="false" />
+          <Property Type="Decimal" Name="val_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="val_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Id_Day" Nullable="true" />
+          <Property Type="Int32" Name="Id_Month" Nullable="true" />
+          <Property Type="Double" Name="val_Dato1" Nullable="false" />
+          <Property Type="Double" Name="val_Dato2" Nullable="false" />
+          <Property Type="Double" Name="val_Dato3" Nullable="false" />
+          <Property Type="Double" Name="val_Dato4" Nullable="false" />
+          <Property Type="Double" Name="val_Dato5" Nullable="false" />
+          <Property Type="Double" Name="val_Dato6" Nullable="false" />
+          <Property Type="Int32" Name="perid1" Nullable="false" />
+          <Property Type="String" Name="Per_Name" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="perid2" Nullable="false" />
+          <Property Type="String" Name="per_Name2" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="apli_Id" Nullable="false" />
+          <Property Type="String" Name="Formato" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sps_Valor_Listado_Ultimos_Result">
+          <Property Type="Int32" Name="ind_Id" Nullable="false" />
+          <Property Type="String" Name="ind_Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ind_Largo" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="ind_Dato1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato3" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato4" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato5" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ind_Dato6" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="ind_Importe" Nullable="false" />
+          <Property Type="Boolean" Name="ind_Porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="ind_Decimales" Nullable="false" />
+          <Property Type="Decimal" Name="val_Id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="val_Fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Id_Day" Nullable="true" />
+          <Property Type="Int32" Name="Id_Month" Nullable="true" />
+          <Property Type="Double" Name="val_Dato1" Nullable="false" />
+          <Property Type="Double" Name="val_Dato2" Nullable="false" />
+          <Property Type="Double" Name="val_Dato3" Nullable="false" />
+          <Property Type="Double" Name="val_Dato4" Nullable="false" />
+          <Property Type="Double" Name="val_Dato5" Nullable="false" />
+          <Property Type="Double" Name="val_Dato6" Nullable="false" />
+          <Property Type="Int32" Name="perid1" Nullable="false" />
+          <Property Type="String" Name="Per_Name" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="perid2" Nullable="false" />
+          <Property Type="String" Name="per_Name2" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="apli_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sps_Valor_Years_Result">
+          <Property Type="Int32" Name="per_Id" Nullable="false" />
+          <Property Type="String" Name="sTexto" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sps_Valores_Meses_Result">
+          <Property Type="Int32" Name="Id_Day" Nullable="true" />
+          <Property Type="Double" Name="Ene" Nullable="true" />
+          <Property Type="Double" Name="Feb" Nullable="true" />
+          <Property Type="Double" Name="Mar" Nullable="true" />
+          <Property Type="Double" Name="Abr" Nullable="true" />
+          <Property Type="Double" Name="May" Nullable="true" />
+          <Property Type="Double" Name="Jun" Nullable="true" />
+          <Property Type="Double" Name="Jul" Nullable="true" />
+          <Property Type="Double" Name="Ago" Nullable="true" />
+          <Property Type="Double" Name="Sep" Nullable="true" />
+          <Property Type="Double" Name="Oct" Nullable="true" />
+          <Property Type="Double" Name="Nov" Nullable="true" />
+          <Property Type="Double" Name="Dic" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="indicadoresModelStoreContainer" CdmEntityContainer="indicadoresEntities">
+          <EntitySetMapping Name="cal_t_art_167">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_art_167">
+              <MappingFragment StoreEntitySet="cal_t_art_167">
+                <ScalarProperty Name="Id_167" ColumnName="Id_167" />
+                <ScalarProperty Name="minimo" ColumnName="minimo" />
+                <ScalarProperty Name="maximo" ColumnName="maximo" />
+                <ScalarProperty Name="basica" ColumnName="basica" />
+                <ScalarProperty Name="anual" ColumnName="anual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_imss">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_imss">
+              <MappingFragment StoreEntitySet="cal_t_imss">
+                <ScalarProperty Name="Id_imss" ColumnName="Id_imss" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="P_1_1" ColumnName="P_1_1" />
+                <ScalarProperty Name="A_1_1" ColumnName="A_1_1" />
+                <ScalarProperty Name="P_1_2_a" ColumnName="P_1_2_a" />
+                <ScalarProperty Name="A_1_2_a" ColumnName="A_1_2_a" />
+                <ScalarProperty Name="P_1_2_b" ColumnName="P_1_2_b" />
+                <ScalarProperty Name="A_1_2_b" ColumnName="A_1_2_b" />
+                <ScalarProperty Name="P_1_1_1" ColumnName="P_1_1_1" />
+                <ScalarProperty Name="A_1_1_1" ColumnName="A_1_1_1" />
+                <ScalarProperty Name="P_2" ColumnName="P_2" />
+                <ScalarProperty Name="A_2" ColumnName="A_2" />
+                <ScalarProperty Name="P_3" ColumnName="P_3" />
+                <ScalarProperty Name="A_3" ColumnName="A_3" />
+                <ScalarProperty Name="P_4" ColumnName="P_4" />
+                <ScalarProperty Name="A_4" ColumnName="A_4" />
+                <ScalarProperty Name="P_5" ColumnName="P_5" />
+                <ScalarProperty Name="A_5" ColumnName="A_5" />
+                <ScalarProperty Name="P_6" ColumnName="P_6" />
+                <ScalarProperty Name="A_6" ColumnName="A_6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_isr">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_isr">
+              <MappingFragment StoreEntitySet="cal_t_isr">
+                <ScalarProperty Name="id_isr" ColumnName="id_isr" />
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="id_fecha" ColumnName="id_fecha" />
+                <ScalarProperty Name="inferior" ColumnName="inferior" />
+                <ScalarProperty Name="superior" ColumnName="superior" />
+                <ScalarProperty Name="fija" ColumnName="fija" />
+                <ScalarProperty Name="excedente" ColumnName="excedente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_isr_fecha">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_isr_fecha">
+              <MappingFragment StoreEntitySet="cal_t_isr_fecha">
+                <ScalarProperty Name="id_fec" ColumnName="id_fec" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_isr_new">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_isr_new">
+              <MappingFragment StoreEntitySet="cal_t_isr_new">
+                <ScalarProperty Name="id_isr" ColumnName="id_isr" />
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="id_fecha" ColumnName="id_fecha" />
+                <ScalarProperty Name="inferior" ColumnName="inferior" />
+                <ScalarProperty Name="superior" ColumnName="superior" />
+                <ScalarProperty Name="fija" ColumnName="fija" />
+                <ScalarProperty Name="excedente" ColumnName="excedente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_isr_subsidio">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_isr_subsidio">
+              <MappingFragment StoreEntitySet="cal_t_isr_subsidio">
+                <ScalarProperty Name="id_subsidio" ColumnName="id_subsidio" />
+                <ScalarProperty Name="id_fecha" ColumnName="id_fecha" />
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="inferior" ColumnName="inferior" />
+                <ScalarProperty Name="superior" ColumnName="superior" />
+                <ScalarProperty Name="subsidio" ColumnName="subsidio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_limite">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_limite">
+              <MappingFragment StoreEntitySet="cal_t_limite">
+                <ScalarProperty Name="Id_limite" ColumnName="Id_limite" />
+                <ScalarProperty Name="Fec_Ini" ColumnName="Fec_Ini" />
+                <ScalarProperty Name="Frac_I" ColumnName="Frac_I" />
+                <ScalarProperty Name="Frac_II" ColumnName="Frac_II" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_periodo">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_periodo">
+              <MappingFragment StoreEntitySet="cal_t_periodo">
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="Dias" ColumnName="Dias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_tipo">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_tipo">
+              <MappingFragment StoreEntitySet="cal_t_tipo">
+                <ScalarProperty Name="Id_Tipo" ColumnName="Id_Tipo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_t_topes">
+            <EntityTypeMapping TypeName="indicadoresModel.cal_t_topes">
+              <MappingFragment StoreEntitySet="cal_t_topes">
+                <ScalarProperty Name="Id_Tope" ColumnName="Id_Tope" />
+                <ScalarProperty Name="Id_Tipo" ColumnName="Id_Tipo" />
+                <ScalarProperty Name="fec_ini" ColumnName="fec_ini" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CALCULADORA_CAT_INPC">
+            <EntityTypeMapping TypeName="indicadoresModel.CALCULADORA_CAT_INPC">
+              <MappingFragment StoreEntitySet="CALCULADORA_CAT_INPC">
+                <ScalarProperty Name="INPC_ID" ColumnName="INPC_ID" />
+                <ScalarProperty Name="MES_ID" ColumnName="MES_ID" />
+                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="FECHA_REGISTRO" ColumnName="FECHA_REGISTRO" />
+                <ScalarProperty Name="FECHA_BAJA" ColumnName="FECHA_BAJA" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CALCULADORA_CAT_MES">
+            <EntityTypeMapping TypeName="indicadoresModel.CALCULADORA_CAT_MES">
+              <MappingFragment StoreEntitySet="CALCULADORA_CAT_MES">
+                <ScalarProperty Name="MES_ID" ColumnName="MES_ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="DESC_CORTA" ColumnName="DESC_CORTA" />
+                <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indicador">
+            <EntityTypeMapping TypeName="indicadoresModel.Indicador">
+              <MappingFragment StoreEntitySet="Indicador">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Corto" ColumnName="ind_Corto" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Dato5" ColumnName="ind_Dato5" />
+                <ScalarProperty Name="ind_Dato6" ColumnName="ind_Dato6" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="ind_Scroll" ColumnName="ind_Scroll" />
+                <ScalarProperty Name="ind_Valor" ColumnName="ind_Valor" />
+                <ScalarProperty Name="tab_Id" ColumnName="tab_Id" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+                <ScalarProperty Name="Valida_Fecha" ColumnName="Valida_Fecha" />
+                <ScalarProperty Name="formato" ColumnName="formato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodo">
+            <EntityTypeMapping TypeName="indicadoresModel.Periodo">
+              <MappingFragment StoreEntitySet="Periodo">
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="per_Name" ColumnName="per_Name" />
+                <ScalarProperty Name="per_Activo" ColumnName="per_Activo" />
+                <ScalarProperty Name="tpo_Id" ColumnName="tpo_Id" />
+                <ScalarProperty Name="Corto" ColumnName="Corto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Valor">
+            <EntityTypeMapping TypeName="indicadoresModel.Valor">
+              <MappingFragment StoreEntitySet="Valor">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="val_Id" ColumnName="val_Id" />
+                <ScalarProperty Name="val_Fecha_Alta" ColumnName="val_Fecha_Alta" />
+                <ScalarProperty Name="val_Fecha" ColumnName="val_Fecha" />
+                <ScalarProperty Name="val_Dato1" ColumnName="val_Dato1" />
+                <ScalarProperty Name="val_Dato2" ColumnName="val_Dato2" />
+                <ScalarProperty Name="val_Dato3" ColumnName="val_Dato3" />
+                <ScalarProperty Name="val_Dato4" ColumnName="val_Dato4" />
+                <ScalarProperty Name="val_Dato5" ColumnName="val_Dato5" />
+                <ScalarProperty Name="val_Dato6" ColumnName="val_Dato6" />
+                <ScalarProperty Name="per_Id1" ColumnName="per_Id1" />
+                <ScalarProperty Name="per_Id2" ColumnName="per_Id2" />
+                <ScalarProperty Name="apli_Id" ColumnName="apli_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equivalencias">
+            <EntityTypeMapping TypeName="indicadoresModel.Equivalencias">
+              <MappingFragment StoreEntitySet="Equivalencias">
+                <ScalarProperty Name="apli_Mes" ColumnName="apli_Mes" />
+                <ScalarProperty Name="apli_Year" ColumnName="apli_Year" />
+                <ScalarProperty Name="equ_Fecha" ColumnName="equ_Fecha" />
+                <ScalarProperty Name="equ_Pais" ColumnName="equ_Pais" />
+                <ScalarProperty Name="equ_Moneda" ColumnName="equ_Moneda" />
+                <ScalarProperty Name="equ_Valor" ColumnName="equ_Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equivalencias_moneda">
+            <EntityTypeMapping TypeName="indicadoresModel.Equivalencias_moneda">
+              <MappingFragment StoreEntitySet="Equivalencias_moneda">
+                <ScalarProperty Name="Id_Moneda" ColumnName="Id_Moneda" />
+                <ScalarProperty Name="equ_Pais" ColumnName="equ_Pais" />
+                <ScalarProperty Name="equ_Moneda" ColumnName="equ_Moneda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_moneda">
+            <EntityTypeMapping TypeName="indicadoresModel.t_moneda">
+              <MappingFragment StoreEntitySet="t_moneda">
+                <ScalarProperty Name="Id_Moneda" ColumnName="Id_Moneda" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_paridades_test">
+            <EntityTypeMapping TypeName="indicadoresModel.t_paridades_test">
+              <MappingFragment StoreEntitySet="t_paridades_test">
+                <ScalarProperty Name="Id_Monedad_Test" ColumnName="Id_Monedad_Test" />
+                <ScalarProperty Name="Fecha_Test" ColumnName="Fecha_Test" />
+                <ScalarProperty Name="Paridad_Test" ColumnName="Paridad_Test" />
+                <ScalarProperty Name="Fijo_Test" ColumnName="Fijo_Test" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnsIndicador">
+            <EntityTypeMapping TypeName="indicadoresModel.cnsIndicador">
+              <MappingFragment StoreEntitySet="cnsIndicador">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Corto" ColumnName="ind_Corto" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="ind_Scroll" ColumnName="ind_Scroll" />
+                <ScalarProperty Name="ind_Valor" ColumnName="ind_Valor" />
+                <ScalarProperty Name="ind_Activo" ColumnName="ind_Activo" />
+                <ScalarProperty Name="tab_Id" ColumnName="tab_Id" />
+                <ScalarProperty Name="tab_Nombre" ColumnName="tab_Nombre" />
+                <ScalarProperty Name="val_Id" ColumnName="val_Id" />
+                <ScalarProperty Name="val_Fecha" ColumnName="val_Fecha" />
+                <ScalarProperty Name="val_Day" ColumnName="val_Day" />
+                <ScalarProperty Name="val_Month" ColumnName="val_Month" />
+                <ScalarProperty Name="val_MonthText" ColumnName="val_MonthText" />
+                <ScalarProperty Name="val_Year" ColumnName="val_Year" />
+                <ScalarProperty Name="val_Dato1" ColumnName="val_Dato1" />
+                <ScalarProperty Name="val_Dato2" ColumnName="val_Dato2" />
+                <ScalarProperty Name="val_Dato3" ColumnName="val_Dato3" />
+                <ScalarProperty Name="val_Dato4" ColumnName="val_Dato4" />
+                <ScalarProperty Name="val_Dato5" ColumnName="val_Dato5" />
+                <ScalarProperty Name="val_Dato6" ColumnName="val_Dato6" />
+                <ScalarProperty Name="apli_Id" ColumnName="apli_Id" />
+                <ScalarProperty Name="val_Aplicar" ColumnName="val_Aplicar" />
+                <ScalarProperty Name="val_MesTexto" ColumnName="val_MesTexto" />
+                <ScalarProperty Name="val_MesCorto" ColumnName="val_MesCorto" />
+                <ScalarProperty Name="per_Year" ColumnName="per_Year" />
+                <ScalarProperty Name="formato" ColumnName="formato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS" FunctionName="indicadoresModel.Store.CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.CALCULADORAS_GET_ACTUALIZACIONES_RECARGOS_Result">
+                <ScalarProperty Name="MES_ANTERIOR" ColumnName="MES_ANTERIOR" />
+                <ScalarProperty Name="MES_ACTUAL" ColumnName="MES_ACTUAL" />
+                <ScalarProperty Name="INPC1" ColumnName="INPC1" />
+                <ScalarProperty Name="INPC2" ColumnName="INPC2" />
+                <ScalarProperty Name="FACTOR" ColumnName="FACTOR" />
+                <ScalarProperty Name="ACTUALIZACION" ColumnName="ACTUALIZACION" />
+                <ScalarProperty Name="PORC_RECARGOS" ColumnName="PORC_RECARGOS" />
+                <ScalarProperty Name="RECARGOS" ColumnName="RECARGOS" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="indicadoresModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="indicadoresModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="indicadoresModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="indicadoresModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="indicadoresModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_importarparidades_test" FunctionName="indicadoresModel.Store.sp_importarparidades_test" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="indicadoresModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SpParidad_det" FunctionName="indicadoresModel.Store.SpParidad_det">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.SpParidad_det_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpParidades" FunctionName="indicadoresModel.Store.SpParidades" />
+          <FunctionImportMapping FunctionImportName="SpParidades_Equivalencias" FunctionName="indicadoresModel.Store.SpParidades_Equivalencias" />
+          <FunctionImportMapping FunctionImportName="sps_calculadora_aguinaldo" FunctionName="indicadoresModel.Store.sps_calculadora_aguinaldo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_calculadora_aguinaldo_Result">
+                <ScalarProperty Name="NETO_PAGAR" ColumnName="NETO_PAGAR" />
+                <ScalarProperty Name="BaseGravable" ColumnName="BaseGravable" />
+                <ScalarProperty Name="TopeAguinaldoExcento" ColumnName="TopeAguinaldoExcento" />
+                <ScalarProperty Name="ParteProporcionalAguinaldo" ColumnName="ParteProporcionalAguinaldo" />
+                <ScalarProperty Name="IsrARetenet" ColumnName="IsrARetenet" />
+                <ScalarProperty Name="SubsicioEmpleo" ColumnName="SubsicioEmpleo" />
+                <ScalarProperty Name="CuotaFija" ColumnName="CuotaFija" />
+                <ScalarProperty Name="LimiteInferior" ColumnName="LimiteInferior" />
+                <ScalarProperty Name="ExedenteLimiteInferior" ColumnName="ExedenteLimiteInferior" />
+                <ScalarProperty Name="PorCientoAplicarseSobreExcedenteLimiteInferior" ColumnName="PorCientoAplicarseSobreExcedenteLimiteInferior" />
+                <ScalarProperty Name="TarifaImpuestoLimiteInferior" ColumnName="TarifaImpuestoLimiteInferior" />
+                <ScalarProperty Name="DiasLaborados" ColumnName="DiasLaborados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_calculadora_finiquito" FunctionName="indicadoresModel.Store.sps_calculadora_finiquito" />
+          <FunctionImportMapping FunctionImportName="sps_Equivalencias_Mes_Year" FunctionName="indicadoresModel.Store.sps_Equivalencias_Mes_Year">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Equivalencias_Mes_Year_Result">
+                <ScalarProperty Name="equ_Fecha" ColumnName="equ_Fecha" />
+                <ScalarProperty Name="apli_Mes" ColumnName="apli_Mes" />
+                <ScalarProperty Name="apli_Year" ColumnName="apli_Year" />
+                <ScalarProperty Name="equ_Pais" ColumnName="equ_Pais" />
+                <ScalarProperty Name="equ_Moneda" ColumnName="equ_Moneda" />
+                <ScalarProperty Name="equ_Valor" ColumnName="equ_Valor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Indicador" FunctionName="indicadoresModel.Store.sps_Indicador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Indicador_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Dato5" ColumnName="ind_Dato5" />
+                <ScalarProperty Name="ind_Dato6" ColumnName="ind_Dato6" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="tab_Id" ColumnName="tab_Id" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Indicador_Tipo" FunctionName="indicadoresModel.Store.sps_Indicador_Tipo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Indicador_Tipo_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Corto" ColumnName="ind_Corto" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Dato5" ColumnName="ind_Dato5" />
+                <ScalarProperty Name="ind_Dato6" ColumnName="ind_Dato6" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="tab_Id" ColumnName="tab_Id" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Indicador_Ultimos" FunctionName="indicadoresModel.Store.sps_Indicador_Ultimos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Indicador_Ultimos_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_corto" ColumnName="ind_corto" />
+                <ScalarProperty Name="ind_Fecha" ColumnName="ind_Fecha" />
+                <ScalarProperty Name="ind_Valor" ColumnName="ind_Valor" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+                <ScalarProperty Name="aplica" ColumnName="aplica" />
+                <ScalarProperty Name="aplica2" ColumnName="aplica2" />
+                <ScalarProperty Name="ind_Scroll" ColumnName="ind_Scroll" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_indicador_WS" FunctionName="indicadoresModel.Store.sps_indicador_WS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_indicador_WS_Result">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_indicadores" FunctionName="indicadoresModel.Store.sps_indicadores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_indicadores_Result">
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="val_Fecha" ColumnName="val_Fecha" />
+                <ScalarProperty Name="val_Dato1" ColumnName="val_Dato1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Scroll" FunctionName="indicadoresModel.Store.sps_Scroll" />
+          <FunctionImportMapping FunctionImportName="sps_tt_Tabla_web" FunctionName="indicadoresModel.Store.sps_tt_Tabla_web">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_tt_Tabla_web_Result">
+                <ScalarProperty Name="año_Id" ColumnName="año_Id" />
+                <ScalarProperty Name="año_Nombre" ColumnName="año_Nombre" />
+                <ScalarProperty Name="Tex_Id" ColumnName="Tex_Id" />
+                <ScalarProperty Name="Tex_Titulo" ColumnName="Tex_Titulo" />
+                <ScalarProperty Name="Tex_Texto" ColumnName="Tex_Texto" />
+                <ScalarProperty Name="Tex_Orden" ColumnName="Tex_Orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_tt_Tablas_web" FunctionName="indicadoresModel.Store.sps_tt_Tablas_web">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_tt_Tablas_web_Result">
+                <ScalarProperty Name="año_Id" ColumnName="año_Id" />
+                <ScalarProperty Name="año_Nombre" ColumnName="año_Nombre" />
+                <ScalarProperty Name="Tex_Id" ColumnName="Tex_Id" />
+                <ScalarProperty Name="Tex_Titulo" ColumnName="Tex_Titulo" />
+                <ScalarProperty Name="Tex_Orden" ColumnName="Tex_Orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Valor_Listado" FunctionName="indicadoresModel.Store.sps_Valor_Listado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Valor_Listado_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Dato5" ColumnName="ind_Dato5" />
+                <ScalarProperty Name="ind_Dato6" ColumnName="ind_Dato6" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="val_Id" ColumnName="val_Id" />
+                <ScalarProperty Name="val_Fecha" ColumnName="val_Fecha" />
+                <ScalarProperty Name="Id_Day" ColumnName="Id_Day" />
+                <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+                <ScalarProperty Name="val_Dato1" ColumnName="val_Dato1" />
+                <ScalarProperty Name="val_Dato2" ColumnName="val_Dato2" />
+                <ScalarProperty Name="val_Dato3" ColumnName="val_Dato3" />
+                <ScalarProperty Name="val_Dato4" ColumnName="val_Dato4" />
+                <ScalarProperty Name="val_Dato5" ColumnName="val_Dato5" />
+                <ScalarProperty Name="val_Dato6" ColumnName="val_Dato6" />
+                <ScalarProperty Name="perid1" ColumnName="perid1" />
+                <ScalarProperty Name="Per_Name" ColumnName="Per_Name" />
+                <ScalarProperty Name="perid2" ColumnName="perid2" />
+                <ScalarProperty Name="per_Name2" ColumnName="per_Name2" />
+                <ScalarProperty Name="apli_Id" ColumnName="apli_Id" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Valor_Listado_Ultimos" FunctionName="indicadoresModel.Store.sps_Valor_Listado_Ultimos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Valor_Listado_Ultimos_Result">
+                <ScalarProperty Name="ind_Id" ColumnName="ind_Id" />
+                <ScalarProperty Name="ind_Nombre" ColumnName="ind_Nombre" />
+                <ScalarProperty Name="ind_Largo" ColumnName="ind_Largo" />
+                <ScalarProperty Name="ind_Dato1" ColumnName="ind_Dato1" />
+                <ScalarProperty Name="ind_Dato2" ColumnName="ind_Dato2" />
+                <ScalarProperty Name="ind_Dato3" ColumnName="ind_Dato3" />
+                <ScalarProperty Name="ind_Dato4" ColumnName="ind_Dato4" />
+                <ScalarProperty Name="ind_Dato5" ColumnName="ind_Dato5" />
+                <ScalarProperty Name="ind_Dato6" ColumnName="ind_Dato6" />
+                <ScalarProperty Name="ind_Importe" ColumnName="ind_Importe" />
+                <ScalarProperty Name="ind_Porcentaje" ColumnName="ind_Porcentaje" />
+                <ScalarProperty Name="ind_Decimales" ColumnName="ind_Decimales" />
+                <ScalarProperty Name="val_Id" ColumnName="val_Id" />
+                <ScalarProperty Name="val_Fecha" ColumnName="val_Fecha" />
+                <ScalarProperty Name="Id_Day" ColumnName="Id_Day" />
+                <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+                <ScalarProperty Name="val_Dato1" ColumnName="val_Dato1" />
+                <ScalarProperty Name="val_Dato2" ColumnName="val_Dato2" />
+                <ScalarProperty Name="val_Dato3" ColumnName="val_Dato3" />
+                <ScalarProperty Name="val_Dato4" ColumnName="val_Dato4" />
+                <ScalarProperty Name="val_Dato5" ColumnName="val_Dato5" />
+                <ScalarProperty Name="val_Dato6" ColumnName="val_Dato6" />
+                <ScalarProperty Name="perid1" ColumnName="perid1" />
+                <ScalarProperty Name="Per_Name" ColumnName="Per_Name" />
+                <ScalarProperty Name="perid2" ColumnName="perid2" />
+                <ScalarProperty Name="per_Name2" ColumnName="per_Name2" />
+                <ScalarProperty Name="apli_Id" ColumnName="apli_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Valor_Years" FunctionName="indicadoresModel.Store.sps_Valor_Years">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Valor_Years_Result">
+                <ScalarProperty Name="per_Id" ColumnName="per_Id" />
+                <ScalarProperty Name="sTexto" ColumnName="sTexto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sps_Valores_Meses" FunctionName="indicadoresModel.Store.sps_Valores_Meses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="indicadoresModel.sps_Valores_Meses_Result">
+                <ScalarProperty Name="Id_Day" ColumnName="Id_Day" />
+                <ScalarProperty Name="Ene" ColumnName="Ene" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Abr" ColumnName="Abr" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Ago" ColumnName="Ago" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Dic" ColumnName="Dic" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
