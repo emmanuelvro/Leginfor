@@ -201,8 +201,7 @@
                                                     .Where(p => p.FirstOrDefault(pr => pr.GobId == sec.GobId) != null)
                                                     .Select(grp => grp.First())
                                                     .ToList();
-                                                    
-                                                    
+                                                                                                        
                                                 }
                                                 @foreach (var pode in poderes)
                                                 {
