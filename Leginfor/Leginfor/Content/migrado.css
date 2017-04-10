@@ -1,0 +1,380 @@
+﻿ .RadTabStrip_Black .rtsSelected {
+            color: #FCB628 !important;
+        }
+
+        .SelectedTab {
+            background-color: #FCB628;
+            font-size: 8;
+            font-family: "Open Sans";
+            color: Black;
+            text-align: center;
+        }
+        /*Contenedor DOF*/
+
+#dof{
+	max-width:100%;
+    min-width: 500px;
+	height:410px;
+	
+	background-image: url(/imagenes/png/fondo_contenido.png);
+	background-repeat: no-repeat;
+	/*z-index : 3;*/
+}
+#dof_descarga{
+	width:100%;
+	height:90px;
+	
+	background-image: url(/imagenes/png/descarga_dof.png);
+	background-repeat: no-repeat;
+	/*z-index : 3;*/
+}
+#dof_zip{
+	width:170px;
+	height:55px;
+	left: 245px;
+	position: absolute;
+	top: 18px;
+	line-height: 50px;
+	font-family:Verdana;
+	font-size: 12px;
+	color: #666;
+	background-image: none;
+	text-indent: 5px;
+	
+	z-index:6;
+}
+#dof_zip_Exe{
+	width:170px;
+	height:27px;
+	left: 0px;
+	position: absolute;
+	top: 10px;
+	font-family:Verdana;
+	font-size: 12px;
+	color: #666;
+	background-image: none;
+	text-indent: 5px;
+	
+	z-index:6;
+}
+#dof_zip_zip{
+	width:170px;
+	height:27px;
+	left: 0px;
+	position: absolute;
+	top: 28px;
+	
+	font-family:Verdana;
+	font-size: 12px;
+	color: #666;
+	background-image: none;
+	text-indent: 5px;
+	
+	z-index:6;
+}
+#ver_indice{
+	width:175px;
+	height:55px;
+	left: 70px;
+	position: absolute;
+	top: 35px;
+	font-family:Verdana;
+	font-size: 12px;
+	line-height: 50px;
+	color: #666;
+	background-image: none;
+	background-repeat: no-repeat;
+	text-indent: 5px;
+	
+	z-index:6;
+}
+#imprimir_indice{
+	width:180px;
+	height:55px;
+	left: 420px;
+	position: absolute;
+	top: 35px;
+	font-family:Verdana;
+	font-size: 12px;
+	line-height: 50px;
+	color: #666;
+	background-image: none;
+	background-repeat: no-repeat;
+	text-indent: 5px;
+	
+	z-index:6;
+}
+
+#fecha_dof{
+	width:260px;
+	height:25px;
+	left: 520px;
+	position: absolute;
+	top: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 28px;
+	color: #fff;
+	font-weight: bold;
+	text-indent: 25px;
+	
+	z-index:6;
+}
+
+
+#edicion_vesp{
+	width:180px;
+	height:55px;
+	left: 610px;
+	position: absolute;
+	top: 55px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 28px;
+	color: #666;
+	font-weight: normal;
+	text-indent: 25px;
+	
+	z-index:6;
+}
+
+#contenido_dof{
+	width:760px;
+	height:300px;
+	
+	background-image: none;
+	background-repeat: no-repeat;
+	overflow: auto;
+	margin-right: auto;
+	margin-left: auto;
+	visibility: visible;
+	/*z-index :505;*/
+}
+
+.Relevantes{
+	height:300px; 
+    color:Black;	
+	background-image: none;
+	background-repeat: no-repeat;
+	overflow: auto;
+	margin-right: auto;
+	margin-left: auto;
+	visibility: visible;
+}
+
+#contenedorproductoDVD {
+
+	width:200px;
+	height:160px;
+	
+}
+/*Estilos Contenedor Convertidor de Divisas*/
+#contdivisas{
+
+
+	line-height: 12px;
+	color: #2C3785;
+	font-size: 13px;
+	border: none;
+	display: block;
+	white-space: normal;
+	text-align: center;
+	
+	text-indent: 0px;
+	letter-spacing: 1px;
+
+}
+
+#contdivisas a {
+display: block; 
+width: 180px; 
+height: 46px; 
+}
+#contdivisas a span  {
+display: none;
+}
+#tarifas_isr{
+
+	
+	border:none;
+	background-image: url(/imagenes/gif/ISR4.gif);
+    background-repeat: no-repeat;
+	font-family:Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	line-height: 40px;
+	text-indent: 10px;
+	letter-spacing: 1px;
+}
+#tarifas_isr a {
+display: block; 
+width: 180px; 
+height: 46px; 
+}
+#tarifas_isr a span  {
+display: none; 
+}
+
+#miscelanea_fis{
+	border: none;
+	background-image: url(/imagenes/gif/miscelanea2012.gif);
+    background-repeat: no-repeat;
+	font-family:Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	line-height: 40px;
+	text-indent: 10px;
+	letter-spacing: 1px;
+}
+
+#miscelanea_fis a {
+display: block; 
+width: 180px; 
+height: 46px; 
+}
+#miscelanea_fis a span  {
+display: none; 
+}
+
+#titulofederalnews {
+	position:absolute;
+	width:80%;
+	height:25px;
+	z-index:1;
+	background-color: #600;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: normal;
+	text-indent: 10px;
+	line-height: 25px;
+	left:-1px;
+	/*text-transform: uppercase;
+	letter-spacing: 1px;
+	*/
+	font-family:Verdana;
+	text-align :center; 
+	/* Safari 4+ y Chrome 1+ */  
+background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FCB628), color-stop(1, #FCB628)); 
+ /* Safari 5.1+ y Chrome 10+ */  
+background-image:-webkit-linear-gradient(#FCB628, #FCB628); 
+ /* Firefox 3.6+ */  
+background-image:-moz-linear-gradient(top, #FCB628, #FCB628);  
+/* Opera 11.10+ */  
+background-image:-o-linear-gradient(top, #FCB628, #FCB628);  
+
+ 
+    color:White;/*39afaf Black;*/
+    font-weight: bold;
+    
+}
+#novedades a {
+    text-decoration: none;
+    color:#01437d;
+    font-size: 10pt;
+    text-align:justify;
+    font-family:Verdana;
+    width:100%;
+    word-wrap: break-word;     
+}
+#novedades a:hover {
+    text-decoration: underline;
+    color:#303030;
+    font-weight:bold;  
+}
+
+#newsperiodico{
+	width:765px;
+	height:450px;
+	left: 10px;
+	position: absolute;
+	top: 580px;
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: double;
+	border-left-style: double;
+	border-bottom-color: #CCC;
+	border-left-width: 1px;
+	border-left-color: #CCC;
+	
+}
+   
+    .AlinearRelevantes
+    {
+        text-align:justify; 
+        }
+    
+#headerNoticiasFederales{
+	width:765px;
+	height:28px;
+	left: -1px;
+	position: absolute;
+	top: 0px;     
+	
+	/* Safari 4+ y Chrome 1+ */  
+/* Safari 5.1+ y Chrome 10+ */  
+/* Firefox 3.6+ */  
+/* Opera 11.10+ */  
+    color: White;
+    font-weight: bold;
+    font-family: Verdana;
+    font-style: normal;
+    text-align: center;
+   
+   /* Safari 4+ y Chrome 1+ */  
+background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FCB628), color-stop(1, #FCB628)); 
+ /* Safari 5.1+ y Chrome 10+ */  
+background-image:-webkit-linear-gradient(#FCB628, #FCB628); 
+ /* Firefox 3.6+ */  
+background-image:-moz-linear-gradient(top, #FCB628, #FCB628);  
+/* Opera 11.10+ */  
+background-image:-o-linear-gradient(top, #FCB628, #FCB628);  
+/* Internet Explorer 5.5+ */  
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#FCB628', EndColorStr='#FCB628'); 
+background-image: -o-linear-gradient(top, #303030, #FCB628);/*088950 Internet Explorer 5.5+ */
+background-image: -ms-linear-gradient(top left, #FCB628, #FCB628);
+ 
+    color:White;/*39afaf Black;*/
+    font-weight: bold;
+   
+   /* background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #2ea9bb), color-stop(1, #303030)); 
+ 
+background-image:-webkit-linear-gradient(#2ea9bb, #303030); 
+
+background-image:-moz-linear-gradient(top, #2ea9bb, #303030);  
+
+background-image:-o-linear-gradient(top, #2ea9bb, #303030);  
+ 
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#2ea9bb', EndColorStr='#303030'); 
+background-image: -o-linear-gradient(top, #2ea9bb, #303030);
+background-image: -ms-linear-gradient(top left, #2ea9bb, #303030);
+    */
+}
+
+#contenido_NoticiasFederales{
+	width:760px;
+	height:450px;
+	left: 5px;
+	
+	top: 30px; 
+	
+	overflow: auto;	
+		
+}
+@media handheld, only screen and (max-width: 767px) {
+#fecha_dof{
+display:none;
+}
+    #newsperiodico {
+        display:none;
+    }
+    #headerNoticiasFederales {
+        display:none;
+    }
+    #contenido_NoticiasFederales {
+        display:none;
+    }
+
+}

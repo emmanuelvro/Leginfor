@@ -18,10 +18,6 @@ namespace Leginfor.Controllers
         public ActionResult Index()
         {
             string prueba = Utility.Utility.Code("Qpalzm1092", false,false);
-            var externalIdentity = HttpContext.GetOwinContext().Authentication.GetExternalIdentityAsync(DefaultAuthenticationTypes.ExternalCookie);
-            var email = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value;
-            var firstName = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == "urn:facebook:first_name").Value;
-            var lastName = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == "urn:facebook:last_name").Value;
             Index ind = new Index();
             ind.Dof = DofModel.getDof(DateTime.Now);
             ind.Rss = Utility.Utility.getRssFeed();
