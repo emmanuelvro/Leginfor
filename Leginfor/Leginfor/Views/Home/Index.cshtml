@@ -198,6 +198,7 @@
 
                                                 @{ 
                                                     var poderes = Model.Dof.GroupBy(p => p.PodId)
+                                                    .Where(p => p.FirstOrDefault(pr => pr.GobId == sec.GobId) != null)
                                                     .Select(grp => grp.First())
                                                     .ToList();
                                                     
