@@ -173,14 +173,10 @@
                                 </table>
                                 
                                 <div class="panel-group" id="accordion">
-                                @{
-                                    int ejecutivo = 1;
-                                    var lstEjecutivo = from ejec in Model.Dof
-                                                       where ejecutivo == Convert.ToInt32(ejec.PodId)
-                                                       select ejec;
-                                                       }
-@if (lstEjecutivo.Count() != 0)
-{
+                                
+                                    @foreach(var secre in Model.Dof)
+                                    {
+
                                     <div class="panel panel-default" id="panel1">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
@@ -196,7 +192,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                                            }
+                                    }                        
                                    
                                 </div>
                             </div>
