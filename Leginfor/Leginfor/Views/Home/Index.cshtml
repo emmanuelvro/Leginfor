@@ -173,10 +173,11 @@
                                 </table>
                                 
                                 <div class="panel-group" id="accordion">
-                                @{  int ejecutivo = 1;
-                                        var lstEjecutivo = from ejec in Model.Dof
-                                                           where ejecutivo == Convert.ToInt32(ejec.PodId)
-                                                           select ejec;
+                                @{
+                                    int ejecutivo = 1;
+                                    var lstEjecutivo = from ejec in Model.Dof
+                                                       where ejecutivo == Convert.ToInt32(ejec.PodId)
+                                                       select ejec;
                                                        }
 @if (lstEjecutivo.Count() != 0)
 {
@@ -196,56 +197,7 @@
                                         </div>
                                     </div>
                                                             }
-                                    @{  int legislativo = 2;
-                                        var lstLegislativo = from lej in Model.Dof
-                                                           where legislativo == Convert.ToInt32(lej.PodId)
-                                                           select lej;
-                                                           
-                                    }
-@if (lstLegislativo.Count() != 0)
-{
-                                    <div class="panel panel-default" id="panel2">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-target="#collapseTwo"
-                                                   href="#collapseTwo" class="collapsed">
-                                                   Poder Legislativo
-                                                </a>
-                                            </h4>
-
-                                        </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                                            }
-                                    @{  int judicial = 3;
-                                        var lstJudicial = from jud in Model.Dof
-                                                          where judicial == Convert.ToInt32(jud.PodId)
-                                                          select jud;
-                                    }
-                                    @if (lstJudicial.Count() != 0)
-                                    {
-                                    <div class="panel panel-default" id="panel3">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-target="#collapseThree"
-                                                   href="#collapseThree" class="collapsed">
-                                                    Poder Judicial 
-                                                </a>
-                                            </h4>
-
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                                            }
+                                   
                                 </div>
                             </div>
                         </div>
