@@ -11,7 +11,8 @@
               background-color:#666666;
               color:#ffffff;
               font-weight:bold;
-            }
+            }
+
     .fix-panel{
         min-height: 496px;
         max-height: 496px;
@@ -173,35 +174,9 @@
                                 
                                 <div class="panel-group" id="accordion">
                                 @{  int ejecutivo = 1;
-                                    var lstEjecutivo = from ejec in Model.Dof
-                                                       where ejecutivo == Convert.ToInt32(ejec.PodId)
-                                                       select new Dof
-                                                       {
-                                                           Id = ejec.Id,
-                                                           Fecha = ejec.Fecha,
-                                                           Anio = ejec.Anio,
-                                                           Mes = ejec.Mes,
-                                                           MesText = ejec.MesText,
-                                                           Dia = ejec.Dia,
-                                                           Activo = ejec.Activo,
-                                                           Ed_Id = ejec.Ed_Id,
-                                                           EdNombre = ejec.EdNombre,
-                                                           SeccId = ejec.SeccId,
-                                                           SecNombre = ejec.SecNombre,
-                                                           PodId = ejec.PodId,
-                                                           PodNombre = ejec.PodNombre,
-                                                           PodOrden = ejec.PodOrden,
-                                                           GobId = ejec.GobId,
-                                                           GobClave = ejec.GobClave,
-                                                           GobNombre = ejec.GobNombre,
-                                                           IndOrden = ejec.IndOrden,
-                                                           IndParrafo = ejec.IndParrafo,
-                                                           ParrId = ejec.ParrId,
-                                                           ParrTexto = ejec.ParrTexto,
-                                                           ParrPagina = ejec.ParrPagina,
-                                                           ParrOrden = ejec.ParrOrden,
-                                                           GobClaveLg = ejec.GobClaveLg
-                                                       };
+                                        var lstEjecutivo = from ejec in Model.Dof
+                                                           where ejecutivo == Convert.ToInt32(ejec.PodId)
+                                                           select ejec;
                                                        }
 @if (lstEjecutivo.Count() != 0)
 {
@@ -217,49 +192,6 @@
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                <table class="table table-responsive">
-                                                    <thead>
-                                                        
-                                                        
-                                                    </thead>
-                                                    <tbody>
-                                                        @{
-                                                            var secc = lstEjecutivo.GroupBy(sec => sec.SeccId)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                        }
-                                                        @foreach (var ej in secc)
-                                                        {
-                                                            var lstejView = from view in lstEjecutivo
-                                                                            where ej.SeccId == Convert.ToInt32(view.SeccId)
-                                                                            select view;
-                                                            <tr  class="text-center text-blod"><td colspan="3">@ej.SecNombre</td></tr>
-                                                            <tr  class="text-center text-blod"><td colspan="3">@ej.EdNombre</td></tr>
-                                                            foreach (var dat in lstejView)
-                                                            {
-                                                                var edicion = lstejView.GroupBy(ed => ed.Ed_Id)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                                foreach (var edi in edicion)
-                                                                {
-                                                                    var lstComplete = from viewC in lstejView
-                                                                                      where edi.Ed_Id == Convert.ToInt32(viewC.Ed_Id)
-                                                                                      select viewC;
-
-                                                                    <tr>
-                                                                        <td>@dat.GobNombre</td>
-                                                                        <td>@dat.ParrTexto</td>
-                                                                        <td>@dat.ParrPagina</td>
-                                                                    </tr>
-
-                                                                }
-
-
-
-                                                            }
-                                                        }
-                                                    </tbody>
-                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -267,33 +199,8 @@
                                     @{  int legislativo = 2;
                                         var lstLegislativo = from lej in Model.Dof
                                                            where legislativo == Convert.ToInt32(lej.PodId)
-                                                           select new Dof
-                                                           {
-                                                               Id = lej.Id,
-                                                               Fecha = lej.Fecha,
-                                                               Anio = lej.Anio,
-                                                               Mes = lej.Mes,
-                                                               MesText = lej.MesText,
-                                                               Dia = lej.Dia,
-                                                               Activo = lej.Activo,
-                                                               Ed_Id = lej.Ed_Id,
-                                                               EdNombre = lej.EdNombre,
-                                                               SeccId = lej.SeccId,
-                                                               SecNombre = lej.SecNombre,
-                                                               PodId = lej.PodId,
-                                                               PodNombre = lej.PodNombre,
-                                                               PodOrden = lej.PodOrden,
-                                                               GobId = lej.GobId,
-                                                               GobClave = lej.GobClave,
-                                                               GobNombre = lej.GobNombre,
-                                                               IndOrden = lej.IndOrden,
-                                                               IndParrafo = lej.IndParrafo,
-                                                               ParrId = lej.ParrId,
-                                                               ParrTexto = lej.ParrTexto,
-                                                               ParrPagina = lej.ParrPagina,
-                                                               ParrOrden = lej.ParrOrden,
-                                                               GobClaveLg = lej.GobClaveLg
-                                                           };
+                                                           select lej;
+                                                           
                                     }
 @if (lstLegislativo.Count() != 0)
 {
@@ -309,49 +216,7 @@
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                <table class="table table-responsive">
-                                                    <thead>
-
-
-                                                    </thead>
-                                                    <tbody>
-                                                        @{
-                                                            var seccleg = lstLegislativo.GroupBy(sec => sec.SeccId)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                        }
-                                                        @foreach (var leg in seccleg)
-                                                        {
-                                                            var lstlegView = from view in lstLegislativo
-                                                                             where leg.SeccId == Convert.ToInt32(view.SeccId)
-                                                                             select view;
-                                                            <tr class="text-center text-blod"><td colspan="3">@leg.SecNombre</td></tr>
-                                                            <tr class="text-center text-blod"><td colspan="3">@leg.EdNombre</td></tr>
-                                                            foreach (var dat in lstlegView)
-                                                            {
-                                                                var edicion = lstlegView.GroupBy(ed => ed.Ed_Id)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                                foreach (var edi in edicion)
-                                                                {
-                                                                    var lstComplete = from viewC in lstlegView
-                                                                                      where edi.Ed_Id == Convert.ToInt32(viewC.Ed_Id)
-                                                                                      select viewC;
-
-                                                                    <tr>
-                                                                        <td>@dat.GobNombre</td>
-                                                                        <td>@dat.ParrTexto</td>
-                                                                        <td>@dat.ParrPagina</td>
-                                                                    </tr>
-
-                                                                }
-
-
-
-                                                            }
-                                                        }
-                                                    </tbody>
-                                                </table>
+                                                
 
                                             </div>
                                         </div>
@@ -359,34 +224,8 @@
                                                             }
                                     @{  int judicial = 3;
                                         var lstJudicial = from jud in Model.Dof
-                                                             where judicial == Convert.ToInt32(jud.PodId)
-                                                             select new Dof
-                                                             {
-                                                                 Id = jud.Id,
-                                                                 Fecha = jud.Fecha,
-                                                                 Anio = jud.Anio,
-                                                                 Mes = jud.Mes,
-                                                                 MesText = jud.MesText,
-                                                                 Dia = jud.Dia,
-                                                                 Activo = jud.Activo,
-                                                                 Ed_Id = jud.Ed_Id,
-                                                                 EdNombre = jud.EdNombre,
-                                                                 SeccId = jud.SeccId,
-                                                                 SecNombre = jud.SecNombre,
-                                                                 PodId = jud.PodId,
-                                                                 PodNombre = jud.PodNombre,
-                                                                 PodOrden = jud.PodOrden,
-                                                                 GobId = jud.GobId,
-                                                                 GobClave = jud.GobClave,
-                                                                 GobNombre = jud.GobNombre,
-                                                                 IndOrden = jud.IndOrden,
-                                                                 IndParrafo = jud.IndParrafo,
-                                                                 ParrId = jud.ParrId,
-                                                                 ParrTexto = jud.ParrTexto,
-                                                                 ParrPagina = jud.ParrPagina,
-                                                                 ParrOrden = jud.ParrOrden,
-                                                                 GobClaveLg = jud.GobClaveLg
-                                                             };
+                                                          where judicial == Convert.ToInt32(jud.PodId)
+                                                          select jud;
                                     }
                                     @if (lstJudicial.Count() != 0)
                                     {
@@ -402,49 +241,7 @@
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                <table class="table table-responsive">
-                                                    <thead>
-
-
-                                                    </thead>
-                                                    <tbody>
-                                                        @{
-                                                            var seccjud = lstJudicial.GroupBy(sec => sec.SeccId)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                        }
-                                                        @foreach (var jud in seccjud)
-                                                        {
-                                                            var lstjudView = from view in lstJudicial
-                                                                             where jud.SeccId == Convert.ToInt32(view.SeccId)
-                                                                             select view;
-                                                            <tr class="text-center text-blod"><td colspan="3">@jud.SecNombre</td></tr>
-                                                            <tr class="text-center text-blod"><td colspan="3">@jud.EdNombre</td></tr>
-                                                            foreach (var dat in lstjudView)
-                                                            {
-                                                                var edicion = lstjudView.GroupBy(ed => ed.Ed_Id)
-                                                                .Select(grp => grp.First())
-                                                                .ToList();
-                                                                foreach (var edi in edicion)
-                                                                {
-                                                                    var lstComplete = from viewC in lstjudView
-                                                                                      where edi.Ed_Id == Convert.ToInt32(viewC.Ed_Id)
-                                                                                      select viewC;
-
-                                                                    <tr>
-                                                                        <td>@dat.GobNombre</td>
-                                                                        <td>@dat.ParrTexto</td>
-                                                                        <td>@dat.ParrPagina</td>
-                                                                    </tr>
-
-                                                                }
-
-
-
-                                                            }
-                                                        }
-                                                    </tbody>
-                                                </table>
+                                              
                                             </div>
                                         </div>
                                     </div>
