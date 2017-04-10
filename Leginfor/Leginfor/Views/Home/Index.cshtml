@@ -174,7 +174,12 @@
                                 
                                 <div class="panel-group" id="accordion">
                                 
-                                    @foreach(var secre in Model.Dof)
+                                    @{ 
+                                        var secre = Model.Dof.GroupBy(s => s.GobId)
+                                                    .Select(grp => grp.First())
+                                                    .ToList();
+                                    }
+                                    @foreach(var sec in secre)
                                     {
 
                                     <div class="panel panel-default" id="panel1">
@@ -182,7 +187,7 @@
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-target="#collapseOne"
                                                    href="#collapseOne">
-                                                    Poder Ejecutivo 
+                                                    @sec.GobNombre
                                                 </a>
                                             </h4>
 
