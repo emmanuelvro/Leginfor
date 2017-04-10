@@ -3,9 +3,7 @@
 @{
     ViewBag.Title = "Contacto";
 }
-
-<h2>Contacto</h2>
-
+<div class="container">
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -16,7 +14,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
@@ -24,7 +22,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
@@ -32,7 +30,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Asunto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 @Html.EditorFor(model => model.Asunto, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Asunto, "", new { @class = "text-danger" })
             </div>
@@ -40,26 +38,49 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Mensaje, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
             </div>
         </div>
-        @{ MvcCaptcha Captcha = new MvcCaptcha("Captcha"); }
-        @Html.Captcha(Captcha)
-        @Html.TextBox("CaptchaCode")
-        @if ((Request.HttpMethod == "POST")
-                            && ViewData.ModelState.IsValid)
-        {
-            <span class="correct">Correct!</span>
-        }
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+        <div align="center">
+            @{ MvcCaptcha Captcha = new MvcCaptcha("Captcha"); }
+            @Html.Captcha(Captcha)
+            @Html.TextBox("CaptchaCode")
+            @if ((Request.HttpMethod == "POST")
+                                && ViewData.ModelState.IsValid)
+            {
+                <span class="correct">Correct!</span>
+            }
+        </div>
+        <br />
+        <div class="form-group" >
+            <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
+    </div>
+<br /><br />
+<div class="container" style="padding:1em">
+    <h4>Información de Contacto: </h4>
+    <ul>
+        <li><a href="#"><i class="fa fa-map-marker"></i><span>Calle San Borja 241, Independencia, 03630 Ciudad de México, CDMX</span></a></li>
+        <li><a href="tel:+52 5002 1157"><i class="fa fa-phone"></i><span style="color:black">(55) 5002 1157</span></a></li>
+        <li><a href="mailto:clientes@leginfor.com.mx"><i class="fa fa-envelope-o"></i><span>clientes@leginfor.com.mx</span></a></li>
+    </ul>
+    <br />
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="google-map-area" align="center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.347498001196!2d-99.1511932257735!3d19.381544459501978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffa96499992f%3A0xa26ae2bbc15f45d8!2sCalle+San+Borja+241%2C+Independencia%2C+03630+Ciudad+de+M%C3%A9xico%2C+CDMX!5e0!3m2!1ses-419!2smx!4v1490046143997" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div>
+    @Html.ActionLink("Back to List", "Index")
 </div>
+

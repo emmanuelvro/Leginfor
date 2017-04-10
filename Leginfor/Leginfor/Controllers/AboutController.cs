@@ -27,5 +27,13 @@ namespace Leginfor.Controllers
         {
             return View();
         }
+        public ActionResult Suscribirse()
+        {
+            return View();
+        }
+        public ActionResult Nosotros()
+        {
+            return View();
+        }
     }
 }

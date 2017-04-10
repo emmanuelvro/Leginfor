@@ -862,6 +862,9 @@
     <Content Include="Views\Contacto\Index.cshtml" />
     <Content Include="Views\Contacto\Productos.cshtml" />
     <Content Include="Views\About\Contacto.cshtml" />
+    <Content Include="Views\About\Productos.cshtml" />
+    <Content Include="Views\About\Suscribirse.cshtml" />
+    <Content Include="Views\About\Nosotros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
