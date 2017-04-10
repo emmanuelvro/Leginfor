@@ -178,26 +178,54 @@
                                         var secre = Model.Dof.GroupBy(s => s.GobId)
                                                     .Select(grp => grp.First())
                                                     .ToList();
+                                        int contador = 1;
                                     }
                                     @foreach(var sec in secre)
                                     {
 
-                                    <div class="panel panel-default" id="panel1">
+                                    <div class="panel panel-default" id="panel_@contador">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-target="#collapseOne"
-                                                   href="#collapseOne">
+                                                <a data-toggle="collapse" data-target="#collapse_@contador"
+                                                   href="#collapse_@contador">
                                                     @sec.GobNombre
                                                 </a>
                                             </h4>
 
                                         </div>
-                                        <div id="collapseOne" class="panel-collapse collapse">
+                                        <div id="collapse_@contador" class="panel-collapse collapse">
                                             <div class="panel-body">
+
+                                                @{ 
+                                                    var poderes = Model.Dof.GroupBy(p => p.PodId)
+                                                    .Select(grp => grp.First())
+                                                    .ToList();
+                                                    
+                                                    
+                                                }
+                                                @foreach (var pode in poderes)
+                                                {
+                                                   var poder = from pod in Model.Dof
+                                                                    where sec.GobId == pod.GobId
+                                                                    select pod;
+                                                     <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <td>@pode.PodNombre</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="table table-responsive">
+                                                        <tr>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                }
                                             </div>
                                         </div>
                                     </div>
-                                    }                        
+                                    contador = contador + 1;
+                                                    }                        
                                    
                                 </div>
                             </div>
